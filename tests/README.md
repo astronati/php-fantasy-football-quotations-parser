@@ -34,5 +34,5 @@ Follow these steps to run the tests suite:
 
 For example from here:
 ```sh
-$ ../vendor/phpunit/phpunit/phpunit.php ./
+$ ../vendor/phpunit/phpunit/phpunit ./
 ```
