@@ -7,9 +7,6 @@
  * @version 0.1.0
  */
 
-// TODO Implement autoloader
-include __DIR__ . '/../AbstractQuotationsParser.php';
-
 /**
  * Used to retrieve quotations and soccer player information from an *.xls file
  * that is provided by the Gazzetta dello Sport.

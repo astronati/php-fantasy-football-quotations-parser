@@ -6,9 +6,7 @@
  * @copyright 2015 Andrea Stronati
  * @version 0.1.0
  */
-
-// TODO Implement autoloader
-include __DIR__ . '/QuotationsParserFactoryInterface.php';
+require "vendor/autoload.php";
 
 /**
  * Defines a Factory pattern to implement a specific quotations parser.

@@ -7,9 +7,6 @@
  * @version 0.1.0
  */
 
-// TODO Implement autoloader
-include __DIR__ . '/AbstractQuotation.php';
-
 /**
  * Describes a single quotation row.
  */

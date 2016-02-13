@@ -7,9 +7,6 @@
  * @version 0.1.0
  */
 
-// TODO Implement autoloader
-include __DIR__ . '/../AbstractQuotationNormalizer.php';
-
 /**
  * Defines a Gazzetta normalizer for all quotations
  */

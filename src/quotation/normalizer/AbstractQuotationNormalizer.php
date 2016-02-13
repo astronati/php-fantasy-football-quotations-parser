@@ -7,9 +7,6 @@
  * @version 0.1.0
  */
 
-// TODO Implement autoloader
-include __DIR__ . '/QuotationNormalizerInterface.php';
-
 /**
  * Defines an abstract class for a generic normalizer.
  */

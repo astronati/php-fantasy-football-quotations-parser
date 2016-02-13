@@ -7,9 +7,6 @@
  * @version 0.1.0
  */
 
-// TODO Implement autoloader
-include __DIR__ . '/QuotationInterface.php';
-
 /**
  * Abstract class for a quotation entity.
  * A quotation is a values set that is assigned to each footballer after each championship day.

@@ -1,7 +1,5 @@
 <?php
 
-include __DIR__ . '/../../src/quotation/Quotation.php';
-
 class QuotationTest extends PHPUnit_Framework_TestCase {
 
     /**
