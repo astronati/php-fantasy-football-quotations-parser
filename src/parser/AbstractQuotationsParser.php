@@ -146,7 +146,7 @@ abstract class AbstractQuotationsParser implements QuotationsParserInterface {
    *
    * @see AbstractQuotationsNormalizer.php;
    */
-  public function __construct(SpreadsheetReader $reader, QuotationNormalizerInterface $normalizer) {
+  public function __construct($reader, QuotationNormalizerInterface $normalizer) {
     $this->_reader = $reader;
     $this->_normalizer = $normalizer;
   }
