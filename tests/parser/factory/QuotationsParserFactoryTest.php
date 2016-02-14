@@ -3,7 +3,7 @@
 class QuotationsParserFactoryTest extends PHPUnit_Framework_TestCase {
 
   public function testQuotationsParserFactoryCreateMethod() {
-    $stub = $this->getMockBuilder('SpreadsheetReader')->getMock();
+    $stub = $this->getMockBuilder('\PHPExcelReader\SpreadsheetReader')->getMock();
     $parser = QuotationsParserFactory::create('..');
   }
 
@@ -11,7 +11,7 @@ class QuotationsParserFactoryTest extends PHPUnit_Framework_TestCase {
    * @expectedException Exception
    */
   public function testQuotationsParserFactoryCreateMethodException() {
-    $stub = $this->getMockBuilder('SpreadsheetReader')->getMock();
+    $stub = $this->getMockBuilder('\PHPExcelReader\SpreadsheetReader')->getMock();
     $parser = QuotationsParserFactory::create('..', 9999);
   }
 }

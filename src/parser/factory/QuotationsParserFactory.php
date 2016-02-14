@@ -6,7 +6,8 @@
  * @copyright 2015 Andrea Stronati
  * @version 0.1.0
  */
-require "vendor/autoload.php";
+
+use \PHPExcelReader\SpreadsheetReader as Reader;
 
 /**
  * Defines a Factory pattern to implement a specific quotations parser.
@@ -30,7 +31,7 @@ class QuotationsParserFactory implements QuotationsParserFactoryInterface {
     switch ($type) {
       case self::GAZZETTA:
         return new GazzettaQuotationsParser(
-          new SpreadsheetReader($filePath),
+          new Reader($filePath),
           new GazzettaQuotationsNormalizer()
         );
         break;
