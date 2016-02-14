@@ -110,11 +110,11 @@ abstract class AbstractQuotation implements QuotationInterface {
    * @return boolean
    */
   private function _checkConfiguration(array $params) {
-    $mandatoryParams = [
+    $mandatoryParams = array(
       'code', 'player', 'team', 'role', 'status', 'quotation',
       'magicPoints', 'vote', 'goal', 'cautions', 'dismissals',
       'penalties', 'autoGoals', 'assists'
-    ];
+    );
     foreach ($mandatoryParams as $param) {
       if (!array_key_exists($param, $params)) {
         return false;
