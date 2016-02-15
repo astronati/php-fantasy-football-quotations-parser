@@ -145,12 +145,12 @@ abstract class AbstractQuotationsParser implements QuotationsParserInterface {
   /**
    * Instantiates a new parser storing the reader object.
    *
-   * @param SpreadsheetReader $reader
+   * @param \PHPExcelReader\SpreadsheetReader $reader
    * @param QuotationNormalizerInterface $normalizer
    *
    * @see AbstractQuotationsNormalizer.php;
    */
-  public function __construct($reader, QuotationNormalizerInterface $normalizer) {
+  public function __construct(\PHPExcelReader\SpreadsheetReader $reader, QuotationNormalizerInterface $normalizer) {
     $this->_reader = $reader;
     $this->_normalizer = $normalizer;
   }

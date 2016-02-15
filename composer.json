@@ -19,7 +19,7 @@
     "php-excel-reader/spreadsheet-reader": "dev-master"
   },
   "autoload": {
-    "exclude-from-classmap": ["tests", "*.gitignore"],
+    "exclude-from-classmap": ["tests"],
     "classmap": [
       "src/"
     ]

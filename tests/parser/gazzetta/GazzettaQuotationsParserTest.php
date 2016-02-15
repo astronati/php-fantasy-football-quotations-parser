@@ -2,11 +2,14 @@
 
 class GazzettaQuotationsParserTest extends PHPUnit_Framework_TestCase {
 
-  public function testGazzettaQuotationsParserConstruct() {
-    $reader = $this->getMockBuilder('SpreadsheetReader')->getMock();
-    $reader->method('val')->willReturn('bar');
+  /**
+   * @param string $filePath
+   */
+  public function testGetNewspaperMethod($filePath) {
+    $reader = $this->getMockBuilder('\PHPExcelReader\SpreadsheetReader')->getMock();
+    $normalizer = $this->getMockBuilder('QuotationNormalizerInterface')->getMock();
 
-    $normalizer = $this->getMock('QuotationNormalizerInterface');
     $parser = new GazzettaQuotationsParser($reader, $normalizer);
+    $this->assertEquals($parser->getNewspaper(), 'La Gazzetta dello Sport');
   }
 }
