@@ -35,11 +35,20 @@ interface QuotationInterface {
 
   /**
    * Returns the role of the footballer.
-   * The role is a char (1) such as: 'P' (Goalkeeper), 'D' (Defender), 'C' (Midfielder) or 'A' (Forward).
+   * The role is a char (1) such as: 'P' (Goalkeeper), 'D' (Defender), 'C' (Midfielder), 'T' (Playmaker) or 'A' (Forward).
    *
    * @return string
    */
   public function getRole();
+
+  /**
+   * Returns the role of the footballer.
+   * The role is a char (1) such as: 'P' (Goalkeeper), 'D' (Defender), 'C' (Midfielder) or 'A' (Forward).
+   * NOTE The secondary role of the playmaker can be just Midfielder or Forward.
+   *
+   * @return string
+   */
+  public function getSecondaryRole();
 
   /**
    * Returns the status of the footballer: 1 (one) or 0 (zero) if the footballer is no longer in the team.
@@ -73,12 +82,19 @@ interface QuotationInterface {
   public function getVote();
 
   /**
+   * Returns the goals bonus assigned to the footballer.
+   *
+   * @return integer
+   */
+  public function getGoals();
+
+  /**
    * Returns the malus due to the caution to apply to the vote of the footballer.
    * It can be 0 or 0.5.
    *
    * @return float
    */
-  public function getCaution();
+  public function getCautions();
 
   /**
    * Returns the malus due to the dismissal to apply to the vote of the footballer.
@@ -86,7 +102,7 @@ interface QuotationInterface {
    *
    * @return integer
    */
-  public function getDismissal();
+  public function getDismissals();
 
   /**
    * Returns the malus/bonus due to the dismissal to apply to the vote of the footballer.

@@ -7,9 +7,6 @@
  * @version 0.1.0
  */
 
-// TODO Implement autoloader
-include __DIR__ . '/QuotationsParserInterface.php';
-
 /**
  * Defines an abstract class for a generic parser.
  */
@@ -38,6 +35,12 @@ abstract class AbstractQuotationsParser implements QuotationsParserInterface {
    * @type string
    */
   const ROLE = 'role';
+
+  /**
+   * The secondary role of the footballer.
+   * @type string
+   */
+  const SECONDARY_ROLE = 'secondaryRole';
 
   /**
    * The status of the footballer.
@@ -126,6 +129,7 @@ abstract class AbstractQuotationsParser implements QuotationsParserInterface {
     self::PLAYER,
     self::TEAM,
     self::ROLE,
+    self::SECONDARY_ROLE,
     self::STATUS,
     self::QUOTATION,
     self::MAGIC_POINTS,

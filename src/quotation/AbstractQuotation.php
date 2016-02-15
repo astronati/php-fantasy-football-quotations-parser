@@ -32,11 +32,19 @@ abstract class AbstractQuotation implements QuotationInterface {
   private $_team;
 
   /**
-   * Footballer role (e.g Goalkeeper, Defender, Midfielder or Forward).
-   * Usually a char (1) such as: 'P', 'D', 'C', 'A'.
+   * Footballer role (e.g Goalkeeper, Defender, Midfielder, Playmaker or Forward).
+   * Usually a char (1) such as: 'P', 'D', 'C', 'T', 'A'.
    * @var string
    */
   private $_role;
+
+  /**
+   * Footballer role (e.g Goalkeeper, Defender, Midfielder or Forward).
+   * Usually a char (1) such as: 'P', 'D', 'C', 'A'.
+   * Used to have a fallback role for the Playmaker.
+   * @var string
+   */
+  private $_secondaryRole;
 
   /**
    * If 0 (zero) the player left the championship.
@@ -66,7 +74,7 @@ abstract class AbstractQuotation implements QuotationInterface {
    * Number of goals scored by player or conceded by goalkeeper.
    * @var integer
    */
-  private $_goal;
+  private $_goals;
 
   /**
    * Value due to a received caution to apply to the vote in order to obtain
@@ -111,9 +119,8 @@ abstract class AbstractQuotation implements QuotationInterface {
    */
   private function _checkConfiguration(array $params) {
     $mandatoryParams = array(
-      'code', 'player', 'team', 'role', 'status', 'quotation',
-      'magicPoints', 'vote', 'goal', 'cautions', 'dismissals',
-      'penalties', 'autoGoals', 'assists'
+      'code', 'player', 'team', 'role', 'secondayRole', 'status', 'quotation', 'magicPoints', 'vote', 'goals',
+      'cautions', 'dismissals', 'penalties', 'autoGoals', 'assists'
     );
     foreach ($mandatoryParams as $param) {
       if (!array_key_exists($param, $params)) {
@@ -130,11 +137,12 @@ abstract class AbstractQuotation implements QuotationInterface {
    *  'player' => string,
    *  'team' => string,
    *  'role' => string,
-   *  'status' => integer,
+   *  'secondaryRole' => string,
+   *  'status' => string,
    *  'quotation' => integer,
    *  'magicPoints' => float,
    *  'vote' => float,
-   *  'goal' => integer,
+   *  'goals' => integer,
    *  'cautions' => float,
    *  'dismissals' => integer,
    *  'penalties' => integer,
@@ -151,11 +159,12 @@ abstract class AbstractQuotation implements QuotationInterface {
     $this->_player = (string)$config['player'];
     $this->_team = (string)$config['team'];
     $this->_role = (string)$config['role'];
-    $this->_status = (int)$config['status'];
+    $this->_secondaryRole = (string)$config['secondaryRole'];
+    $this->_status = (string)$config['status'];
     $this->_quotation = (int)$config['quotation'];
     $this->_magicPoints = (float)$config['magicPoints'];
     $this->_vote = (float)$config['vote'];
-    $this->_goal = (int)$config['goal'];
+    $this->_goals = (int)$config['goals'];
     $this->_cautions = (float)$config['cautions'];
     $this->_dismissals = (int)$config['dismissals'];
     $this->_penalties = (int)$config['penalties'];
@@ -194,6 +203,13 @@ abstract class AbstractQuotation implements QuotationInterface {
   /**
    * @inheritdoc
    */
+  public function getSecondaryRole() {
+    return $this->_secondaryRole;
+  }
+
+  /**
+   * @inheritdoc
+   */
   public function getStatus() {
     return $this->_status;
   }
@@ -222,14 +238,21 @@ abstract class AbstractQuotation implements QuotationInterface {
   /**
    * @inheritdoc
    */
-  public function getCaution() {
+  public function getGoals() {
+    return $this->_goals;
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function getCautions() {
     return $this->_cautions;
   }
 
   /**
    * @inheritdoc
    */
-  public function getDismissal() {
+  public function getDismissals() {
     return $this->_dismissals;
   }
 

@@ -25,7 +25,7 @@ class QuotationsParserFactory implements QuotationsParserFactoryInterface {
    */
   public static function create($filePath, $type = self::GAZZETTA) {
     if (!file_exists($filePath)) {
-      throw new Exception('File does not exist.');
+      throw new Exception('File does not exist');
     }
 
     switch ($type) {
@@ -36,7 +36,7 @@ class QuotationsParserFactory implements QuotationsParserFactoryInterface {
         );
         break;
       default:
-        throw new Exception('The specific parser does not exist.');
+        throw new Exception('The specific parser does not exist');
     }
   }
 }
