@@ -84,11 +84,11 @@ abstract class AbstractQuotation implements QuotationInterface {
   private $_cautions;
 
   /**
-   * Value due to a received dismissal to apply to the vote in order to obtain
+   * Value due to a received expulsion to apply to the vote in order to obtain
    * the magic points value.
    * @var float
    */
-  private $_dismissals;
+  private $_expulsion;
 
   /**
    * Value of scored/missed/saved penalties to apply to the vote in order to
@@ -119,8 +119,8 @@ abstract class AbstractQuotation implements QuotationInterface {
    */
   private function _checkConfiguration(array $params) {
     $mandatoryParams = array(
-      'code', 'player', 'team', 'role', 'secondayRole', 'status', 'quotation', 'magicPoints', 'vote', 'goals',
-      'cautions', 'dismissals', 'penalties', 'autoGoals', 'assists'
+      'code', 'player', 'team', 'role', 'secondaryRole', 'status', 'quotation', 'magicPoints', 'vote', 'goals',
+      'cautions', 'expulsion', 'penalties', 'autoGoals', 'assists'
     );
     foreach ($mandatoryParams as $param) {
       if (!array_key_exists($param, $params)) {
@@ -144,7 +144,7 @@ abstract class AbstractQuotation implements QuotationInterface {
    *  'vote' => float,
    *  'goals' => integer,
    *  'cautions' => float,
-   *  'dismissals' => integer,
+   *  'expulsion' => integer,
    *  'penalties' => integer,
    *  'autoGoals' => integer,
    *  'assists' => integer,
@@ -166,7 +166,7 @@ abstract class AbstractQuotation implements QuotationInterface {
     $this->_vote = (float)$config['vote'];
     $this->_goals = (int)$config['goals'];
     $this->_cautions = (float)$config['cautions'];
-    $this->_dismissals = (int)$config['dismissals'];
+    $this->_expulsion = (int)$config['expulsion'];
     $this->_penalties = (int)$config['penalties'];
     $this->_autogoals = (int)$config['autoGoals'];
     $this->_assists = (int)$config['assists'];
@@ -252,8 +252,8 @@ abstract class AbstractQuotation implements QuotationInterface {
   /**
    * @inheritdoc
    */
-  public function getDismissals() {
-    return $this->_dismissals;
+  public function getExpulsion() {
+    return $this->_expulsion;
   }
 
   /**

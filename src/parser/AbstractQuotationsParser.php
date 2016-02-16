@@ -79,10 +79,10 @@ abstract class AbstractQuotationsParser implements QuotationsParserInterface {
   const CAUTIONS = 'cautions';
 
   /**
-   * The dismissings of the footballer.
+   * The expulsion of the footballer.
    * @type string
    */
-  const DISMISSINGS = 'dismissings';
+  const EXPULSION = 'expulsion';
 
   /**
    * Penalties scored/saved by the footballer
@@ -136,7 +136,7 @@ abstract class AbstractQuotationsParser implements QuotationsParserInterface {
     self::VOTE,
     self::GOALS,
     self::CAUTIONS,
-    self::DISMISSINGS,
+    self::EXPULSION,
     self::PENALTIES,
     self::AUTO_GOALS,
     self::ASSISTS,

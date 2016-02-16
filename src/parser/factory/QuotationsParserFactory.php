@@ -18,18 +18,18 @@ class QuotationsParserFactory implements QuotationsParserFactoryInterface {
    * Used as flag to choose to implement a Gazzetta Parser
    * @type integer
    */
-  const GAZZETTA = 1;
+  const GAZZETTA_DELLO_SPORT = 1;
 
   /**
    * @inheritdoc
    */
-  public static function create($filePath, $type = self::GAZZETTA) {
+  public static function create($filePath, $type = self::GAZZETTA_DELLO_SPORT) {
     if (!file_exists($filePath)) {
       throw new Exception('File does not exist');
     }
 
     switch ($type) {
-      case self::GAZZETTA:
+      case self::GAZZETTA_DELLO_SPORT:
         return new GazzettaQuotationsParser(
           new Reader($filePath),
           new GazzettaQuotationsNormalizer()

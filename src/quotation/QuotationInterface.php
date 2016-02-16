@@ -97,15 +97,15 @@ interface QuotationInterface {
   public function getCautions();
 
   /**
-   * Returns the malus due to the dismissal to apply to the vote of the footballer.
+   * Returns the malus due to the expulsion to apply to the vote of the footballer.
    * It can be 0 or 1.
    *
    * @return integer
    */
-  public function getDismissals();
+  public function getExpulsion();
 
   /**
-   * Returns the malus/bonus due to the dismissal to apply to the vote of the footballer.
+   * Returns the malus/bonus due to the expulsion to apply to the vote of the footballer.
    * It's a bonus if the footballer is a goalkeeper: it means that he saved one or more penalties.
    * It's a malus if the footballer missed one ore more penalties.
    *
