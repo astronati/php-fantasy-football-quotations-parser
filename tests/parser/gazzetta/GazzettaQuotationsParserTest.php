@@ -10,6 +10,24 @@ class GazzettaQuotationsParserTest extends PHPUnit_Framework_TestCase {
     );
   }
 
+  public function quotationsProvider() {
+    return array(
+      /*array(
+        array(
+          array('Magic Campionato: quotazioni dei giocatori aggiornate al 30 Aug 2014'),
+          array(101),
+          array(102),
+          array(103),
+        ),
+        array('result')
+      ),*/
+      array(
+        array(),
+        array()
+      )
+    );
+  }
+
   /**
    * @dataProvider spreadsheetTitlesProvider
    * @param string $header
@@ -37,5 +55,24 @@ class GazzettaQuotationsParserTest extends PHPUnit_Framework_TestCase {
 
     $parser = new GazzettaQuotationsParser($reader, $normalizer);
     $this->assertEquals($parser->getNewspaper(), 'La Gazzetta dello Sport');
+  }
+
+  /**
+   * @dataProvider quotationsProvider
+   * @param Array $readerContent
+   * @param Array $result
+   */
+  public function testGetQuotationsMethod($readerContent, $result) {
+    $reader = $this->getMockBuilder('\PHPExcelReader\SpreadsheetReader')
+        ->setMethods(array('rowcount'))
+        ->getMock();
+
+    $reader->method('rowcount')
+      ->will($this->returnValue(count($readerContent)));
+
+    $normalizer = $this->getMockBuilder('QuotationNormalizerInterface')->getMock();
+
+    $parser = new GazzettaQuotationsParser($reader, $normalizer);
+    $this->assertEquals($parser->getQuotations(), $result);
   }
 }
