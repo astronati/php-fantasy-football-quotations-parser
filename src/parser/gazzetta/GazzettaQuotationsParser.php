@@ -41,6 +41,10 @@ class GazzettaQuotationsParser extends AbstractQuotationsParser {
     // The first cell contains the information of the day of the match.
     $header = $this->_reader->val(0, 0);
     $matchNumberPosition = strpos($header, 'N.');
+    if ($matchNumberPosition === false) {
+      return null;
+    }
+
     return substr($header, $matchNumberPosition + 2);
   }
 
