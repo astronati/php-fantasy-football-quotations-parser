@@ -31,10 +31,14 @@ class GazzettaQuotationsParser extends AbstractQuotationsParser {
 
     // Look for first available row
     $cellFound = false;
-    for ($firstCellRowIndex = 1; $firstCellRowIndex <= self::MAX_FIRST_CELL_ROW && !$cellFound; $firstCellRowIndex++) {
+    $firstCellRowIndex = 1;
+
+    while ($firstCellRowIndex <= self::MAX_FIRST_CELL_ROW && !$cellFound && $firstCellRowIndex <= $this->_reader->rowcount()) {
       if (intval(($this->_reader->val($firstCellRowIndex, 1)))) {
         $cellFound = true;
+        break;
       }
+      $firstCellRowIndex++;
     }
 
     if ($cellFound) {

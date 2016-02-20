@@ -46,7 +46,7 @@ class GazzettaQuotationsParserTest extends PHPUnit_Framework_TestCase {
           array(104, 'name4', 'squadra4', 'A', 'A', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
         ),
         array(
-          /*101 => array(
+          101 => array(
             'code' => 101,
             'player' => 'name1',
             'team' => 'squadra1',
@@ -54,15 +54,15 @@ class GazzettaQuotationsParserTest extends PHPUnit_Framework_TestCase {
             'secondaryRole' => 'D',
             'status' => 'NO',
             'quotation' => 0,
-            'magicPoints' => 0.0,
-            'vote' => 0.0,
+            'magicPoints' => 0,
+            'vote' => 0,
             'goals' => 0,
             'cautions' => 0,
             'expulsion' => 0,
             'penalties' => 0,
             'autoGoals' => 0,
             'assists' => 0,
-          ),*/
+          ),
           102 => array(
             'code' => 102,
             'player' => 'name2',
