@@ -47,8 +47,8 @@ abstract class AbstractQuotation implements QuotationInterface {
   private $_secondaryRole;
 
   /**
-   * If 0 (zero) the player left the championship.
-   * @var integer
+   * If '0' (zero) the player left the championship, otherwise '1'
+   * @var string
    */
   private $_status;
 
