@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/astronati/fantasy-football-quotations-parser.svg?branch=master)](https://travis-ci.org/astronati/fantasy-football-quotations-parser)
+
 # Fantasy Football Quotations Parser
 This library is used to parse files that are provided by main sport newspapers with players quotations after each
 soccer match of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) championship.
