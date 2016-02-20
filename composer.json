@@ -2,7 +2,7 @@
   "name": "astronati/fantasy-football-quotations-parser",
   "description": "This library allows user to retrieve quotations from those documents that are provided from the most important sport newspapers. Quotations contains votes of each soccer player of a specific championship day.",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [
     {
       "name": "Andrea Stronati",
