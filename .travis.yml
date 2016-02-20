@@ -5,6 +5,8 @@ cache:
   - vendor
 install:
 - composer install
+script:
+- ./vendor/phpunit/phpunit/phpunit ./tests
 notifications:
   email:
     recipients:
