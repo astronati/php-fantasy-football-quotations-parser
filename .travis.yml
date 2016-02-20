@@ -1,0 +1,13 @@
+language: php
+sudo: false
+cache:
+  directories:
+  - vendor
+install:
+- composer install
+notifications:
+  email:
+    recipients:
+      - astronati@vendini.com+fantasyfootballquotationsparser@vendini.com
+    on_success: change
+    on_failure: always
