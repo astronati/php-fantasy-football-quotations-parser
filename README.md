@@ -12,7 +12,8 @@ $quotations = $parser->getQuotations();
 ## Supported Newspapers
 Currently the "[Gazzetta dello Sport](http://www.gazzetta.it/)" is the only supported newspaper.
 
-**NOTE:** To add another newspaper into the supported list, please provide us new kinds of files that need to be parsed in order to update the php package.
+**NOTE:** To add another newspaper into the supported list, please provide us new kinds of files that need to be parsed
+in order to update the php package.
 
 ## Installation
 You can install the library and its dependencies using composer running:
@@ -20,17 +21,52 @@ You can install the library and its dependencies using composer running:
 $ composer require fantasy-football-quotations-parser
 ```
 
-**NOTE:** This library has not been yet published on *[packagist.com](https://packagist.org/)*
-
 ## API Documentation
-The documentation has been created using [phpDocumentor](http://www.phpdoc.org/) and you can find it in `docs/api`.
-Everytime a developer changes the code base he has to take care of updating the comments in the code and the documentation. Please use the following command to update the documentation from the root path:
+The documentation is generated using [phpDocumentor](http://www.phpdoc.org/) and you can find it in `docs/api`.
+Please use the following command to run the documentation from the root path:
 ```sh
-$ phpdoc -d ./src -t ./docs/api
+$ ./vendor/phpdocumentor/phpdocumentor/bin/phpdoc -d ./src -t ./docs/api
 ```
 
 ## Testing
-The guide to write, update and run tests is defined in [`tests/README.md`](tests/README.md).
+Defines how to set up an environment to write, update and run all tests.
+
+### Tests Suite Structure
+The directories structure within the `tests` folder reflects what is inside the `src` folder:
+```
+src
+\---->[folder-name]
+\-------->[file-name].js
+tests
+\---->[folder-name]
+\-------->[file-name].test.js
+```
+
+### Installation
+The environment requires "[phpunit](https://phpunit.de/)", that has been already included in the `dev-dependencies` of
+the `composer.json`.
+
+#### Install all dependencies
+To install all modules you just need to follow these steps:
+
+- Go to the root path
+- Run `$ composer install`
+
+For example from here:
+```sh
+$ cd ../
+$ composer install
+```
+
+## Running tests
+Follow these steps to run the tests suite:
+
+- Run `$ phpunit [tests-folder-path]`
+
+For example from here:
+```sh
+$ ./vendor/phpunit/phpunit/phpunit ./tests
+```
 
 ## License
 This package is released under the [MIT license](LICENSE.md).
