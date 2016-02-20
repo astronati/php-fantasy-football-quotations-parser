@@ -16,41 +16,9 @@ class GazzettaQuotationsNormalizer extends AbstractQuotationNormalizer {
    * @inheritdoc
    */
   protected $_normalizationRules = array(
-    'read' => array(
-      'goal' => array(
-        'operation' => '/',
-        'value' => 3
-      ),
-      'cautions' => array(
-        'operation' => '/',
-        'value' => 0.5
-      ),
-      'penalties' => array(
-        'operation' => '/',
-        'value' => 3
-      ),
-      'autoGoals' => array(
-        'operation' => '/',
-        'value' => 3
-      ),
+    'normalize' => array(
     ),
-    'write' => array(
-      'goal' => array(
-        'operation' => '*',
-        'value' => 3
-      ),
-      'cautions' => array(
-        'operation' => '*',
-        'value' => 0.5
-      ),
-      'penalties' => array(
-        'operation' => '*',
-        'value' => 3
-      ),
-      'autoGoals' => array(
-        'operation' => '*',
-        'value' => 3
-      ),
-    )
+    'denormalize' => array(
+    ),
   );
 }

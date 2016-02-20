@@ -18,27 +18,31 @@ abstract class AbstractQuotationNormalizer implements QuotationNormalizerInterfa
    */
   protected $_normalizationRules = array();
 
-  /**
-   * @inheritdoc
-   */
-  public function normalize(array $quotation) {
-    $normalizedValues = array();
+  private function _adjustValues(array $quotation, $type = 'normalize') {
+    $adjustedValues = array();
     foreach ($quotation as $field => $value) {
-      if (array_key_exists($field,  $this->_normalizationRules['read'])) {
-        $normalizationRule = $this->_normalizationRules['read'][$field];
-        $normalizedValues[$field] = eval($value . $normalizationRule['operation'] . $normalizationRule['value']);
+      if (array_key_exists($field,  $this->_normalizationRules[$type])) {
+        $normalizationRule = $this->_normalizationRules[$type][$field];
+        $adjustedValues[$field] = eval('return ' . $value . $normalizationRule['operation'] . $normalizationRule['value'] . ';');
       }
       else {
-        $normalizedValues[$field] = $value;
+        $adjustedValues[$field] = $value;
       }
     }
-    return $normalizedValues;
+    return $adjustedValues;
   }
 
   /**
    * @inheritdoc
    */
-  public function denormalize(array $quotations) {
-    // TODO Implement method
+  public function normalize(array $quotation) {
+    return $this->_adjustValues($quotation, 'normalize');
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function denormalize(array $quotation) {
+    return $this->_adjustValues($quotation, 'denormalize');
   }
 }
