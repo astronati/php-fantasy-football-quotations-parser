@@ -7,7 +7,7 @@ soccer match of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) championshi
 ## Example
 Here is an example to parse a spreadsheet file provided by the "Gazzetta dello Sport".
 ```php
-$parser = new QuotationsParserFactory('quotazioni_gazzetta_01.xls');
+$parser = QuotationsParserFactory::create('quotazioni_gazzetta_01.xls');
 $quotations = $parser->getQuotations();
 ```
 
@@ -38,10 +38,10 @@ The directories structure within the `tests` folder reflects what is inside the 
 ```
 src
 \---->[folder-name]
-\-------->[file-name].js
+\-------->[file-name].php
 tests
 \---->[folder-name]
-\-------->[file-name].test.js
+\-------->[file-name]Test.php
 ```
 
 ### Installation
@@ -65,7 +65,7 @@ Follow these steps to run the tests suite:
 
 - Run `$ phpunit [tests-folder-path]`
 
-For example from here:
+For example from the root path:
 ```sh
 $ ./vendor/phpunit/phpunit/phpunit ./tests
 ```
