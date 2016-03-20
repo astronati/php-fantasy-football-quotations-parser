@@ -10,6 +10,6 @@ script:
 notifications:
   email:
     recipients:
-      - astronati@vendini.com+fantasyfootballquotationsparser@vendini.com
+      - astronati+fantasyfootballquotationsparser@vendini.com
     on_success: change
     on_failure: always
