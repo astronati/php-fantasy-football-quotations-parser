@@ -1,5 +1,7 @@
 <?php
 
+use \FFQP\Quotation as Quotation;
+
 class QuotationTest extends PHPUnit_Framework_TestCase {
 
   public function badQuotationConfigs() {
@@ -202,7 +204,7 @@ class QuotationTest extends PHPUnit_Framework_TestCase {
    */
   public function testGoodQuotationConstruct($config) {
     $quotation = new Quotation($config);
-    $this->assertInstanceOf('Quotation', $quotation);
+    $this->assertInstanceOf('\FFQP\Quotation', $quotation);
   }
 
   /**

@@ -7,6 +7,10 @@
  * @version 0.2.0
  */
 
+namespace FFQP;
+
+use \FFQP\QuotationInterface as QuotationInterface;
+
 /**
  * Describes a single quotation row.
  * A quotation is a values set that is assigned to each footballer after each championship day.
@@ -153,7 +157,7 @@ class Quotation implements QuotationInterface {
    */
   public function __construct(array $config) {
     if (!$this->_checkConfiguration($config)) {
-      throw new Exception ("Missing parameter");
+      throw new \Exception ("Missing parameter");
     }
     $this->_code = (int)  $config['code'];
     $this->_player = (string) $config['player'];

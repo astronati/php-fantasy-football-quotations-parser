@@ -7,6 +7,8 @@
  * @version 0.2.0
  */
 
+use \FFQP\Quotation as Quotation;
+
 /**
  * Used to retrieve quotations and soccer player information from an *.xls file
  * that is provided by the Gazzetta dello Sport.
