@@ -26,7 +26,13 @@ class CodeNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $result)
     {
         $code = new CodeNormalizer();
-        $this->assertInternalType('string', $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
-        $this->assertSame($result, $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
+        $this->assertInternalType(
+          'string',
+          $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
+        $this->assertSame(
+          $result,
+          $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
     }
 }

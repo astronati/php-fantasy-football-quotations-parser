@@ -27,7 +27,13 @@ class RoleNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $result)
     {
         $role = new RoleNormalizer();
-        $this->assertInternalType('string', $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
-        $this->assertSame($result, $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
+        $this->assertInternalType(
+          'string',
+          $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
+        $this->assertSame(
+          $result,
+          $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
     }
 }

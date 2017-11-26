@@ -28,6 +28,9 @@ class ActiveNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $result)
     {
         $active = new ActiveNormalizer();
-        $this->assertSame($result, $active->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
+        $this->assertSame(
+          $result,
+          $active->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
     }
 }

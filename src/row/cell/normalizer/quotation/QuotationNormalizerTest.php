@@ -26,7 +26,13 @@ class QuotationNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $result)
     {
         $quotation = new QuotationNormalizer();
-        $this->assertInternalType('int', $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
-        $this->assertSame($result, $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
+        $this->assertInternalType(
+          'int',
+          $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
+        $this->assertSame(
+          $result,
+          $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
     }
 }

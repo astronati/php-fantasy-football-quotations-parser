@@ -31,7 +31,13 @@ class VoteNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $result, $type)
     {
         $vote = new VoteNormalizer();
-        $this->assertInternalType($type, $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
-        $this->assertSame($result, $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
+        $this->assertInternalType(
+          $type,
+          $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
+        $this->assertSame(
+          $result,
+          $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
     }
 }

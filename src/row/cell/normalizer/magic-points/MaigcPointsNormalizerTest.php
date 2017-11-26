@@ -33,7 +33,13 @@ class MagicPointsNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $result)
     {
         $magicPoints = new MagicPointsNormalizer();
-        $this->assertInternalType('float', $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
-        $this->assertSame($result, $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()));
+        $this->assertInternalType(
+          'float',
+          $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
+        $this->assertSame(
+          $result,
+          $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+        );
     }
 }

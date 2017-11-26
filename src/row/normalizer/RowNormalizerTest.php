@@ -24,7 +24,8 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
           ->setMethods(['create'])
           ->disableOriginalConstructor()
           ->getMock();
-        $dataFactory->method('create')->willReturn($this->getMockBuilder('\FFQP\Row\Data\Data')->getMock());
+        $dataFactory->method('create')
+          ->willReturn($this->getMockBuilder('\FFQP\Row\Data\Data')->getMock());
         
         return $dataFactory;
     }
@@ -74,9 +75,13 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
      */
     public function testNormalize($config, $result)
     {
-        $rowNormalizer = new RowNormalizer($this->_getDataFactoryInstance(), $this->_getCellNormalizerFactoryInstance());
+        $rowNormalizer = new RowNormalizer(
+          $this->_getDataFactoryInstance(),
+          $this->_getCellNormalizerFactoryInstance()
+        );
         $rowMap = $this->_getRowMapInstance();
-        $this->assertSame($result, $rowNormalizer->normalize($this->_getRawDataFactoryInstance($config), $rowMap)->field1);
-        $this->assertSame($result, $rowNormalizer->normalize($this->_getRawDataFactoryInstance($config), $rowMap)->field2);
+        $normalizedRow = $rowNormalizer->normalize($this->_getRawDataFactoryInstance($config), $rowMap);
+        $this->assertSame($result, $normalizedRow->field1);
+        $this->assertSame($result, $normalizedRow->field2);
     }
 }
