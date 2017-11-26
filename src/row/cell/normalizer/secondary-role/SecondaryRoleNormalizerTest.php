@@ -10,13 +10,13 @@ class SecondaryRoleNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('P', 'P'),
-          array('D', 'D'),
-          array('C', 'C'),
-          array('T', 'T'),
-          array('A', 'A'),
-        );
+        return [
+          ['P', 'P'],
+          ['D', 'D'],
+          ['C', 'C'],
+          ['T', 'T'],
+          ['A', 'A'],
+        ];
     }
     
     /**

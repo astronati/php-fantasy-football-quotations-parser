@@ -10,11 +10,11 @@ class PlayerNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('test', 'test'),
-          array('0', '0'),
-          array('DONNARUMMA Gigio', 'DONNARUMMA Gigio'),
-        );
+        return [
+          ['test', 'test'],
+          ['0', '0'],
+          ['DONNARUMMA Gigio', 'DONNARUMMA Gigio'],
+        ];
     }
     
     /**

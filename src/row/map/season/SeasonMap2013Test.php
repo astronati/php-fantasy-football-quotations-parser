@@ -10,23 +10,23 @@ class SeasonMap2013Test extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('code', 1),
-          array('player', 2),
-          array('team', 3),
-          array('role', 4),
-          array('secondaryRole', 4),
-          array('active', 5),
-          array('quotation', 6),
-          array('magicPoints', 7),
-          array('vote', 8),
-          array('goals', 9),
-          array('yellowCards', 10),
-          array('redCards', 11),
-          array('penalties', 12),
-          array('autoGoals', 13),
-          array('assists', 14),
-        );
+        return [
+          ['code', 1],
+          ['player', 2],
+          ['team', 3],
+          ['role', 4],
+          ['secondaryRole', 4],
+          ['active', 5],
+          ['quotation', 6],
+          ['magicPoints', 7],
+          ['vote', 8],
+          ['goals', 9],
+          ['yellowCards', 10],
+          ['redCards', 11],
+          ['penalties', 12],
+          ['autoGoals', 13],
+          ['assists', 14],
+        ];
     }
     
     /**

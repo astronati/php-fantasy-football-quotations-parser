@@ -10,12 +10,12 @@ class CodeNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('test', 'test'),
-          array('0', '0'),
-          array(123, '123'),
-          array('123', '123'),
-        );
+        return [
+          ['test', 'test'],
+          ['0', '0'],
+          [123, '123'],
+          ['123', '123'],
+        ];
     }
     
     /**

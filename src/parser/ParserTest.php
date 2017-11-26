@@ -11,7 +11,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
     private function _getReaderInstance()
     {
         $reader = $this->getMockBuilder('\FFQP\Reader\ReaderInterface')
-          ->setMethods(array('getRowCount', 'read'))
+          ->setMethods(['getRowCount', 'read'])
           ->disableOriginalConstructor()
           ->getMock();
         $reader->method('getRowCount')->willReturn(4);
@@ -28,7 +28,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
     private function _getMapInstance()
     {
         $map = $this->getMockBuilder('\FFQP\Row\Map\RowMapAbstract')
-          ->setMethods(array('getOffset', 'getFields'))
+          ->setMethods(['getOffset', 'getFields'])
           ->disableOriginalConstructor()
           ->getMock();
         $map->method('getFields')->willReturn(['first', 'second']);
@@ -43,7 +43,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
     private function _getRawDataFactoryInstance()
     {
         $rawDataFactory = $this->getMockBuilder('\FFQP\Row\Data\RawDataFactory')
-          ->setMethods(array('create'))
+          ->setMethods(['create'])
           ->disableOriginalConstructor()
           ->getMock();
         $rawDataFactory->method('create')->willReturn(
@@ -57,7 +57,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
     private function _getNormalizerInstance()
     {
         $normalizer = $this->getMockBuilder('\FFQP\Row\RowNormalizer')
-          ->setMethods(array('normalize'))
+          ->setMethods(['normalize'])
           ->disableOriginalConstructor()
           ->getMock();
         $firstMock = $this->getMockBuilder('\FFQP\Row\Data\Data')->getMock();

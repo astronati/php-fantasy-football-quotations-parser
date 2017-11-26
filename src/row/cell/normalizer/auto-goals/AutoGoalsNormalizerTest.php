@@ -10,17 +10,17 @@ class AutoGoalsNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('-', 'P', 0),
-          array('-', 'D', 0),
-          array('0', 'P', 0),
-          array('0', 'D', 0),
-          array(0, 'P', 0),
-          array(0, 'D', 0),
-          array('-2.0', 'P', 2),
-          array('-2.0', 'D', 1),
-          array('-2,0', 'D', 1),
-        );
+        return [
+          ['-', 'P', 0],
+          ['-', 'D', 0],
+          ['0', 'P', 0],
+          ['0', 'D', 0],
+          [0, 'P', 0],
+          [0, 'D', 0],
+          ['-2.0', 'P', 2],
+          ['-2.0', 'D', 1],
+          ['-2,0', 'D', 1],
+        ];
     }
     
     private function _getRawDataInstance($role)

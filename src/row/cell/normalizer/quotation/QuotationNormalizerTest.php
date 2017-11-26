@@ -10,12 +10,12 @@ class QuotationNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('10', 10),
-          array(10, 10),
-          array(0, 0),
-          array('0', 0),
-        );
+        return [
+          ['10', 10],
+          [10, 10],
+          [0, 0],
+          ['0', 0],
+        ];
     }
     
     /**

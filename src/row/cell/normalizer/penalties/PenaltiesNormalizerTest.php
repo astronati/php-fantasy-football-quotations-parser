@@ -10,16 +10,16 @@ class PenaltiesNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('3,0', 1),
-          array(3.0, 1),
-          array('3.0', 1),
-          array('3,0', 1),
-          array('-3.0', 1),
-          array(-3.0, 1),
-          array(0, 0),
-          array('0', 0),
-        );
+        return [
+          ['3,0', 1],
+          [3.0, 1],
+          ['3.0', 1],
+          ['3,0', 1],
+          ['-3.0', 1],
+          [-3.0, 1],
+          [0, 0],
+          ['0', 0],
+        ];
     }
     
     /**

@@ -10,9 +10,9 @@ class QuotationTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array(
-            array(
+        return [
+          [
+            [
               'code' => '101',
               'player' => 'name',
               'team' => 'fidelis',
@@ -28,8 +28,8 @@ class QuotationTest extends PHPUnit_Framework_TestCase
               'penalties' => 0,
               'autoGoals' => 0,
               'assists' => 0,
-            ),
-            array(
+            ],
+            [
               'getCode' => '101',
               'getPlayer' => 'name',
               'getTeam' => 'fidelis',
@@ -45,10 +45,10 @@ class QuotationTest extends PHPUnit_Framework_TestCase
               'getPenalties' => 0,
               'getAutoGoals' => 0,
               'getAssists' => 0,
-            )
-          ),
-          array(
-            array(
+            ]
+          ],
+          [
+            [
               'code' => '101',
               'player' => 'name',
               'team' => 'fidelis',
@@ -64,8 +64,8 @@ class QuotationTest extends PHPUnit_Framework_TestCase
               'penalties' => '3',
               'autoGoals' => '-2',
               'assists' => '2',
-            ),
-            array(
+            ],
+            [
               'getCode' => '101',
               'getPlayer' => 'name',
               'getTeam' => 'fidelis',
@@ -81,9 +81,9 @@ class QuotationTest extends PHPUnit_Framework_TestCase
               'getPenalties' => 3,
               'getAutoGoals' => -2,
               'getAssists' => 2,
-            )
-          )
-        );
+            ]
+          ]
+        ];
     }
     
     private function _getDataInstance($config)

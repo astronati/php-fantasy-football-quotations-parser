@@ -10,18 +10,18 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array(
-            array('field1' => '5', 'field2' => '0'),
+        return [
+          [
+            ['field1' => '5', 'field2' => '0'],
             4
-          ),
-        );
+          ],
+        ];
     }
     
     private function _getDataFactoryInstance()
     {
         $dataFactory = $this->getMockBuilder('\FFQP\Row\Data\DataFactory')
-          ->setMethods(array('create'))
+          ->setMethods(['create'])
           ->disableOriginalConstructor()
           ->getMock();
         $dataFactory->method('create')->willReturn($this->getMockBuilder('\FFQP\Row\Data\Data')->getMock());
@@ -41,7 +41,7 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
     private function _getRowMapInstance()
     {
         $rowMap = $this->getMockBuilder('\FFQP\Row\Map\SeasonMap2013')
-          ->setMethods(array('getFields'))
+          ->setMethods(['getFields'])
           ->disableOriginalConstructor()
           ->getMock();
         $rowMap->method('getFields')->willReturn(['field1', 'field2']);
@@ -53,13 +53,13 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
     private function _getCellNormalizerFactoryInstance()
     {
         $cellNormalizer = $this->getMockBuilder('\FFQP\Row\Cell\YellowCardsNormalizer')
-          ->setMethods(array('normalize'))
+          ->setMethods(['normalize'])
           ->disableOriginalConstructor()
           ->getMock();
         $cellNormalizer->method('normalize')->willReturn(4);
         
         $cellNormalizerFactory = $this->getMockBuilder('\FFQP\Row\Cell\CellNormalizerFactory')
-          ->setMethods(array('create'))
+          ->setMethods(['create'])
           ->disableOriginalConstructor()
           ->getMock();
         $cellNormalizerFactory->method('create')->willReturn($cellNormalizer);

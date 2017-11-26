@@ -10,21 +10,21 @@ class YellowCardsNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('-', 0),
-          array('0', 0),
-          array(0, 0),
-          array(0.5, 1),
-          array(-0.5, 1),
-          array('0.5', 1),
-          array('-0.5', 1),
-          array('0,5', 1),
-          array('-0,5', 1),
-          array(1, 2),
-          array(-1, 2),
-          array('1', 2),
-          array('-1', 2),
-        );
+        return [
+          ['-', 0],
+          ['0', 0],
+          [0, 0],
+          [0.5, 1],
+          [-0.5, 1],
+          ['0.5', 1],
+          ['-0.5', 1],
+          ['0,5', 1],
+          ['-0,5', 1],
+          [1, 2],
+          [-1, 2],
+          ['1', 2],
+          ['-1', 2],
+        ];
     }
     
     /**

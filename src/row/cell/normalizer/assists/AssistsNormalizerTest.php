@@ -10,14 +10,14 @@ class AssistsNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('10', 10),
-          array(10, 10),
-          array('1', 1),
-          array(1, 1),
-          array(0, 0),
-          array('0', 0),
-        );
+        return [
+          ['10', 10],
+          [10, 10],
+          ['1', 1],
+          [1, 1],
+          [0, 0],
+          ['0', 0],
+        ];
     }
     
     /**

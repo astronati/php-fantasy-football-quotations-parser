@@ -10,16 +10,16 @@ class VoteNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('S.V.', null, 'null'),
-          array('0', null, 'null'),
-          array(0, null, 'null'),
-          array(0.5, 0.5, 'float'),
-          array('0.5', 0.5, 'float'),
-          array('0,5', 0.5, 'float'),
-          array(1, 1.0, 'float'),
-          array('1', 1.0, 'float'),
-        );
+        return [
+          ['S.V.', null, 'null'],
+          ['0', null, 'null'],
+          [0, null, 'null'],
+          [0.5, 0.5, 'float'],
+          ['0.5', 0.5, 'float'],
+          ['0,5', 0.5, 'float'],
+          [1, 1.0, 'float'],
+          ['1', 1.0, 'float'],
+        ];
     }
     
     /**

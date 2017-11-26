@@ -10,11 +10,11 @@ class TeamNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('test', 'test'),
-          array('0', '0'),
-          array(0.5, '0.5'),
-        );
+        return [
+          ['test', 'test'],
+          ['0', '0'],
+          [0.5, '0.5'],
+        ];
     }
     
     /**

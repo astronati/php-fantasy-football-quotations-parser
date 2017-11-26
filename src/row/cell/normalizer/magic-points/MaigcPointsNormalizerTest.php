@@ -10,19 +10,19 @@ class MagicPointsNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('', 0.0),
-          array('-', 0.0),
-          array('0', 0.0),
-          array(0, 0.0),
-          array(1, 1.0),
-          array(1.0, 1.0),
-          array('1.0', 1.0),
-          array('1', 1.0),
-          array('5,5', 5.5),
-          array('5.5', 5.5),
-          array(5.5, 5.5),
-        );
+        return [
+          ['', 0.0],
+          ['-', 0.0],
+          ['0', 0.0],
+          [0, 0.0],
+          [1, 1.0],
+          [1.0, 1.0],
+          ['1.0', 1.0],
+          ['1', 1.0],
+          ['5,5', 5.5],
+          ['5.5', 5.5],
+          [5.5, 5.5],
+        ];
     }
     
     /**

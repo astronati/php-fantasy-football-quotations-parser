@@ -10,14 +10,14 @@ class ActiveNormalizerTest extends PHPUnit_Framework_TestCase
     
     public function dataProvider()
     {
-        return array(
-          array('1', true),
-          array(1, true),
-          array('0', false),
-          array(0, false),
-          array('SI', true),
-          array('NO', false),
-        );
+        return [
+          ['1', true],
+          [1, true],
+          ['0', false],
+          [0, false],
+          ['SI', true],
+          ['NO', false],
+        ];
     }
     
     /**
