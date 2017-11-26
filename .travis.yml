@@ -4,7 +4,7 @@ php:
 sudo: false
 cache:
   directories:
-  - vendor
+    - vendor
 install:
   - composer install
 script:
