@@ -42,13 +42,13 @@ abstract class RowMapAbstract implements RowMapInterface
      * Saves the cell column per each field
      * @type array
      */
-    protected $_map = array();
+    protected $_map = [];
 
     /**
      * @inheritdoc
      * @see RowMapInterface::getOffset()
      */
-    function getOffset($field): int
+    public function getOffset($field): int
     {
         return $this->_map[$field];
     }
