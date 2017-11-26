@@ -22,18 +22,18 @@ class RowNormalizer implements RowNormalizerInterface
      * @type CellNormalizerFactory
      */
     private $_dataFactory;
-    
+
     /**
      * @type CellNormalizerFactory
      */
     private $_cellNormalizerFactory;
-    
+
     public function __construct(DataFactory $dataFactory, CellNormalizerFactory $cellNormalizerFactory)
     {
         $this->_dataFactory = $dataFactory;
         $this->_cellNormalizerFactory = $cellNormalizerFactory;
     }
-    
+
     /**
      * @inheritdoc
      * @see RowNormalizerInterface::normalize()
@@ -41,7 +41,7 @@ class RowNormalizer implements RowNormalizerInterface
     public function normalize(RawData $rawData, RowMapAbstract $rowMap): Data
     {
         $data = $this->_dataFactory->create();
-        
+
         foreach ($rowMap->getFields() as $field) {
             $data->$field = $this->_cellNormalizerFactory->create($field)->normalize(
               $rawData->$field,
@@ -49,7 +49,7 @@ class RowNormalizer implements RowNormalizerInterface
               $rowMap->season
             );
         }
-        
+
         return $data;
     }
 }

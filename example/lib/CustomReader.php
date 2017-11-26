@@ -7,19 +7,19 @@ use \FFQP\Reader\ReaderInterface as ReaderInterface;
 
 class CustomReader implements ReaderInterface
 {
-    
+
     private $_reader;
-    
+
     public function __construct(\PHPExcelReader\SpreadsheetReader $reader)
     {
         $this->_reader = $reader;
     }
-    
+
     public function getRowCount()
     {
         return $this->_reader->rowcount();
     }
-    
+
     public function read($row, $col)
     {
         return $this->_reader->val($row, $col);

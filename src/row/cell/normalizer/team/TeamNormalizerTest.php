@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\TeamNormalizer as TeamNormalizer;
  */
 class TeamNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -16,7 +16,7 @@ class TeamNormalizerTest extends PHPUnit_Framework_TestCase
           [0.5, '0.5'],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

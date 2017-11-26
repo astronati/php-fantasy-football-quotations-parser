@@ -7,7 +7,7 @@ use \FFQP\Parser\Parser as Parser;
  */
 class ParserTest extends PHPUnit_Framework_TestCase
 {
-    
+
     private function _getReaderInstance()
     {
         $reader = $this->getMockBuilder('\FFQP\Reader\ReaderInterface')
@@ -21,10 +21,10 @@ class ParserTest extends PHPUnit_Framework_TestCase
           [4, 1, 3],
           [4, 2, 4],
         ]));
-        
+
         return $reader;
     }
-    
+
     private function _getMapInstance()
     {
         $map = $this->getMockBuilder('\FFQP\Row\Map\RowMapAbstract')
@@ -36,10 +36,10 @@ class ParserTest extends PHPUnit_Framework_TestCase
           ['first', 1],
           ['second', 2],
         ]));
-        
+
         return $map;
     }
-    
+
     private function _getRawDataFactoryInstance()
     {
         $rawDataFactory = $this->getMockBuilder('\FFQP\Row\Data\RawDataFactory')
@@ -50,10 +50,10 @@ class ParserTest extends PHPUnit_Framework_TestCase
           $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock(),
           $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()
         );
-        
+
         return $rawDataFactory;
     }
-    
+
     private function _getNormalizerInstance()
     {
         $normalizer = $this->getMockBuilder('\FFQP\Row\RowNormalizer')
@@ -67,7 +67,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
         $normalizer->method('normalize')->willReturn($firstMock, $secondMock);
         return $normalizer;
     }
-    
+
     public function testGetRawData()
     {
         $parser = new Parser(
@@ -82,7 +82,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
         $this->assertSame(3, $parser->getRawData()[1]->first);
         $this->assertSame(4, $parser->getRawData()[1]->second);
     }
-    
+
     public function testGetData()
     {
         $parser = new Parser(

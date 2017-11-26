@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\AutoGoalsNormalizer as AutoGoalsNormalizer;
  */
 class AutoGoalsNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -22,14 +22,14 @@ class AutoGoalsNormalizerTest extends PHPUnit_Framework_TestCase
           ['-2,0', 'D', 1],
         ];
     }
-    
+
     private function _getRawDataInstance($role)
     {
         $instance = $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock();
         $instance->role = $role;
         return $instance;
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

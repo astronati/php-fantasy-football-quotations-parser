@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\PenaltiesNormalizer as PenaltiesNormalizer;
  */
 class PenaltiesNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -21,7 +21,7 @@ class PenaltiesNormalizerTest extends PHPUnit_Framework_TestCase
           ['0', 0],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

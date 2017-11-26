@@ -6,17 +6,17 @@
  */
 
 namespace FFQP\Row {
-    
+
     use \FFQP\Row\Data\RawData as RawData;
     use \FFQP\Row\Data\Data as Data;
     use \FFQP\Row\Map\RowMapAbstract as RowMapAbstract;
-    
+
     /**
      * Describes the interface of a row normalizer
      */
     interface RowNormalizerInterface
     {
-        
+
         /**
          * Normalizes an entire row that includes different cells.
          * @param RawData $rawData
@@ -25,5 +25,5 @@ namespace FFQP\Row {
          */
         public function normalize(RawData $rawData, RowMapAbstract $rowMap): Data;
     }
-    
+
 }

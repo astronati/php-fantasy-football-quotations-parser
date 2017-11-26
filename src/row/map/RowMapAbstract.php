@@ -14,7 +14,7 @@ use \FFQP\Row\Map\RowMapInterface as RowMapInterface;
  */
 abstract class RowMapAbstract implements RowMapInterface
 {
-    
+
     // Fields
     const CODE = 'code';
     const PLAYER = 'player';
@@ -31,19 +31,19 @@ abstract class RowMapAbstract implements RowMapInterface
     const PENALTIES = 'penalties';
     const AUTOGOALS = 'autoGoals';
     const ASSISTS = 'assists';
-    
+
     /**
      * The season associated to the specific row map
      * @type string
      */
     public $season;
-    
+
     /**
      * Saves the cell column per each field
      * @type array
      */
     protected $_map = array();
-    
+
     /**
      * @inheritdoc
      * @see RowMapInterface::getOffset()
@@ -52,7 +52,7 @@ abstract class RowMapAbstract implements RowMapInterface
     {
         return $this->_map[$field];
     }
-    
+
     /**
      * @inheritdoc
      * @see RowMapInterface::getFields()

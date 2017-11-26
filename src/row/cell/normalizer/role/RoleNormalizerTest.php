@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\RoleNormalizer as RoleNormalizer;
  */
 class RoleNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -18,7 +18,7 @@ class RoleNormalizerTest extends PHPUnit_Framework_TestCase
           ['A', 'A'],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\MagicPointsNormalizer as MagicPointsNormalizer;
  */
 class MagicPointsNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -24,7 +24,7 @@ class MagicPointsNormalizerTest extends PHPUnit_Framework_TestCase
           [5.5, 5.5],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

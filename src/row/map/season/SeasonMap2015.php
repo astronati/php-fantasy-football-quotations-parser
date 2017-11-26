@@ -14,9 +14,9 @@ use \FFQP\Row\Map\RowMapAbstract as RowMapAbstract;
  */
 class SeasonMap2015 extends RowMapAbstract
 {
-    
+
     public $season = '2015';
-    
+
     /**
      * The map valid for spreadsheets from the season 2015/2016
      * @var array

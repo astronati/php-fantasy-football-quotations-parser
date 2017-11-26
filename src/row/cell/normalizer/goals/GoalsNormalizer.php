@@ -23,20 +23,20 @@ class GoalsNormalizer implements CellNormalizerInterface
     {
         $malus = 0;
         $bonus = (float)$value;
-        
+
         if ($bonus == 0) {
             return 0;
         }
-        
+
         if ($bonus < 0) {
             $malus = $bonus;
         }
-        
+
         // Malus for goalkeepers per each gol is -1
         if ($malus < 0 && $rawData->role == $rawData::GOALKEEPER) {
             return abs($malus);
         }
-        
+
         if ($season == '2017') {
             switch ($rawData->secondaryRole) {
                 case $rawData::GOALKEEPER:
@@ -51,7 +51,7 @@ class GoalsNormalizer implements CellNormalizerInterface
                     return $bonus / 3;
             }
         }
-        
+
         return $bonus / 3;
     }
 }

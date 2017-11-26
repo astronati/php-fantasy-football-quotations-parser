@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\VoteNormalizer as VoteNormalizer;
  */
 class VoteNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -21,7 +21,7 @@ class VoteNormalizerTest extends PHPUnit_Framework_TestCase
           ['1', 1.0, 'float'],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

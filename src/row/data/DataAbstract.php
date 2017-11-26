@@ -12,7 +12,7 @@ namespace FFQP\Row\Data;
  */
 abstract class DataAbstract
 {
-    
+
     // Roles
     const GOALKEEPER = 'P';
     const DEFENDER = 'D';

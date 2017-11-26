@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\GoalsNormalizer as GoalsNormalizer;
  */
 class GoalsNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -26,7 +26,7 @@ class GoalsNormalizerTest extends PHPUnit_Framework_TestCase
           ['6.0', 'A', 'A', '2016', 2],
         ];
     }
-    
+
     private function _getRawDataInstance($role, $secondaryRole)
     {
         $instance = $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock();
@@ -34,7 +34,7 @@ class GoalsNormalizerTest extends PHPUnit_Framework_TestCase
         $instance->secondaryRole = $secondaryRole;
         return $instance;
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

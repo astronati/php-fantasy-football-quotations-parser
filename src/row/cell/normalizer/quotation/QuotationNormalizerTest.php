@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\QuotationNormalizer as QuotationNormalizer;
  */
 class QuotationNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -17,7 +17,7 @@ class QuotationNormalizerTest extends PHPUnit_Framework_TestCase
           ['0', 0],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\RedCardsNormalizer as RedCardsNormalizer;
  */
 class RedCardsNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -21,7 +21,7 @@ class RedCardsNormalizerTest extends PHPUnit_Framework_TestCase
           ['1', 1],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

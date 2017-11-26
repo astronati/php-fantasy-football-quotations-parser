@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\PlayerNormalizer as PlayerNormalizer;
  */
 class PlayerNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -16,7 +16,7 @@ class PlayerNormalizerTest extends PHPUnit_Framework_TestCase
           ['DONNARUMMA Gigio', 'DONNARUMMA Gigio'],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

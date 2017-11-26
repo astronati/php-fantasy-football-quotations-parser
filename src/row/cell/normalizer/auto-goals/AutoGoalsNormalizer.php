@@ -22,12 +22,12 @@ class AutoGoalsNormalizer implements CellNormalizerInterface
     public function normalize($value, RawData $rawData, $season = null): int
     {
         $malus = abs((int)$value);
-        
+
         // Malus for goalkeeper is -1
         if ($rawData->role == 'P') {
             return $malus;
         }
-        
+
         // Default malus is -2
         return $malus / 2;
     }

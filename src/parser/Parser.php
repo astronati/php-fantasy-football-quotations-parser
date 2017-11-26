@@ -23,31 +23,31 @@ class Parser implements ParserInterface
      * @var ReaderInterface
      */
     private $_reader;
-    
+
     /**
      * An instance of a row map
      * @var RowMapAbstract
      */
     private $_map;
-    
+
     /**
      * An instance of a row normalizer
      * @var RowNormalizer
      */
     private $_normalizer;
-    
+
     /**
      * An instance of a raw data factory
      * @var RawDataFactory
      */
     private $_rawDataFactory;
-    
+
     /**
      * An instance of a raw data factory
      * @var \FFQP\Row\Data\RawData[]
      */
     private $_rawData = [];
-    
+
     /**
      * @param ReaderInterface $reader An instance implementing the ReaderInterface
      * @param RowMapAbstract $map Knows where the quotation information are stored in the excel file+
@@ -65,7 +65,7 @@ class Parser implements ParserInterface
         $this->_map = $map;
         $this->_normalizer = $normalizer;
         $this->_rawDataFactory = $rawDataFactory;
-        
+
         for ($row = 3; $row <= $this->_reader->getRowCount(); $row++) {
             $rawData = $this->_rawDataFactory->create();
             foreach ($this->_map->getFields() as $field) {
@@ -74,7 +74,7 @@ class Parser implements ParserInterface
             array_push($this->_rawData, $rawData);
         }
     }
-    
+
     /**
      * @inheritdoc
      * @see ParserInterface::getData()
@@ -88,7 +88,7 @@ class Parser implements ParserInterface
         }
         return $normalizedQuotations;
     }
-    
+
     /**
      * @inheritdoc
      * @see ParserInterface::getRawData()

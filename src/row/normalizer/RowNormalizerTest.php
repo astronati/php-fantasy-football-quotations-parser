@@ -7,7 +7,7 @@ use \FFQP\Row\RowNormalizer as RowNormalizer;
  */
 class RowNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -17,7 +17,7 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
           ],
         ];
     }
-    
+
     private function _getDataFactoryInstance()
     {
         $dataFactory = $this->getMockBuilder('\FFQP\Row\Data\DataFactory')
@@ -26,10 +26,10 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
           ->getMock();
         $dataFactory->method('create')
           ->willReturn($this->getMockBuilder('\FFQP\Row\Data\Data')->getMock());
-        
+
         return $dataFactory;
     }
-    
+
     private function _getRawDataFactoryInstance($config)
     {
         $rawData = $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock();
@@ -38,7 +38,7 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
         }
         return $rawData;
     }
-    
+
     private function _getRowMapInstance()
     {
         $rowMap = $this->getMockBuilder('\FFQP\Row\Map\SeasonMap2013')
@@ -47,10 +47,10 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
           ->getMock();
         $rowMap->method('getFields')->willReturn(['field1', 'field2']);
         $rowMap->season = '2017';
-        
+
         return $rowMap;
     }
-    
+
     private function _getCellNormalizerFactoryInstance()
     {
         $cellNormalizer = $this->getMockBuilder('\FFQP\Row\Cell\YellowCardsNormalizer')
@@ -58,16 +58,16 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
           ->disableOriginalConstructor()
           ->getMock();
         $cellNormalizer->method('normalize')->willReturn(4);
-        
+
         $cellNormalizerFactory = $this->getMockBuilder('\FFQP\Row\Cell\CellNormalizerFactory')
           ->setMethods(['create'])
           ->disableOriginalConstructor()
           ->getMock();
         $cellNormalizerFactory->method('create')->willReturn($cellNormalizer);
-        
+
         return $cellNormalizerFactory;
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config

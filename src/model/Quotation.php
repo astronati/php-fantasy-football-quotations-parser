@@ -20,7 +20,7 @@ class Quotation implements QuotationInterface
      * @var Data
      */
     private $_data;
-    
+
     /**
      * @param Data $data An instance of Data
      */
@@ -28,7 +28,7 @@ class Quotation implements QuotationInterface
     {
         $this->_data = $data;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getCode()
@@ -37,7 +37,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->code;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getPlayer()
@@ -46,7 +46,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->player;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getTeam()
@@ -55,7 +55,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->team;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getRole()
@@ -64,7 +64,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->role;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getSecondaryRole()
@@ -73,7 +73,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->secondaryRole;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isActive()
@@ -82,7 +82,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->active === true;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getQuotation()
@@ -91,7 +91,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->quotation;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getMagicPoints()
@@ -100,7 +100,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->magicPoints;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getVote()
@@ -109,7 +109,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->vote;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isWithoutVote()
@@ -118,7 +118,7 @@ class Quotation implements QuotationInterface
     {
         return is_null($this->getVote());
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getGoals()
@@ -127,7 +127,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->goals;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isCautioned
@@ -136,7 +136,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->yellowCards > 0;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isSentOff()
@@ -145,7 +145,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->redCards > 0;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getPenalties()
@@ -154,7 +154,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->penalties;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getAutoGoals()
@@ -163,7 +163,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_data->autoGoals;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getAssists()

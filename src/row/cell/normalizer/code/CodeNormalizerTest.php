@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\CodeNormalizer as CodeNormalizer;
  */
 class CodeNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -17,7 +17,7 @@ class CodeNormalizerTest extends PHPUnit_Framework_TestCase
           ['123', '123'],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

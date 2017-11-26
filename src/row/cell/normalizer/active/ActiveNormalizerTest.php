@@ -7,7 +7,7 @@ use \FFQP\Row\Cell\ActiveNormalizer as ActiveNormalizer;
  */
 class ActiveNormalizerTest extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -19,7 +19,7 @@ class ActiveNormalizerTest extends PHPUnit_Framework_TestCase
           ['NO', false],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param * $value

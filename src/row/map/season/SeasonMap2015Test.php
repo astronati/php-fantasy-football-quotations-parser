@@ -7,7 +7,7 @@ use \FFQP\Row\Map\SeasonMap2015 as SeasonMap2015;
  */
 class SeasonMap2015Test extends PHPUnit_Framework_TestCase
 {
-    
+
     public function dataProvider()
     {
         return [
@@ -28,7 +28,7 @@ class SeasonMap2015Test extends PHPUnit_Framework_TestCase
           ['assists', 15],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $field
@@ -40,7 +40,7 @@ class SeasonMap2015Test extends PHPUnit_Framework_TestCase
         $this->assertInternalType('int', $season->getOffset($field));
         $this->assertSame($result, $season->getOffset($field));
     }
-    
+
     public function testGetCode()
     {
         $season = new SeasonMap2015();
