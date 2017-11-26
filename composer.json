@@ -2,26 +2,37 @@
   "name": "astronati/fantasy-football-quotations-parser",
   "description": "This library allows user to retrieve quotations from those documents that are provided from the most important sport newspapers. Quotations contains votes of each soccer player of a specific championship day.",
   "license": "MIT",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Andrea Stronati",
       "email": "astronati@vendini.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require-dev": {
-    "phpdocumentor/phpdocumentor": "2.8.*",
-    "phpunit/phpunit": "4.8.*"
+    "codacy/coverage": "dev-master",
+    "consolidation/robo": "~1",
+    "php-excel-reader/spreadsheet-reader": "dev-master",
+    "phpunit/phpunit": "^5.6.0",
+    "phpunit/php-code-coverage": "^4.0.3"
   },
   "require": {
-    "php": ">=5.3.0",
-    "php-excel-reader/spreadsheet-reader": "dev-master"
+    "php": ">=7.1.0"
   },
   "autoload": {
-    "exclude-from-classmap": ["tests"],
+    "psr-4": {
+      "FFQP\\": "src"
+    },
     "classmap": [
       "src/"
+    ],
+    "exclude-from-classmap": [
+      "/src/**/*Test.php"
     ]
+  },
+  "scripts": {
+    "coverage": "open coverage/report/html/index.html",
+    "test": "./vendor/bin/robo test"
   }
 }
