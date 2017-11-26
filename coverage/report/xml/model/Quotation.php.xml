@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Quotation.php">
+    <totals>
+      <lines total="158" comments="78" code="80" executable="18" executed="18" percent="100.00%"/>
+      <methods count="17" tested="17" percent="100.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="1" percent="100.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="Quotation" start="16" executable="18" executed="18" crap="18">
+      <package full="" name="" sub="" category=""/>
+      <namespace name="FFQP\Model"/>
+      <method name="__construct" signature="__construct(Data $data)" start="27" end="29" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getCode" signature="getCode(): string" start="35" end="37" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPlayer" signature="getPlayer(): string" start="43" end="45" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getTeam" signature="getTeam(): string" start="51" end="53" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getRole" signature="getRole(): string" start="59" end="61" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getSecondaryRole" signature="getSecondaryRole(): string" start="67" end="69" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="isActive" signature="isActive(): bool" start="75" end="77" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getQuotation" signature="getQuotation(): int" start="83" end="85" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getMagicPoints" signature="getMagicPoints(): float" start="91" end="93" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getVote" signature="getVote(): ?float" start="99" end="101" crap="2" executable="1" executed="1" coverage="100"/>
+      <method name="isWithoutVote" signature="isWithoutVote(): bool" start="107" end="109" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getGoals" signature="getGoals(): int" start="115" end="117" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="isCautioned" signature="isCautioned(): bool" start="123" end="125" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="isSentOff" signature="isSentOff(): bool" start="131" end="133" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPenalties" signature="getPenalties(): int" start="139" end="141" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAutoGoals" signature="getAutoGoals(): int" start="147" end="149" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getAssists" signature="getAssists(): int" start="155" end="157" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="28">
+        <covered by="QuotationTest::testGetCode with data set #0"/>
+        <covered by="QuotationTest::testGetCode with data set #1"/>
+        <covered by="QuotationTest::testGetPlayer with data set #0"/>
+        <covered by="QuotationTest::testGetPlayer with data set #1"/>
+        <covered by="QuotationTest::testGetTeam with data set #0"/>
+        <covered by="QuotationTest::testGetTeam with data set #1"/>
+        <covered by="QuotationTest::testGetRole with data set #0"/>
+        <covered by="QuotationTest::testGetRole with data set #1"/>
+        <covered by="QuotationTest::testGetSecondaryRole with data set #0"/>
+        <covered by="QuotationTest::testGetSecondaryRole with data set #1"/>
+        <covered by="QuotationTest::testIsActive with data set #0"/>
+        <covered by="QuotationTest::testIsActive with data set #1"/>
+        <covered by="QuotationTest::testGetQuotation with data set #0"/>
+        <covered by="QuotationTest::testGetQuotation with data set #1"/>
+        <covered by="QuotationTest::testGetMagicPoints with data set #0"/>
+        <covered by="QuotationTest::testGetMagicPoints with data set #1"/>
+        <covered by="QuotationTest::testGetVote with data set #0"/>
+        <covered by="QuotationTest::testGetVote with data set #1"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #0"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #1"/>
+        <covered by="QuotationTest::testGetGoals with data set #0"/>
+        <covered by="QuotationTest::testGetGoals with data set #1"/>
+        <covered by="QuotationTest::testIsCautioned with data set #0"/>
+        <covered by="QuotationTest::testIsCautioned with data set #1"/>
+        <covered by="QuotationTest::testIsSentOff with data set #0"/>
+        <covered by="QuotationTest::testIsSentOff with data set #1"/>
+        <covered by="QuotationTest::testGetPenalties with data set #0"/>
+        <covered by="QuotationTest::testGetPenalties with data set #1"/>
+        <covered by="QuotationTest::testGetAutoGoals with data set #0"/>
+        <covered by="QuotationTest::testGetAutoGoals with data set #1"/>
+        <covered by="QuotationTest::testGetAssists with data set #0"/>
+        <covered by="QuotationTest::testGetAssists with data set #1"/>
+      </line>
+      <line nr="29">
+        <covered by="QuotationTest::testGetCode with data set #0"/>
+        <covered by="QuotationTest::testGetCode with data set #1"/>
+        <covered by="QuotationTest::testGetPlayer with data set #0"/>
+        <covered by="QuotationTest::testGetPlayer with data set #1"/>
+        <covered by="QuotationTest::testGetTeam with data set #0"/>
+        <covered by="QuotationTest::testGetTeam with data set #1"/>
+        <covered by="QuotationTest::testGetRole with data set #0"/>
+        <covered by="QuotationTest::testGetRole with data set #1"/>
+        <covered by="QuotationTest::testGetSecondaryRole with data set #0"/>
+        <covered by="QuotationTest::testGetSecondaryRole with data set #1"/>
+        <covered by="QuotationTest::testIsActive with data set #0"/>
+        <covered by="QuotationTest::testIsActive with data set #1"/>
+        <covered by="QuotationTest::testGetQuotation with data set #0"/>
+        <covered by="QuotationTest::testGetQuotation with data set #1"/>
+        <covered by="QuotationTest::testGetMagicPoints with data set #0"/>
+        <covered by="QuotationTest::testGetMagicPoints with data set #1"/>
+        <covered by="QuotationTest::testGetVote with data set #0"/>
+        <covered by="QuotationTest::testGetVote with data set #1"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #0"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #1"/>
+        <covered by="QuotationTest::testGetGoals with data set #0"/>
+        <covered by="QuotationTest::testGetGoals with data set #1"/>
+        <covered by="QuotationTest::testIsCautioned with data set #0"/>
+        <covered by="QuotationTest::testIsCautioned with data set #1"/>
+        <covered by="QuotationTest::testIsSentOff with data set #0"/>
+        <covered by="QuotationTest::testIsSentOff with data set #1"/>
+        <covered by="QuotationTest::testGetPenalties with data set #0"/>
+        <covered by="QuotationTest::testGetPenalties with data set #1"/>
+        <covered by="QuotationTest::testGetAutoGoals with data set #0"/>
+        <covered by="QuotationTest::testGetAutoGoals with data set #1"/>
+        <covered by="QuotationTest::testGetAssists with data set #0"/>
+        <covered by="QuotationTest::testGetAssists with data set #1"/>
+      </line>
+      <line nr="36">
+        <covered by="QuotationTest::testGetCode with data set #0"/>
+        <covered by="QuotationTest::testGetCode with data set #1"/>
+      </line>
+      <line nr="44">
+        <covered by="QuotationTest::testGetPlayer with data set #0"/>
+        <covered by="QuotationTest::testGetPlayer with data set #1"/>
+      </line>
+      <line nr="52">
+        <covered by="QuotationTest::testGetTeam with data set #0"/>
+        <covered by="QuotationTest::testGetTeam with data set #1"/>
+      </line>
+      <line nr="60">
+        <covered by="QuotationTest::testGetRole with data set #0"/>
+        <covered by="QuotationTest::testGetRole with data set #1"/>
+      </line>
+      <line nr="68">
+        <covered by="QuotationTest::testGetSecondaryRole with data set #0"/>
+        <covered by="QuotationTest::testGetSecondaryRole with data set #1"/>
+      </line>
+      <line nr="76">
+        <covered by="QuotationTest::testIsActive with data set #0"/>
+        <covered by="QuotationTest::testIsActive with data set #1"/>
+      </line>
+      <line nr="84">
+        <covered by="QuotationTest::testGetQuotation with data set #0"/>
+        <covered by="QuotationTest::testGetQuotation with data set #1"/>
+      </line>
+      <line nr="92">
+        <covered by="QuotationTest::testGetMagicPoints with data set #0"/>
+        <covered by="QuotationTest::testGetMagicPoints with data set #1"/>
+      </line>
+      <line nr="100">
+        <covered by="QuotationTest::testGetVote with data set #0"/>
+        <covered by="QuotationTest::testGetVote with data set #1"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #0"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #1"/>
+      </line>
+      <line nr="108">
+        <covered by="QuotationTest::testIsWithoutVote with data set #0"/>
+        <covered by="QuotationTest::testIsWithoutVote with data set #1"/>
+      </line>
+      <line nr="116">
+        <covered by="QuotationTest::testGetGoals with data set #0"/>
+        <covered by="QuotationTest::testGetGoals with data set #1"/>
+      </line>
+      <line nr="124">
+        <covered by="QuotationTest::testIsCautioned with data set #0"/>
+        <covered by="QuotationTest::testIsCautioned with data set #1"/>
+      </line>
+      <line nr="132">
+        <covered by="QuotationTest::testIsSentOff with data set #0"/>
+        <covered by="QuotationTest::testIsSentOff with data set #1"/>
+      </line>
+      <line nr="140">
+        <covered by="QuotationTest::testGetPenalties with data set #0"/>
+        <covered by="QuotationTest::testGetPenalties with data set #1"/>
+      </line>
+      <line nr="148">
+        <covered by="QuotationTest::testGetAutoGoals with data set #0"/>
+        <covered by="QuotationTest::testGetAutoGoals with data set #1"/>
+      </line>
+      <line nr="156">
+        <covered by="QuotationTest::testGetAssists with data set #0"/>
+        <covered by="QuotationTest::testGetAssists with data set #1"/>
+      </line>
+    </coverage>
+  </file>
+</phpunit>

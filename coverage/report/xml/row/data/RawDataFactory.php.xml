@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="RawDataFactory.php">
+    <totals>
+      <lines total="24" comments="11" code="13" executable="0" executed="0" percent=""/>
+      <methods count="0" tested="0" percent=""/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="0" tested="0" percent=""/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="RawDataFactory" start="15" executable="0" executed="0" crap="1">
+      <package full="" name="" sub="" category=""/>
+      <namespace name="FFQP\Row\Data"/>
+      <method name="create" signature="create(): RawData" start="21" end="23" crap="1" executable="0" executed="0" coverage="100"/>
+    </class>
+  </file>
+</phpunit>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="QuotationTest.php">
+    <totals>
+      <lines total="309" comments="88" code="221" executable="0" executed="0" percent=""/>
+      <methods count="0" tested="0" percent=""/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="0" tested="0" percent=""/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="QuotationTest" start="8" executable="0" executed="0" crap="19">
+      <package full="" name="" sub="" category=""/>
+      <namespace name=""/>
+      <method name="badQuotationConfigs" signature="badQuotationConfigs()" start="10" end="55" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="goodQuotationConfigs" signature="goodQuotationConfigs()" start="57" end="124" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testBadQuotationConstruct" signature="testBadQuotationConstruct($config)" start="132" end="134" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGoodQuotationConstruct" signature="testGoodQuotationConstruct($config)" start="140" end="143" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetCode" signature="testGetCode($config, $result)" start="150" end="154" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetPlayer" signature="testGetPlayer($config, $result)" start="161" end="165" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetTeam" signature="testGetTeam($config, $result)" start="172" end="176" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetRole" signature="testGetRole($config, $result)" start="183" end="187" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetSecondaryRole" signature="testGetSecondaryRole($config, $result)" start="194" end="198" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testIsActive" signature="testIsActive($config, $result)" start="205" end="209" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetQuotation" signature="testGetQuotation($config, $result)" start="216" end="220" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetMagicPoints" signature="testGetMagicPoints($config, $result)" start="227" end="231" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetVote" signature="testGetVote($config, $result)" start="238" end="242" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetGoals" signature="testGetGoals($config, $result)" start="249" end="253" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testIsCautioned" signature="testIsCautioned($config, $result)" start="260" end="264" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testIsSentOff" signature="testIsSentOff($config, $result)" start="271" end="275" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetPenalties" signature="testGetPenalties($config, $result)" start="282" end="286" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetAutoGoals" signature="testGetAutoGoals($config, $result)" start="293" end="297" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetAssists" signature="testGetAssists($config, $result)" start="304" end="308" crap="1" executable="0" executed="0" coverage="100"/>
+    </class>
+  </file>
+</phpunit>

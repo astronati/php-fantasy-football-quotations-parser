@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="SeasonMap2015Test.php">
+    <totals>
+      <lines total="61" comments="8" code="53" executable="0" executed="0" percent=""/>
+      <methods count="0" tested="0" percent=""/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="0" tested="0" percent=""/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="SeasonMap2015Test" start="8" executable="0" executed="0" crap="3">
+      <package full="" name="" sub="" category=""/>
+      <namespace name=""/>
+      <method name="dataProvider" signature="dataProvider()" start="10" end="28" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetOffset" signature="testGetOffset($field, $result)" start="35" end="39" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testGetCode" signature="testGetCode()" start="41" end="60" crap="1" executable="0" executed="0" coverage="100"/>
+    </class>
+  </file>
+</phpunit>

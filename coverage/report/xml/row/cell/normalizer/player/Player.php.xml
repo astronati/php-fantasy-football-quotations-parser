@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Player.php">
+    <totals>
+      <lines total="25" comments="11" code="14" executable="1" executed="1" percent="100.00%"/>
+      <methods count="1" tested="1" percent="100.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="1" percent="100.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="Player" start="16" executable="1" executed="1" crap="1">
+      <package full="" name="" sub="" category=""/>
+      <namespace name="FFQP\Row\Cell"/>
+      <method name="normalize" signature="normalize($value, RawData $rawData, $season = null): string" start="22" end="24" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="23">
+        <covered by="PlayerNormalizerTest::testNormalize with data set #0"/>
+        <covered by="PlayerNormalizerTest::testNormalize with data set #1"/>
+        <covered by="PlayerNormalizerTest::testNormalize with data set #2"/>
+      </line>
+    </coverage>
+  </file>
+</phpunit>

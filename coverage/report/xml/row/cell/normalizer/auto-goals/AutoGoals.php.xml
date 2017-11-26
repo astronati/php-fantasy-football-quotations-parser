@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="AutoGoals.php">
+    <totals>
+      <lines total="33" comments="15" code="18" executable="4" executed="4" percent="100.00%"/>
+      <methods count="1" tested="1" percent="100.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="1" percent="100.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="AutoGoals" start="16" executable="4" executed="4" crap="2">
+      <package full="" name="" sub="" category=""/>
+      <namespace name="FFQP\Row\Cell"/>
+      <method name="normalize" signature="normalize($value, RawData $rawData, $season = null): int" start="22" end="32" crap="2" executable="4" executed="4" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="23">
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #0"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #1"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #2"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #3"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #4"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #5"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #6"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #7"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #8"/>
+      </line>
+      <line nr="26">
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #0"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #1"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #2"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #3"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #4"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #5"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #6"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #7"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #8"/>
+      </line>
+      <line nr="27">
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #0"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #2"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #4"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #6"/>
+      </line>
+      <line nr="31">
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #1"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #3"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #5"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #7"/>
+        <covered by="AutoGoalsNormalizerTest::testNormalize with data set #8"/>
+      </line>
+    </coverage>
+  </file>
+</phpunit>

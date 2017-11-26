@@ -1,15 +1,17 @@
 language: php
+php:
+  - '7.1'
 sudo: false
 cache:
   directories:
   - vendor
 install:
-- composer install
+  - composer install
 script:
-- ./vendor/phpunit/phpunit/phpunit ./tests
+  - composer test
 notifications:
   email:
     recipients:
-      - astronati+fantasyfootballquotationsparser@vendini.com
+      - stronati.a+fantasyfootballquotationsparser@gmail.com
     on_success: change
     on_failure: always

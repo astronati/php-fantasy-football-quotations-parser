@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="RoleNormalizerTest.php">
+    <totals>
+      <lines total="30" comments="8" code="22" executable="0" executed="0" percent=""/>
+      <methods count="0" tested="0" percent=""/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="0" tested="0" percent=""/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="RoleNormalizerTest" start="8" executable="0" executed="0" crap="2">
+      <package full="" name="" sub="" category=""/>
+      <namespace name=""/>
+      <method name="dataProvider" signature="dataProvider()" start="10" end="18" crap="1" executable="0" executed="0" coverage="100"/>
+      <method name="testNormalize" signature="testNormalize($value, $result)" start="25" end="29" crap="1" executable="0" executed="0" coverage="100"/>
+    </class>
+  </file>
+</phpunit>
