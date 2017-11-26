@@ -18,38 +18,38 @@ use \FFQP\Row\Map\RowMapAbstract as RowMapAbstract;
  */
 class RowNormalizer implements RowNormalizerInterface
 {
-  /**
-   * @type CellNormalizerFactory
-   */
-  private $_dataFactory;
-
-  /**
-   * @type CellNormalizerFactory
-   */
-  private $_cellNormalizerFactory;
-
-  public function __construct(DataFactory $dataFactory, CellNormalizerFactory $cellNormalizerFactory)
-  {
-    $this->_dataFactory = $dataFactory;
-    $this->_cellNormalizerFactory = $cellNormalizerFactory;
-  }
-
-  /**
-   * @inheritdoc
-   * @see RowNormalizerInterface::normalize()
-   */
-  public function normalize(RawData $rawData, RowMapAbstract $rowMap): Data
-  {
-    $data = $this->_dataFactory->create();
-
-    foreach ($rowMap->getFields() as $field) {
-      $data->$field = $this->_cellNormalizerFactory->create($field)->normalize(
-        $rawData->$field,
-        $rawData,
-        $rowMap->season
-      );
+    /**
+     * @type CellNormalizerFactory
+     */
+    private $_dataFactory;
+    
+    /**
+     * @type CellNormalizerFactory
+     */
+    private $_cellNormalizerFactory;
+    
+    public function __construct(DataFactory $dataFactory, CellNormalizerFactory $cellNormalizerFactory)
+    {
+        $this->_dataFactory = $dataFactory;
+        $this->_cellNormalizerFactory = $cellNormalizerFactory;
     }
-
-    return $data;
-  }
+    
+    /**
+     * @inheritdoc
+     * @see RowNormalizerInterface::normalize()
+     */
+    public function normalize(RawData $rawData, RowMapAbstract $rowMap): Data
+    {
+        $data = $this->_dataFactory->create();
+        
+        foreach ($rowMap->getFields() as $field) {
+            $data->$field = $this->_cellNormalizerFactory->create($field)->normalize(
+              $rawData->$field,
+              $rawData,
+              $rowMap->season
+            );
+        }
+        
+        return $data;
+    }
 }

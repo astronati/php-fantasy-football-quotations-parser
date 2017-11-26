@@ -15,11 +15,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class MagicPointsNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): float {
-    return (float) str_replace(',', '.', $value);
-  }
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): float
+    {
+        return (float)str_replace(',', '.', $value);
+    }
 }

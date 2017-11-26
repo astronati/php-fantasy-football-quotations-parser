@@ -15,11 +15,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class PenaltiesNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): int {
-    return (int) (abs(str_replace(',', '.', (float) $value)) / 3);
-  }
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): int
+    {
+        return (int)(abs(str_replace(',', '.', (float)$value)) / 3);
+    }
 }

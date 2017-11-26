@@ -14,11 +14,12 @@ use \FFQP\Row\Data\Data as Data;
  */
 class DataFactory
 {
-  /**
-   * Returns an instance of Data
-   * @return Data
-   */
-  public function create(): Data {
-    return new Data();
-  }
+    /**
+     * Returns an instance of Data
+     * @return Data
+     */
+    public function create(): Data
+    {
+        return new Data();
+    }
 }

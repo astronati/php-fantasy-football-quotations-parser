@@ -15,11 +15,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class ActiveNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): bool {
-    return ((int) $value) === 1 || $value === 'SI';
-  }
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): bool
+    {
+        return ((int)$value) === 1 || $value === 'SI';
+    }
 }

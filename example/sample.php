@@ -21,7 +21,7 @@ $parser = new Parser(
 );
 
 $output = [
-  $reader->read(1,1),
+  $reader->read(1, 1),
   'Row Count: ' . $reader->getRowCount(),
   'Sesto Giocatore (nome): ' . $parser->getData()[6]->player,
   'Sesto Giocatore (MP): ' . $parser->getData()[6]->magicPoints,

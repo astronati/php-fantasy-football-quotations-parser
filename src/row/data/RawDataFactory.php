@@ -14,11 +14,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class RawDataFactory
 {
-  /**
-   * Returns an instance of RawData
-   * @return RawData
-   */
-  public function create(): RawData {
-    return new RawData();
-  }
+    /**
+     * Returns an instance of RawData
+     * @return RawData
+     */
+    public function create(): RawData
+    {
+        return new RawData();
+    }
 }

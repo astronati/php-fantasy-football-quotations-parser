@@ -15,11 +15,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class PlayerNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): string {
-    return (string) $value;
-  }
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): string
+    {
+        return (string)$value;
+    }
 }

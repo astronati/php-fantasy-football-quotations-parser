@@ -15,11 +15,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class YellowCardsNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): int {
-    return (int) (abs((float) str_replace(',', '.', $value)) / 0.5);
-  }
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): int
+    {
+        return (int)(abs((float)str_replace(',', '.', $value)) / 0.5);
+    }
 }

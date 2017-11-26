@@ -16,18 +16,19 @@ use \FFQP\Row\Map\RowMapAbstract as RowMapAbstract;
  */
 class RowMapFactory
 {
-  /**
-   * Returns an extension of RowMapAbstract
-   * @param string $season
-   * @return RowMapAbstract
-   */
-  public static function create($season = '2017'): RowMapAbstract {
-    switch ($season) {
-      case '2013':
-      case '2014':
-        return new SeasonMap2013();
-      default:
-        return new SeasonMap2015();
+    /**
+     * Returns an extension of RowMapAbstract
+     * @param string $season
+     * @return RowMapAbstract
+     */
+    public static function create($season = '2017'): RowMapAbstract
+    {
+        switch ($season) {
+            case '2013':
+            case '2014':
+                return new SeasonMap2013();
+            default:
+                return new SeasonMap2015();
+        }
     }
-  }
 }

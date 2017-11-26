@@ -15,19 +15,20 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class AutoGoalsNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): int {
-    $malus = abs((int) $value);
-
-    // Malus for goalkeeper is -1
-    if ($rawData->role == 'P') {
-      return $malus;
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): int
+    {
+        $malus = abs((int)$value);
+        
+        // Malus for goalkeeper is -1
+        if ($rawData->role == 'P') {
+            return $malus;
+        }
+        
+        // Default malus is -2
+        return $malus / 2;
     }
-
-    // Default malus is -2
-    return $malus / 2;
-  }
 }

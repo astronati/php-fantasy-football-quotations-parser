@@ -15,15 +15,16 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class VoteNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): ?float {
-    $bonus = (float) str_replace(',', '.', $value);
-    if ($value == 'S.V.' || $bonus == 0) {
-      return null;
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): ?float
+    {
+        $bonus = (float)str_replace(',', '.', $value);
+        if ($value == 'S.V.' || $bonus == 0) {
+            return null;
+        }
+        return $bonus;
     }
-    return $bonus;
-  }
 }

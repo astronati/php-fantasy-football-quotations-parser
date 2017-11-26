@@ -30,43 +30,44 @@ use \FFQP\Row\Cell\YellowCardsNormalizer as YellowCardsNormalizer;
  */
 class CellNormalizerFactory
 {
-  /**
-   * Returns an extension of CellNormalizerInterface
-   * @param string $field
-   * @return CellNormalizerInterface
-   */
-  public function create($field): CellNormalizerInterface {
-    switch ($field) {
-      case RowMapAbstract::ACTIVE:
-        return new ActiveNormalizer();
-      case RowMapAbstract::ASSISTS:
-        return new AssistsNormalizer();
-      case RowMapAbstract::AUTOGOALS:
-        return new AutoGoalsNormalizer();
-      case RowMapAbstract::CODE:
-        return new CodeNormalizer();
-      case RowMapAbstract::GOALS:
-        return new GoalsNormalizer();
-      case RowMapAbstract::MAGIC_POINTS:
-        return new MagicPointsNormalizer();
-      case RowMapAbstract::PENALTIES:
-        return new PenaltiesNormalizer();
-      case RowMapAbstract::PLAYER:
-        return new PlayerNormalizer();
-      case RowMapAbstract::QUOTATION:
-        return new QuotationNormalizer();
-      case RowMapAbstract::RED_CARDS:
-        return new RedCardsNormalizer();
-      case RowMapAbstract::ROLE:
-        return new RoleNormalizer();
-      case RowMapAbstract::SECONDARY_ROLE:
-        return new SecondaryRoleNormalizer();
-      case RowMapAbstract::TEAM:
-        return new TeamNormalizer();
-      case RowMapAbstract::VOTE:
-        return new VoteNormalizer();
-      case RowMapAbstract::YELLOW_CARDS:
-        return new YellowCardsNormalizer();
+    /**
+     * Returns an extension of CellNormalizerInterface
+     * @param string $field
+     * @return CellNormalizerInterface
+     */
+    public function create($field): CellNormalizerInterface
+    {
+        switch ($field) {
+            case RowMapAbstract::ACTIVE:
+                return new ActiveNormalizer();
+            case RowMapAbstract::ASSISTS:
+                return new AssistsNormalizer();
+            case RowMapAbstract::AUTOGOALS:
+                return new AutoGoalsNormalizer();
+            case RowMapAbstract::CODE:
+                return new CodeNormalizer();
+            case RowMapAbstract::GOALS:
+                return new GoalsNormalizer();
+            case RowMapAbstract::MAGIC_POINTS:
+                return new MagicPointsNormalizer();
+            case RowMapAbstract::PENALTIES:
+                return new PenaltiesNormalizer();
+            case RowMapAbstract::PLAYER:
+                return new PlayerNormalizer();
+            case RowMapAbstract::QUOTATION:
+                return new QuotationNormalizer();
+            case RowMapAbstract::RED_CARDS:
+                return new RedCardsNormalizer();
+            case RowMapAbstract::ROLE:
+                return new RoleNormalizer();
+            case RowMapAbstract::SECONDARY_ROLE:
+                return new SecondaryRoleNormalizer();
+            case RowMapAbstract::TEAM:
+                return new TeamNormalizer();
+            case RowMapAbstract::VOTE:
+                return new VoteNormalizer();
+            case RowMapAbstract::YELLOW_CARDS:
+                return new YellowCardsNormalizer();
+        }
     }
-  }
 }

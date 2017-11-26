@@ -15,11 +15,12 @@ use \FFQP\Row\Data\RawData as RawData;
  */
 class QuotationNormalizer implements CellNormalizerInterface
 {
-  /**
-   * @inheritdoc
-   * @see CellNormalizerInterface::normalize()
-   */
-  public function normalize($value, RawData $rawData, $season = null): int {
-    return (int) $value;
-  }
+    /**
+     * @inheritdoc
+     * @see CellNormalizerInterface::normalize()
+     */
+    public function normalize($value, RawData $rawData, $season = null): int
+    {
+        return (int)$value;
+    }
 }
