@@ -24,10 +24,10 @@ Parser depends by some classes that have to be instantiate as follows:
 
 #### Excel Reader
 A Excel Reader plugin is not provided in order to give developer the chance to choose what the best is for the own project.
-The only bond is that the Reader that will be used must implement the provided [ReaderInterface](tree/master/src/reader/ReaderInterface.php).
+The only bond is that the Reader that will be used must implement the provided [ReaderInterface](blob/master/src/reader/ReaderInterface.php).
 
 ##### Example
-The following snippet is extracted from the [example/sample.php](tree/master/example/sample.php) file and shows how a reader has been
+The following snippet is extracted from the [example/sample.php](blob/master/example/sample.php) file and shows how a reader has been
 wrapped in a custom class (`CustomReader`) that implements the `ReaderInterface`.
 
 ```php
