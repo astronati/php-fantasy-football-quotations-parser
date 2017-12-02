@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\PlayerNormalizer as PlayerNormalizer;
+use \FFQP\Row\Cell\PlayerNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -27,11 +27,11 @@ class PlayerNormalizerTest extends PHPUnit_Framework_TestCase
         $player = new PlayerNormalizer();
         $this->assertInternalType(
           'string',
-          $player->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $player->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $player->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $player->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

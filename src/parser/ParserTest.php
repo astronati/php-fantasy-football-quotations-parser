@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Parser\Parser as Parser;
+use \FFQP\Parser\PlayerDataGenerator;
 
 /**
  * @codeCoverageIgnore
@@ -10,7 +10,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
 
     private function _getReaderInstance()
     {
-        $reader = $this->getMockBuilder('\FFQP\Reader\ReaderInterface')
+        $reader = $this->getMockBuilder('\FFQP\Reader\SpreadsheetReaderInterface')
           ->setMethods(['getRowCount', 'read'])
           ->disableOriginalConstructor()
           ->getMock();
@@ -27,7 +27,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
 
     private function _getMapInstance()
     {
-        $map = $this->getMockBuilder('\FFQP\Row\Map\RowMapAbstract')
+        $map = $this->getMockBuilder('\FFQP\Row\Map\RowDataExtractorAbstract')
           ->setMethods(['getOffset', 'getFields'])
           ->disableOriginalConstructor()
           ->getMock();
@@ -40,58 +40,58 @@ class ParserTest extends PHPUnit_Framework_TestCase
         return $map;
     }
 
-    private function _getRawDataFactoryInstance()
+    private function _getRowDataFactoryInstance()
     {
-        $rawDataFactory = $this->getMockBuilder('\FFQP\Row\Data\RawDataFactory')
+        $rowDataFactory = $this->getMockBuilder('\FFQP\Row\Data\RowDataFactory')
           ->setMethods(['create'])
           ->disableOriginalConstructor()
           ->getMock();
-        $rawDataFactory->method('create')->willReturn(
-          $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock(),
-          $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock()
+        $rowDataFactory->method('create')->willReturn(
+          $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock(),
+          $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock()
         );
 
-        return $rawDataFactory;
+        return $rowDataFactory;
     }
 
     private function _getNormalizerInstance()
     {
-        $normalizer = $this->getMockBuilder('\FFQP\Row\RowNormalizer')
+        $normalizer = $this->getMockBuilder('\FFQP\Row\RowDataNormalizer')
           ->setMethods(['normalize'])
           ->disableOriginalConstructor()
           ->getMock();
-        $firstMock = $this->getMockBuilder('\FFQP\Row\Data\Data')->getMock();
+        $firstMock = $this->getMockBuilder('\FFQP\Row\Data\PlayerData')->getMock();
         $firstMock->vote = 11;
-        $secondMock = $this->getMockBuilder('\FFQP\Row\Data\Data')->getMock();
+        $secondMock = $this->getMockBuilder('\FFQP\Row\Data\PlayerData')->getMock();
         $secondMock->vote = 22;
         $normalizer->method('normalize')->willReturn($firstMock, $secondMock);
         return $normalizer;
     }
 
-    public function testGetRawData()
+    public function testGetRowData()
     {
-        $parser = new Parser(
+        $parser = new PlayerDataGenerator(
           $this->_getReaderInstance(),
           $this->_getMapInstance(),
           $this->_getNormalizerInstance(),
-          $this->_getRawDataFactoryInstance()
+          $this->_getRowDataFactoryInstance()
         );
-        $this->assertSame(2, count($parser->getRawData()));
-        $this->assertSame(1, $parser->getRawData()[0]->first);
-        $this->assertSame(2, $parser->getRawData()[0]->second);
-        $this->assertSame(3, $parser->getRawData()[1]->first);
-        $this->assertSame(4, $parser->getRawData()[1]->second);
+        $this->assertSame(2, count($parser->getRowData()));
+        $this->assertSame(1, $parser->getRowData()[0]->first);
+        $this->assertSame(2, $parser->getRowData()[0]->second);
+        $this->assertSame(3, $parser->getRowData()[1]->first);
+        $this->assertSame(4, $parser->getRowData()[1]->second);
     }
 
     public function testGetData()
     {
-        $parser = new Parser(
+        $parser = new PlayerDataGenerator(
           $this->_getReaderInstance(),
           $this->_getMapInstance(),
           $this->_getNormalizerInstance(),
-          $this->_getRawDataFactoryInstance()
+          $this->_getRowDataFactoryInstance()
         );
-        $data = $parser->getData();
+        $data = $parser->getPlayerData();
         $this->assertSame(2, count($data));
         $this->assertSame(11, $data[0]->vote);
         $this->assertSame(22, $data[1]->vote);

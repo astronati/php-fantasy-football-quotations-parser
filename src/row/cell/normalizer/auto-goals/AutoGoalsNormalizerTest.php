@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\AutoGoalsNormalizer as AutoGoalsNormalizer;
+use \FFQP\Row\Cell\AutoGoalsNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -23,9 +23,9 @@ class AutoGoalsNormalizerTest extends PHPUnit_Framework_TestCase
         ];
     }
 
-    private function _getRawDataInstance($role)
+    private function _getRowDataInstance($role)
     {
-        $instance = $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock();
+        $instance = $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock();
         $instance->role = $role;
         return $instance;
     }
@@ -39,8 +39,8 @@ class AutoGoalsNormalizerTest extends PHPUnit_Framework_TestCase
     public function testNormalize($value, $role, $result)
     {
         $autoGoals = new AutoGoalsNormalizer();
-        $rawData = $this->_getRawDataInstance($role);
-        $this->assertInternalType('int', $autoGoals->normalize($value, $rawData));
-        $this->assertSame($result, $autoGoals->normalize($value, $rawData));
+        $rowData = $this->_getRowDataInstance($role);
+        $this->assertInternalType('int', $autoGoals->normalize($value, $rowData));
+        $this->assertSame($result, $autoGoals->normalize($value, $rowData));
     }
 }

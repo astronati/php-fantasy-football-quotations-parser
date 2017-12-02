@@ -7,8 +7,8 @@
 
 namespace FFQP\Row\Cell;
 
-use \FFQP\Row\Cell\CellNormalizerInterface as CellNormalizerInterface;
-use \FFQP\Row\Data\RawData as RawData;
+use \FFQP\Row\Data\PlayerDataGeneratorFactory;
+use \FFQP\Row\Data\RowData;
 
 /**
  * Normalizes the "goals" value
@@ -19,7 +19,7 @@ class GoalsNormalizer implements CellNormalizerInterface
      * @inheritdoc
      * @see CellNormalizerInterface::normalize()
      */
-    public function normalize($value, RawData $rawData, $season = null): int
+    public function normalize($value, RowData $rowData, $format = null): int
     {
         $malus = 0;
         $bonus = (float)$value;
@@ -33,21 +33,21 @@ class GoalsNormalizer implements CellNormalizerInterface
         }
 
         // Malus for goalkeepers per each gol is -1
-        if ($malus < 0 && $rawData->role == $rawData::GOALKEEPER) {
+        if ($malus < 0 && $rowData->role == $rowData::GOALKEEPER) {
             return abs($malus);
         }
 
-        if ($season == '2017') {
-            switch ($rawData->secondaryRole) {
-                case $rawData::GOALKEEPER:
+        if ($format == PlayerDataGeneratorFactory::FORMAT_GAZZETTA_SINCE_2015) {
+            switch ($rowData->secondaryRole) {
+                case $rowData::GOALKEEPER:
                     return $bonus / 5;
-                case $rawData::DEFENDER:
+                case $rowData::DEFENDER:
                     return $bonus / 4.5;
-                case $rawData::MIDFIELDER:
+                case $rowData::MIDFIELDER:
                     return $bonus / 4;
-                case $rawData::PLAYMAKER:
+                case $rowData::PLAYMAKER:
                     return $bonus / 3.5;
-                case $rawData::FORWARD:
+                case $rowData::FORWARD:
                     return $bonus / 3;
             }
         }

@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\PenaltiesNormalizer as PenaltiesNormalizer;
+use \FFQP\Row\Cell\PenaltiesNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -32,11 +32,11 @@ class PenaltiesNormalizerTest extends PHPUnit_Framework_TestCase
         $penalties = new PenaltiesNormalizer();
         $this->assertInternalType(
           'int',
-          $penalties->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $penalties->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $penalties->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $penalties->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

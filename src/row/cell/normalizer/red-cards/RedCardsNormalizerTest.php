@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\RedCardsNormalizer as RedCardsNormalizer;
+use \FFQP\Row\Cell\RedCardsNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -32,11 +32,11 @@ class RedCardsNormalizerTest extends PHPUnit_Framework_TestCase
         $redCards = new RedCardsNormalizer();
         $this->assertInternalType(
           'int',
-          $redCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $redCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $redCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $redCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

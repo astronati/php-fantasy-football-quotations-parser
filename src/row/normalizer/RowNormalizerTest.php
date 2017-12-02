@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\RowNormalizer as RowNormalizer;
+use \FFQP\Row\RowDataNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -25,23 +25,23 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
           ->disableOriginalConstructor()
           ->getMock();
         $dataFactory->method('create')
-          ->willReturn($this->getMockBuilder('\FFQP\Row\Data\Data')->getMock());
+          ->willReturn($this->getMockBuilder('\FFQP\Row\Data\PlayerData')->getMock());
 
         return $dataFactory;
     }
 
-    private function _getRawDataFactoryInstance($config)
+    private function _getRowDataFactoryInstance($config)
     {
-        $rawData = $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock();
+        $rowData = $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock();
         foreach ($config as $field => $value) {
-            $rawData->$field = $value;
+            $rowData->$field = $value;
         }
-        return $rawData;
+        return $rowData;
     }
 
     private function _getRowMapInstance()
     {
-        $rowMap = $this->getMockBuilder('\FFQP\Row\Map\SeasonMap2013')
+        $rowMap = $this->getMockBuilder('\FFQP\Row\Map\RowDataExtractorGazzettaSince2013')
           ->setMethods(['getFields'])
           ->disableOriginalConstructor()
           ->getMock();
@@ -75,12 +75,12 @@ class RowNormalizerTest extends PHPUnit_Framework_TestCase
      */
     public function testNormalize($config, $result)
     {
-        $rowNormalizer = new RowNormalizer(
+        $rowNormalizer = new RowDataNormalizer(
           $this->_getDataFactoryInstance(),
           $this->_getCellNormalizerFactoryInstance()
         );
         $rowMap = $this->_getRowMapInstance();
-        $normalizedRow = $rowNormalizer->normalize($this->_getRawDataFactoryInstance($config), $rowMap);
+        $normalizedRow = $rowNormalizer->normalize($this->_getRowDataFactoryInstance($config), $rowMap);
         $this->assertSame($result, $normalizedRow->field1);
         $this->assertSame($result, $normalizedRow->field2);
     }

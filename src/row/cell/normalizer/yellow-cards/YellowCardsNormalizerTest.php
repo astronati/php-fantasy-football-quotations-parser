@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\YellowCardsNormalizer as YellowCardsNormalizer;
+use \FFQP\Row\Cell\YellowCardsNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -37,11 +37,11 @@ class YellowCardsNormalizerTest extends PHPUnit_Framework_TestCase
         $yellowCards = new YellowCardsNormalizer();
         $this->assertInternalType(
           'int',
-          $yellowCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $yellowCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $yellowCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $yellowCards->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

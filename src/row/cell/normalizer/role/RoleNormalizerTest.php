@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\RoleNormalizer as RoleNormalizer;
+use \FFQP\Row\Cell\RoleNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -29,11 +29,11 @@ class RoleNormalizerTest extends PHPUnit_Framework_TestCase
         $role = new RoleNormalizer();
         $this->assertInternalType(
           'string',
-          $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $role->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

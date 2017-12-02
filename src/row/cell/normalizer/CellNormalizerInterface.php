@@ -5,24 +5,21 @@
  * @license MIT http://opensource.org/licenses/MIT
  */
 
-namespace FFQP\Row\Cell {
+namespace FFQP\Row\Cell;
 
-    use \FFQP\Row\Data\RawData as RawData;
+use \FFQP\Row\Data\RowData;
 
+/**
+ * Allows to normalize values of a cell.
+ */
+interface CellNormalizerInterface
+{
     /**
-     * Allows to normalize values of a cell.
+     * Returns the normalized value of a given field of a cell.
+     * @param * $value
+     * @param RowData $rowData
+     * @param ?string $format
+     * @return int|string|bool|float|null
      */
-    interface CellNormalizerInterface
-    {
-
-        /**
-         * Returns the normalized value of a given field of a cell.
-         * @param * $value
-         * @param RawData $rawData
-         * @param ?string $season
-         * @return int|string|bool|float|null
-         */
-        public function normalize($value, RawData $rawData, $season = null);
-    }
-
+    public function normalize($value, RowData $rowData, $format = null);
 }

@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\VoteNormalizer as VoteNormalizer;
+use \FFQP\Row\Cell\VoteNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -33,11 +33,11 @@ class VoteNormalizerTest extends PHPUnit_Framework_TestCase
         $vote = new VoteNormalizer();
         $this->assertInternalType(
           $type,
-          $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $vote->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

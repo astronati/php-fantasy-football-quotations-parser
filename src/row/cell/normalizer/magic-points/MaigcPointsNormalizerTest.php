@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\MagicPointsNormalizer as MagicPointsNormalizer;
+use \FFQP\Row\Cell\MagicPointsNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -35,11 +35,11 @@ class MagicPointsNormalizerTest extends PHPUnit_Framework_TestCase
         $magicPoints = new MagicPointsNormalizer();
         $this->assertInternalType(
           'float',
-          $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $magicPoints->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

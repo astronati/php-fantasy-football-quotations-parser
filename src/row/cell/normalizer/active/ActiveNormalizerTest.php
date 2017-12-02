@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\ActiveNormalizer as ActiveNormalizer;
+use \FFQP\Row\Cell\ActiveNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -30,7 +30,7 @@ class ActiveNormalizerTest extends PHPUnit_Framework_TestCase
         $active = new ActiveNormalizer();
         $this->assertSame(
           $result,
-          $active->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $active->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }
