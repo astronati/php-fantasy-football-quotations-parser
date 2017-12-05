@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\TeamNormalizer as TeamNormalizer;
+use \FFQP\Row\Cell\TeamNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -27,11 +27,11 @@ class TeamNormalizerTest extends PHPUnit_Framework_TestCase
         $team = new TeamNormalizer();
         $this->assertInternalType(
           'string',
-          $team->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $team->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $team->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $team->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

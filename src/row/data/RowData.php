@@ -7,12 +7,10 @@
 
 namespace FFQP\Row\Data;
 
-use \FFQP\Row\Data\DataAbstract as DataAbstract;
-
 /**
  * A representation of what can be extracted from a row
  */
-class RawData extends DataAbstract
+class RowData extends DataAbstract
 {
     /**
      * The footballer code
@@ -107,4 +105,55 @@ class RawData extends DataAbstract
      * @var float
      */
     public $assists = 0;
+
+    /**
+     * @param string $code
+     * @param string $player
+     * @param string $team
+     * @param string $role
+     * @param string $secondaryRole
+     * @param int|string $status
+     * @param int $quotation
+     * @param float $magicPoints
+     * @param float $vote
+     * @param float $goals
+     * @param float $yellowCards
+     * @param float $redCards
+     * @param float $penalties
+     * @param float $autoGoals
+     * @param float $assists
+     */
+    public function __construct(
+        string $code,
+        string $player,
+        string $team,
+        string $role,
+        string $secondaryRole,
+        $status,
+        int $quotation,
+        float $magicPoints,
+        float $vote,
+        float $goals,
+        float $yellowCards,
+        float $redCards,
+        float $penalties,
+        float $autoGoals,
+        float $assists
+    ) {
+        $this->code = $code;
+        $this->player = $player;
+        $this->team = $team;
+        $this->role = $role;
+        $this->secondaryRole = $secondaryRole;
+        $this->status = $status;
+        $this->quotation = $quotation;
+        $this->magicPoints = $magicPoints;
+        $this->vote = $vote;
+        $this->goals = $goals;
+        $this->yellowCards = $yellowCards;
+        $this->redCards = $redCards;
+        $this->penalties = $penalties;
+        $this->autoGoals = $autoGoals;
+        $this->assists = $assists;
+    }
 }

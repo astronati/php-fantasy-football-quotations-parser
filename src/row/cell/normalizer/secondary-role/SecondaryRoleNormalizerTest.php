@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\SecondaryRoleNormalizer as SecondaryRoleNormalizer;
+use \FFQP\Row\Cell\SecondaryRoleNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -29,11 +29,11 @@ class SecondaryRoleNormalizerTest extends PHPUnit_Framework_TestCase
         $secondaryRole = new SecondaryRoleNormalizer();
         $this->assertInternalType(
           'string',
-          $secondaryRole->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $secondaryRole->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $secondaryRole->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $secondaryRole->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

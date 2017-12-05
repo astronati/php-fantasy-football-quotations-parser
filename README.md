@@ -3,7 +3,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/586ad24440543800417e5662/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/586ad24440543800417e5662)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
-# Fantasy Football Quotations Parser
+# Fantasy Football Quotations PlayerDataGenerator
 Provides a way to parse files that are provided by main sport newspapers with players quotations after each
 soccer match of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) championship.
 
@@ -22,35 +22,35 @@ $ composer require fantasy-football-quotations-parser
 ```
 
 ### Usage
-Parser depends by some classes that have to be instantiate as follows:
+PlayerDataGenerator depends by some classes that have to be instantiate as follows:
 
 #### Excel Reader
 An Excel Reader plugin is not provided in order to give developer the chance to choose what the best is for the own project.
-The only bond is that the Reader that will be used must implement the [ReaderInterface](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/reader/ReaderInterface.php).
+The only bond is that the Reader that will be used must implement the [SpreadsheetReaderInterface](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/reader/ReaderInterface.php).
 
 ##### Example
 The following snippet is extracted from the [example/sample.php](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/sample.php)
-file and shows how a reader can be wrapped in a custom class ([CustomReader](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/lib/CustomReader.php))
-that implements the `ReaderInterface`.
+file and shows how a reader can be wrapped in a custom class ([CustomSpreadsheetReader](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/lib/CustomReader.php))
+that implements the `SpreadsheetReaderInterface`.
 
 ```php
-$reader = new CustomReader(new \PHPExcelReader\SpreadsheetReader('example/files/quotazioni_gazzetta_25.xls'));
+$reader = new CustomSpreadsheetReader(new \PHPExcelReader\SpreadsheetReader('example/files/quotazioni_gazzetta_25.xls'));
 ```
 
-#### Parser
+#### PlayerDataGenerator
 Run following command to instantiate a parser for an excel file of the season 2015/2016:
 
 ```php
-$parser = new Parser(
+$parser = new PlayerDataGenerator(
   $reader,
-  RowMapFactory::create('2015'),
-  new RowNormalizer(new DataFactory(), new CellNormalizerFactory()),
+  RowDataParserFactory::create('2015'),
+  new RowDataNormalizer(new DataFactory(), new CellNormalizerFactory()),
   new RawDataFactory()
 );
 ```
 
 #### Quotation(s)
-A `Parser` instance returns a list of [Data](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/row/data/Data.php)
+A `PlayerDataGenerator` instance returns a list of [PlayerData](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/row/data/Data.php)
 using own method [getData](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/parser/ParserInterface.php#L23).
 Any item in the list can be used as main argument of a [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/model/Quotation.php)
 instance that represents the real model per each footballer quotation.

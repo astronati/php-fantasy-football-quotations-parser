@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\CodeNormalizer as CodeNormalizer;
+use \FFQP\Row\Cell\CodeNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -28,11 +28,11 @@ class CodeNormalizerTest extends PHPUnit_Framework_TestCase
         $code = new CodeNormalizer();
         $this->assertInternalType(
           'string',
-          $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $code->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

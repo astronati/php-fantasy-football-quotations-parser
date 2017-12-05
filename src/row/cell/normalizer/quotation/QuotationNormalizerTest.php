@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\QuotationNormalizer as QuotationNormalizer;
+use \FFQP\Row\Cell\QuotationNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -28,11 +28,11 @@ class QuotationNormalizerTest extends PHPUnit_Framework_TestCase
         $quotation = new QuotationNormalizer();
         $this->assertInternalType(
           'int',
-          $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $quotation->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }

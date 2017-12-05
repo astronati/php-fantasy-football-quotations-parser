@@ -7,26 +7,10 @@
 
 namespace FFQP\Row\Cell;
 
-use \FFQP\Row\Map\RowMapAbstract as RowMapAbstract;
-use \FFQP\Row\Cell\CellNormalizerInterface as CellNormalizerInterface;
-use \FFQP\Row\Cell\ActiveNormalizer as ActiveNormalizer;
-use \FFQP\Row\Cell\AssistsNormalizer as AssistsNormalizer;
-use \FFQP\Row\Cell\AutoGoalsNormalizer as AutoGoalsNormalizer;
-use \FFQP\Row\Cell\CodeNormalizer as CodeNormalizer;
-use \FFQP\Row\Cell\GoalsNormalizer as GoalsNormalizer;
-use \FFQP\Row\Cell\MagicPointsNormalizer as MagicPointsNormalizer;
-use \FFQP\Row\Cell\PenaltiesNormalizer as PenaltiesNormalizer;
-use \FFQP\Row\Cell\PlayerNormalizer as PlayerNormalizer;
-use \FFQP\Row\Cell\QuotationNormalizer as QuotationNormalizer;
-use \FFQP\Row\Cell\RedCardsNormalizer as RedCardsNormalizer;
-use \FFQP\Row\Cell\RoleNormalizer as RoleNormalizer;
-use \FFQP\Row\Cell\SecondaryRoleNormalizer as SecondaryRoleNormalizer;
-use \FFQP\Row\Cell\TeamNormalizer as TeamNormalizer;
-use \FFQP\Row\Cell\VoteNormalizer as VoteNormalizer;
-use \FFQP\Row\Cell\YellowCardsNormalizer as YellowCardsNormalizer;
+use \FFQP\Row\Map\RowDataExtractorAbstract;
 
 /**
- * @codeCoverageIgnore
+ * Factory for CellNormalizer
  */
 class CellNormalizerFactory
 {
@@ -34,40 +18,43 @@ class CellNormalizerFactory
      * Returns an extension of CellNormalizerInterface
      * @param string $field
      * @return CellNormalizerInterface
+     * @throws \Exception
      */
     public function create($field): CellNormalizerInterface
     {
         switch ($field) {
-            case RowMapAbstract::ACTIVE:
+            case RowDataExtractorAbstract::ACTIVE:
                 return new ActiveNormalizer();
-            case RowMapAbstract::ASSISTS:
+            case RowDataExtractorAbstract::ASSISTS:
                 return new AssistsNormalizer();
-            case RowMapAbstract::AUTOGOALS:
+            case RowDataExtractorAbstract::AUTOGOALS:
                 return new AutoGoalsNormalizer();
-            case RowMapAbstract::CODE:
+            case RowDataExtractorAbstract::CODE:
                 return new CodeNormalizer();
-            case RowMapAbstract::GOALS:
+            case RowDataExtractorAbstract::GOALS:
                 return new GoalsNormalizer();
-            case RowMapAbstract::MAGIC_POINTS:
+            case RowDataExtractorAbstract::MAGIC_POINTS:
                 return new MagicPointsNormalizer();
-            case RowMapAbstract::PENALTIES:
+            case RowDataExtractorAbstract::PENALTIES:
                 return new PenaltiesNormalizer();
-            case RowMapAbstract::PLAYER:
+            case RowDataExtractorAbstract::PLAYER:
                 return new PlayerNormalizer();
-            case RowMapAbstract::QUOTATION:
+            case RowDataExtractorAbstract::QUOTATION:
                 return new QuotationNormalizer();
-            case RowMapAbstract::RED_CARDS:
+            case RowDataExtractorAbstract::RED_CARDS:
                 return new RedCardsNormalizer();
-            case RowMapAbstract::ROLE:
+            case RowDataExtractorAbstract::ROLE:
                 return new RoleNormalizer();
-            case RowMapAbstract::SECONDARY_ROLE:
+            case RowDataExtractorAbstract::SECONDARY_ROLE:
                 return new SecondaryRoleNormalizer();
-            case RowMapAbstract::TEAM:
+            case RowDataExtractorAbstract::TEAM:
                 return new TeamNormalizer();
-            case RowMapAbstract::VOTE:
+            case RowDataExtractorAbstract::VOTE:
                 return new VoteNormalizer();
-            case RowMapAbstract::YELLOW_CARDS:
+            case RowDataExtractorAbstract::YELLOW_CARDS:
                 return new YellowCardsNormalizer();
+            default:
+                throw new \Exception('Unhandled field ' . $field);
         }
     }
 }

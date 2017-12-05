@@ -8,7 +8,7 @@
 namespace FFQP\Row\Data;
 
 /**
- * Describes a generic Data.
+ * Describes a generic PlayerData.
  */
 abstract class DataAbstract
 {

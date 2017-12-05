@@ -1,6 +1,6 @@
 <?php
 
-use \FFQP\Row\Cell\AssistsNormalizer as AssistsNormalizer;
+use \FFQP\Row\Cell\AssistsNormalizer;
 
 /**
  * @codeCoverageIgnore
@@ -30,11 +30,11 @@ class AssistsNormalizerTest extends PHPUnit_Framework_TestCase
         $assists = new AssistsNormalizer();
         $this->assertInternalType(
           'int',
-          $assists->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $assists->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
         $this->assertSame(
           $result,
-          $assists->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RawData')->getMock())
+          $assists->normalize($value, $this->getMockBuilder('\FFQP\Row\Data\RowData')->getMock())
         );
     }
 }
