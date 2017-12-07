@@ -10,9 +10,9 @@ class MapGazzettaSince2013Test extends TestCase
         $map = new MapGazzettaSince2013();
         $this->assertInternalType('int', 3);
         $rows = $map->extractRows('tests/fixtures/2014_quotazioni_gazzetta_01.xls');
-        
+
         $this->assertSame(666, count($rows));
-        
+
         // Footballer with a vote
         $this->assertSame('106', $rows[6]->code);
         $this->assertSame('BARDI', $rows[6]->player);
@@ -29,7 +29,7 @@ class MapGazzettaSince2013Test extends TestCase
         $this->assertSame('0', $rows[6]->penalties);
         $this->assertSame('0', $rows[6]->autoGoals);
         $this->assertSame('0', $rows[6]->assists);
-        
+
         // Footballer without a vote
         $this->assertSame('105', $rows[5]->code);
         $this->assertSame('AVRAMOV', $rows[5]->player);

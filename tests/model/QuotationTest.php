@@ -82,7 +82,7 @@ class QuotationTest extends TestCase
           ]
         ];
     }
-    
+
     private function _getQuotationInstance($config)
     {
         return new Quotation(
@@ -103,7 +103,7 @@ class QuotationTest extends TestCase
           $config['assists']
         );
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -115,7 +115,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('string', $quotation->getCode());
         $this->assertSame($result['getCode'], $quotation->getCode());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -127,7 +127,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('string', $quotation->getPlayer());
         $this->assertSame($result['getPlayer'], $quotation->getPlayer());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -139,7 +139,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('string', $quotation->getTeam());
         $this->assertSame($result['getTeam'], $quotation->getTeam());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -151,7 +151,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('string', $quotation->getRole());
         $this->assertSame($result['getRole'], $quotation->getRole());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -163,7 +163,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('string', $quotation->getSecondaryRole());
         $this->assertSame($result['getSecondaryRole'], $quotation->getSecondaryRole());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -175,7 +175,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('boolean', $quotation->isActive());
         $this->assertSame($result['isActive'], $quotation->isActive());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -187,7 +187,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('integer', $quotation->getQuotation());
         $this->assertSame($result['getQuotation'], $quotation->getQuotation());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -203,7 +203,7 @@ class QuotationTest extends TestCase
         }
         $this->assertSame($result['getMagicPoints'], $quotation->getMagicPoints());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -219,7 +219,7 @@ class QuotationTest extends TestCase
         }
         $this->assertSame($result['getVote'], $quotation->getVote());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -231,7 +231,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('bool', $quotation->isWithoutVote());
         $this->assertSame(is_null($result['getVote']), $quotation->isWithoutVote());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -243,7 +243,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('integer', $quotation->getGoals());
         $this->assertSame($result['getGoals'], $quotation->getGoals());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -255,7 +255,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('boolean', $quotation->isCautioned());
         $this->assertSame($result['isCautioned'], $quotation->isCautioned());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -267,7 +267,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('boolean', $quotation->isSentOff());
         $this->assertSame($result['isSentOff'], $quotation->isSentOff());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -279,7 +279,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('integer', $quotation->getPenalties());
         $this->assertSame($result['getPenalties'], $quotation->getPenalties());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config
@@ -291,7 +291,7 @@ class QuotationTest extends TestCase
         $this->assertInternalType('integer', $quotation->getAutoGoals());
         $this->assertSame($result['getAutoGoals'], $quotation->getAutoGoals());
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config

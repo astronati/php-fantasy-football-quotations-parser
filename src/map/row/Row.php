@@ -13,7 +13,7 @@ class Row
     public const MIDFIELDER = 'C';
     public const PLAYMAKER = 'T';
     public const FORWARD = 'A';
-    
+
     /**
      * The footballer code
      * @var string
@@ -126,22 +126,23 @@ class Row
      * @param string $assists
      */
     public function __construct(
-        string $code,
-        string $player,
-        string $team,
-        string $role,
-        string $secondaryRole,
-        string $status,
-        string $quotation,
-        string $magicPoints,
-        string $vote,
-        string $goals,
-        string $yellowCards,
-        string $redCards,
-        string $penalties,
-        string $autoGoals,
-        string $assists
-    ) {
+      string $code,
+      string $player,
+      string $team,
+      string $role,
+      string $secondaryRole,
+      string $status,
+      string $quotation,
+      string $magicPoints,
+      string $vote,
+      string $goals,
+      string $yellowCards,
+      string $redCards,
+      string $penalties,
+      string $autoGoals,
+      string $assists
+    )
+    {
         $this->code = $code;
         $this->player = $player;
         $this->team = $team;

@@ -16,7 +16,7 @@ class QuotationsParserTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock()
         ]);
-        
+
         $normalizer = $this->getMockBuilder('FFQP\Map\Row\RowNormalizer')
           ->setMethods(['normalize'])
           ->disableOriginalConstructor()
@@ -26,10 +26,10 @@ class QuotationsParserTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock()
         );
-        
+
         $parser = new QuotationsParser($map, $normalizer);
         $quotations = $parser->getQuotations('path');
-        
+
         $this->assertInstanceOf('FFQP\Model\Quotation', $quotations[0]);
     }
 }
