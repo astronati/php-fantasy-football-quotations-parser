@@ -18,7 +18,7 @@ To do that please file a new [issue](https://github.com/astronati/php-fantasy-fo
 ## Installation
 You can install the library and its dependencies using `composer` running:
 ```sh
-$ composer require fantasy-football-quotations-parser
+$ composer require astronati/fantasy-football-quotations-parser
 ```
 
 ### Usage
