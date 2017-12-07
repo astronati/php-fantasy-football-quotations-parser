@@ -3,9 +3,9 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/586ad24440543800417e5662/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/586ad24440543800417e5662)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
-# Fantasy Football Quotations PlayerDataGenerator
-Provides a way to parse files that are provided by main sport newspapers with players quotations after each
-soccer match of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) championship.
+# Fantasy Football Quotations Parser
+Provides a way to parse files that are provided by main sport newspapers with players quotations after each soccer match
+of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) championship.
 
 ## Supported Newspapers
 Currently the "[Gazzetta dello Sport](http://www.gazzetta.it/)" is the only supported newspaper.
@@ -22,41 +22,27 @@ $ composer require fantasy-football-quotations-parser
 ```
 
 ### Usage
-PlayerDataGenerator depends by some classes that have to be instantiate as follows:
-
-#### Excel Reader
-An Excel Reader plugin is not provided in order to give developer the chance to choose what the best is for the own project.
-The only bond is that the Reader that will be used must implement the [SpreadsheetReaderInterface](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/reader/ReaderInterface.php).
+The library allows to return a model per each quotation (player, vote, etc...).
 
 ##### Example
-The following snippet is extracted from the [example/sample.php](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/sample.php)
-file and shows how a reader can be wrapped in a custom class ([CustomSpreadsheetReader](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/lib/CustomReader.php))
-that implements the `SpreadsheetReaderInterface`.
+The following snippet is extracted from the
+[example/sample.php](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/sample.php)
+file and show how parsing an excel file of the season 2017/2018
 
 ```php
-$reader = new CustomSpreadsheetReader(new \PHPExcelReader\SpreadsheetReader('example/files/quotazioni_gazzetta_25.xls'));
-```
+// Obtain a QuotationsParser
+$quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015);
 
-#### PlayerDataGenerator
-Run following command to instantiate a parser for an excel file of the season 2015/2016:
-
-```php
-$parser = new PlayerDataGenerator(
-  $reader,
-  RowDataParserFactory::create('2015'),
-  new RowDataNormalizer(new DataFactory(), new CellNormalizerFactory()),
-  new RawDataFactory()
-);
+// Get the PlayerData information, ready to be used
+$quotations = $quotationsParser->getQuotations('example/files/2015_quotazioni_gazzetta_25.xls');
 ```
 
 #### Quotation(s)
-A `PlayerDataGenerator` instance returns a list of [PlayerData](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/row/data/Data.php)
-using own method [getData](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/parser/ParserInterface.php#L23).
-Any item in the list can be used as main argument of a [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/model/Quotation.php)
-instance that represents the real model per each footballer quotation.
+A [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/model/Quotation.php)
+instance allows to map a single row and to return information as follows:
 
 ```php
-$quotation = new Quotation($parser->getData()[0]);
+$quotations[0]->isWithoutVote();
 ```
 
 ## Development
@@ -71,12 +57,16 @@ $ composer install
 ```
 
 ### Testing
-Tests files are created next to the related file as follows:
+Tests files are created in a dedicate folder that replicates the
+[src](https://github.com/astronati/php-fantasy-football-quotations-parser/tree/master/src) structure as follows:
 ```
 .
 +-- src
 |   +-- [folder-name]
 |   |   +-- [file-name].php
+|   ...
++-- tests
+|   +-- [folder-name]
 |   |   +-- [file-name]Test.php
 ```
 
