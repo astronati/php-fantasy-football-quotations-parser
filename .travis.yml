@@ -10,7 +10,7 @@ install:
 script:
   - composer test
 after_script:
-  - ./vendor/bin/codacycoverage phpunit test/report/xml
+  - ./vendor/bin/codacycoverage phpunit coverage/report/xml
 notifications:
   email:
     recipients:
