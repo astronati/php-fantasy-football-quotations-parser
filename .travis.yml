@@ -1,22 +1,22 @@
 language: php
 php:
-- '7.1'
+  - '7.1'
 sudo: false
 cache:
   directories:
-  - vendor
+    - vendor
 install:
-- composer install
+  - composer install
 script:
-- composer test
+  - composer test
 after_script:
-- "./vendor/bin/codacycoverage phpunit coverage/report/xml"
+  - "./vendor/bin/codacycoverage phpunit coverage/report/xml"
 notifications:
   email:
     recipients:
-    - stronati.a+fantasyfootballquotationsparser@gmail.com
+      - stronati.a+fantasyfootballquotationsparser@gmail.com
     on_success: change
     on_failure: always
 env:
   matrix:
-    secure: LSyMTD0IbsQFGBiwpYvQIKYdf7VNtmADrJCk0F9n3CsOiWE/RhGN+YCwZnzowRGjpXQBtEG7KS0BpbwCGj/SzXf0ten55Bq8vjvhDRqXMUzT7MfLns27HMmRaw3JCwGhrXFozuq794zUMxLY6dn8RdO4o8s/FDfeSvjTlGrXWASLBWiQAdfVYvxYEUUwH0PKYMAETUl+bb/eRvPDZNgqAxvAnE8+xtbWeZjFNdgGk2IFnyrjuMobEUo+bFiNVWHH5+ic5UiMfjxieePzKkQ/cJgohBGJv4hxHmYZpoGx8i3R+HJoYtVQH2OTJOVZA9Mt7rOTWHGnEEx7LEfhl8EYYIdj0NTsIf6+Dr1MUzcXUBiFGmhRDz6fa4wJBoF9WSWBO0DwCNfZG7CEg8R+kRCfqPzDxgbtRo/hz6ajQvuTS4AF+0lu0qErzridnQ0LSnbDZt4Nkyood7hQ7RVSq62WZB9y/v/nN3d1XWKXe9JFYgO67b6qUoo3z79kUH4YgpCEokbcWw09apKgxSCBxsBR4Gk9UUUOJ+XQpSzunoUZUFzFsB7CtES5DQCdH+auc3Md+/XhINBiCQP8vFhEGiIEn2gJx2bKDlqyfDa6MshHR88EhnldeBwwdSI0KEwIz8GWjUoq78Ou8iGXKhLLO2B+j7D1ZB1eJd4Tq+C1eRmcDfg=
+    - secure: EFF7RRIMDp7vL5JUaES5Pjmj1YYPfQYEBtete90l5gWSXwfuqpf0wo769mLBWJ2En/rKliO1qzFrmr3Jta5hkLEvhMCh0NleZkQnyNpwi2o6Nd+6QK0JB0n2QBkSboxs13Po6W0G+qXHDrdSKh4Y1pWoYrU781fGQHCE3MytaD1A6vnumchAnNeJX3vTmZTzBizaFFde3qZlERzG1TO2wXmljDuFlQDJPHnQtSi2aUq0//PzsiYF2lZi+gGUJ0BlHSrmTYRnZYQqduIJW//vJEuYZHjrlVBF3uvwDrvDTcmQNxAI2+mhxeceaLCB1qLuUvd9v4wFxSddXgPT5vtJ5QEsbmRb1VfzZDxZHQTDz0h6Lct3LmD6b83uPVN5v6xO+ItSUtGx7u3J4DeRryNOwxmCArmrxOEVCQ2EHGCa/7I1R1+d1Ji2HzNdUWG3xw3MNbgRQLlBNXWHtXMZGz0Y/ABzssJzQudIdzaPVos2aGMPKfQe1wnX39YBkf/y2jB1WdY+N6EcvMyP9LHIg4kAR8TjASnP9zt1CuWCwhQ9XV1PVtWvVhsDqsWVKY5i2i6ymR8LzouRMmviT//aCh86beuqgkqxQR0IsjPSrC2yWqvHwVxtk+r0WcYDj5CW/eqShStSDVcbUMwg4mq9+/A79XJCR2qjBVxhRg67gigLw90=
