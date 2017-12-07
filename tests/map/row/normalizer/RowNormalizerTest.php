@@ -19,7 +19,7 @@ class RowNormalizerTest extends TestCase
           ],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param array $config

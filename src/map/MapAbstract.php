@@ -24,14 +24,14 @@ abstract class MapAbstract implements MapInterface
     const PENALTIES = 'penalties';
     const AUTO_GOALS = 'autoGoals';
     const ASSISTS = 'assists';
-    
+
     /**
      * Returns an array where the key is one of const above and the value is an integer representing the column where
      * the value is positioned in the spreadsheet.
      * @return array
      */
     abstract protected function getColumnIndexByFieldNameMap(): array;
-    
+
     /**
      * Given a field name (one of the constants above) returns an integer representing the column index where such field
      * is contained in the parsed spreadsheet.
@@ -43,7 +43,7 @@ abstract class MapAbstract implements MapInterface
     {
         return $this->getColumnIndexByFieldNameMap()[$fieldName];
     }
-    
+
     /**
      * Returns the spreadsheet row number for which the extractor should start extracting row data.
      * @return int

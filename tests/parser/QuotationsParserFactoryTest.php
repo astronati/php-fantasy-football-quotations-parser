@@ -12,7 +12,7 @@ class QuotationsParserFactoryTest extends TestCase
           [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param string $format
@@ -24,7 +24,7 @@ class QuotationsParserFactoryTest extends TestCase
           QuotationsParserFactory::create($format)
         );
     }
-    
+
     public function testException()
     {
         $this->expectException(\Exception::class);

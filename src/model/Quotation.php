@@ -12,50 +12,50 @@ class Quotation implements QuotationInterface
      * @var string
      */
     private $_code;
-    
+
     /**
      * The fullname of the footballer
      * @var string
      */
     private $_player;
-    
+
     /**
      * The name of the soccer team
      * @var string
      */
     private $_team;
-    
+
     /**
      * The role of the footballer
      * @var string
      */
     private $_role;
-    
+
     /**
      * The secondary role of the footballer
      * @var string
      */
     private $_secondaryRole;
-    
+
     /**
      * True if the footballer is still playing for the team
      * @var bool
      */
     private $_active;
-    
+
     /**
      * The market value of the footballer. The value is expressed in Fantasy Millions (FMln).
      * @var int
      */
     private $_quotation;
-    
+
     /**
      * The Magic Points assigned to the footballer.
      * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
      * @var float
      */
     private $_magicPoints = null;
-    
+
     /**
      * The vote on report card of the footballer.
      * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
@@ -63,43 +63,43 @@ class Quotation implements QuotationInterface
      * @var ?float
      */
     private $_vote = null;
-    
+
     /**
      * The number of goals scored by the footballer.
      * @var int
      */
     private $_goals = 0;
-    
+
     /**
      * The number of yellow cards assigned to the footballer.
      * @var int
      */
     private $_yellowCards = 0;
-    
+
     /**
      *  The number of red cards assigned to the footballer.
      * @var int
      */
     private $_redCards = 0;
-    
+
     /**
      * The number of penalties saved by goalkeeper or missed by footballer.
      * @var int
      */
     private $_penalties = 0;
-    
+
     /**
      * The number of auto goals scored by the footballer.
      * @var int
      */
     private $_autoGoals = 0;
-    
+
     /**
      * The number of assists made by the footballer.
      * @var int
      */
     private $_assists = 0;
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getCode()
@@ -117,7 +117,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_player;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getTeam()
@@ -126,7 +126,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_team;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getRole()
@@ -135,7 +135,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_role;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getSecondaryRole()
@@ -144,7 +144,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_secondaryRole;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isActive()
@@ -153,7 +153,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_active === true;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getQuotation()
@@ -171,7 +171,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_magicPoints;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getVote()
@@ -180,7 +180,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_vote;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isWithoutVote()
@@ -189,7 +189,7 @@ class Quotation implements QuotationInterface
     {
         return is_null($this->getVote());
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getGoals()
@@ -198,7 +198,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_goals;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isCautioned
@@ -207,7 +207,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_yellowCards > 0;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::isSentOff()
@@ -216,7 +216,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_redCards > 0;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getPenalties()
@@ -225,7 +225,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_penalties;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getAutoGoals()
@@ -234,7 +234,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_autoGoals;
     }
-    
+
     /**
      * @inheritdoc
      * @see QuotationInterface::getAssists()
@@ -243,7 +243,7 @@ class Quotation implements QuotationInterface
     {
         return $this->_assists;
     }
-    
+
     /**
      * @param string $code
      * @param string $player

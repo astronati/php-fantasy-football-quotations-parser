@@ -41,7 +41,7 @@ class RowFieldNormalizerFactoryTest extends TestCase
           [MapAbstract::YELLOW_CARDS, YellowCardsNormalizer::class],
         ];
     }
-    
+
     /**
      * @dataProvider dataProvider
      * @param string $type
@@ -54,7 +54,7 @@ class RowFieldNormalizerFactoryTest extends TestCase
           RowFieldNormalizerFactory::create($type)
         );
     }
-    
+
     public function testException()
     {
         $this->expectException(\Exception::class);
