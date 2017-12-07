@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/astronati/php-fantasy-football-quotations-parser.svg?branch=master)](https://travis-ci.org/astronati/php-fantasy-football-quotations-parser)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d160340b6f645c0b370ddb385fa2088)](https://www.codacy.com/app/astronati/php-fantasy-football-quotations-parser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=astronati/php-fantasy-football-quotations-parser&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/coverage/91c01b9eef2c412ab1812eaa99a9348f)](https://www.codacy.com/app/Codacy/php-codacy-coverage)
 [![Dependency Status](https://www.versioneye.com/user/projects/586ad24440543800417e5662/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/586ad24440543800417e5662)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
@@ -18,7 +19,7 @@ To do that please file a new [issue](https://github.com/astronati/php-fantasy-fo
 ## Installation
 You can install the library and its dependencies using `composer` running:
 ```sh
-$ composer require fantasy-football-quotations-parser
+$ composer require astronati/fantasy-football-quotations-parser
 ```
 
 ### Usage

@@ -9,6 +9,8 @@ install:
   - composer install
 script:
   - composer test
+after_script:
+  - ./vendor/bin/codacycoverage phpunit test/report/xml
 notifications:
   email:
     recipients:
