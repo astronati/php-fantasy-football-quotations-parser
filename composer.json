@@ -11,6 +11,7 @@
   ],
   "minimum-stability": "stable",
   "require-dev": {
+    "codacy/coverage": "^1.4",
     "consolidation/robo": "~1",
     "phpunit/phpunit": "^6.5",
     "phpunit/php-code-coverage": "^5.3"

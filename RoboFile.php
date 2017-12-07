@@ -12,9 +12,10 @@ class RoboFile extends \Robo\Tasks
     public function test()
     {
         $cmd = [];
-        array_push($cmd, './vendor/phpunit/phpunit/phpunit tests');
-        array_push($cmd, '--coverage-html coverage/report/html');
-        array_push($cmd, '--whitelist ./src');
+        $cmd[] = './vendor/phpunit/phpunit/phpunit tests';
+        $cmd[] = '--coverage-html coverage/report/html';
+        $cmd[] = '--coverage-xml test/report/xml';
+        $cmd[] = '--whitelist ./src';
         $this->_exec(implode(' ', $cmd));
     }
 }
