@@ -7,7 +7,6 @@ namespace FFQP\Model;
  */
 class Quotation implements QuotationInterface
 {
-    
     /**
      * The footballer code
      * @var string

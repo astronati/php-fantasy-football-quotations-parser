@@ -24,7 +24,7 @@ abstract class MapAbstract implements MapInterface
     const PENALTIES = 'penalties';
     const AUTO_GOALS = 'autoGoals';
     const ASSISTS = 'assists';
-
+    
     /**
      * Returns an array where the key is one of const above and the value is an integer representing the column where
      * the value is positioned in the spreadsheet.
