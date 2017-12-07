@@ -2,16 +2,33 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use \FFQP\Row\Data\PlayerDataGeneratorFactory;
+use \FFQP\Parser\QuotationsParserFactory;
 
-// Obtain a PlayerDataGenerator
-$playerDataGenerator = PlayerDataGeneratorFactory::create(PlayerDataGeneratorFactory::FORMAT_GAZZETTA_SINCE_2015);
+// Obtain a QuotationsParser
+$quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015);
+
 // Get the PlayerData information, ready to be used
-$playerData = $playerDataGenerator->getPlayerData('example/files/quotazioni_gazzetta_25.xls');
+$quotations = $quotationsParser->getQuotations('example/files/2015_quotazioni_gazzetta_25.xls');
+
+// Show an example
 $output = [
-    'totale giocatori: ' . count($playerData),
-    'Sesto Giocatore (nome): ' . $playerData[6]->player,
-    'Sesto Giocatore (magic points): ' . $playerData[6]->magicPoints,
+  'Number of quotations: ' . count($quotations),
+  'Code: ' . $quotations[502]->getCode(),
+  'Player: ' . $quotations[502]->getPlayer(),
+  'Team: ' . $quotations[502]->getTeam(),
+  'Role: ' . $quotations[502]->getRole(),
+  'Secondary Role: ' . $quotations[502]->getSecondaryRole(),
+  'Is still active: ' . $quotations[502]->isActive(),
+  'Quotation: ' . $quotations[502]->getQuotation(),
+  'MagicPoints: ' . $quotations[502]->getMagicPoints(),
+  'Vote: ' . $quotations[502]->getVote(),
+  'Is without vote: ' . $quotations[502]->isWithoutVote(),
+  '# of Goals: ' . $quotations[502]->getGoals(),
+  'Is cautioned: ' . $quotations[502]->isCautioned(),
+  'Is sent off: ' . $quotations[502]->isSentOff(),
+  '# of Penalties: ' . $quotations[502]->getPenalties(),
+  '# of Auto Goals: ' . $quotations[502]->getAutoGoals(),
+  '# of Assists: ' . $quotations[502]->getAssists(),
 ];
 
 echo implode(PHP_EOL, $output) . PHP_EOL;
