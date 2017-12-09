@@ -9,35 +9,44 @@ class SecondaryRoleNormalizerTest extends TestCase
     public function dataProvider()
     {
         return [
-          ['P', 'P'],
-          ['D', 'D'],
-          ['C', 'C'],
-          ['T', 'T'],
-          ['A', 'A'],
+          ['P', 'P', 'P'],
+          ['D', 'D', 'D'],
+          ['C', 'C', 'C'],
+          ['T', 'A', 'A'],
+          ['A', 'A', 'A'],
+          ['A', '', 'A'],
         ];
+    }
+
+    private function _getRowMock($role) {
+        $rowMock = $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock();
+        $rowMock->role = $role;
+        return $rowMock;
     }
 
     /**
      * @dataProvider dataProvider
-     * @param * $value
-     * @param ?float $result
+     * @param string $role
+     * @param string $secondaryRole
+     * @param string $result
      */
-    public function testNormalize($value, $result)
+    public function testNormalize($role, $secondaryRole, $result)
     {
-        $secondaryRole = new SecondaryRoleNormalizer();
+        $rowMock = $this->_getRowMock($role);
+        $secondaryRoleNormalizer = new SecondaryRoleNormalizer();
         $this->assertInternalType(
           'string',
-          $secondaryRole->normalize(
-            $value,
-            $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
+          $secondaryRoleNormalizer->normalize(
+            $secondaryRole,
+            $rowMock,
             'any_type'
           )
         );
         $this->assertSame(
           $result,
-          $secondaryRole->normalize(
-            $value,
-            $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
+          $secondaryRoleNormalizer->normalize(
+            $secondaryRole,
+            $rowMock,
             'any_type'
           )
         );
