@@ -58,7 +58,7 @@ $ composer install
 ```
 
 ### Testing
-Tests files are created in a dedicate folder that replicates the
+Tests files are created in dedicates folders that replicate the
 [src](https://github.com/astronati/php-fantasy-football-quotations-parser/tree/master/src) structure as follows:
 ```
 .
