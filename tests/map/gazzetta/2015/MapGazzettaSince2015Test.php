@@ -13,6 +13,23 @@ class MapGazzettaSince2015Test extends TestCase
 
         $this->assertSame(694, count($rows));
 
+        // First Footballer
+        $this->assertSame('101', $rows[0]->code);
+        $this->assertSame('ABBIATI Christian', $rows[0]->player);
+        $this->assertSame('Milan', $rows[0]->team);
+        $this->assertSame('P', $rows[0]->role);
+        $this->assertSame('P', $rows[0]->secondaryRole);
+        $this->assertSame('SI', $rows[0]->status);
+        $this->assertSame('1', $rows[0]->quotation);
+        $this->assertSame('-', $rows[0]->magicPoints);
+        $this->assertSame('-', $rows[0]->vote);
+        $this->assertSame('', $rows[0]->goals);
+        $this->assertSame('', $rows[0]->yellowCards);
+        $this->assertSame('', $rows[0]->redCards);
+        $this->assertSame('', $rows[0]->penalties);
+        $this->assertSame('', $rows[0]->autoGoals);
+        $this->assertSame('', $rows[0]->assists);
+
         // Footballer with a vote
         $this->assertSame('704', $rows[509]->code);
         $this->assertSame('PERISIC Ivan', $rows[509]->player);
