@@ -46,11 +46,19 @@ abstract class MapAbstract implements MapInterface
 
     /**
      * Returns the spreadsheet row number for which the extractor should start extracting row data.
+     * @param Object $sheet
      * @return int
      */
-    private function getStartingRow(): int
+    private function getStartingRow($sheet): int
     {
-        return 3;
+        $row = null;
+        for ($i = 1; $i <= 4 && !$row; $i++) {
+            if ($sheet->getCellByColumnAndRow(0, $i) == "Cod.") {
+                $row = $i + 1;
+            }
+        }
+
+        return $row;
     }
 
     /**
@@ -64,7 +72,7 @@ abstract class MapAbstract implements MapInterface
         $sheet = $objPHPExcel->getSheet(0);
 
         $rows = [];
-        for ($rowNumber = $this->getStartingRow(); $rowNumber <= $sheet->getHighestRow(); $rowNumber++) {
+        for ($rowNumber = $this->getStartingRow($sheet); $rowNumber <= $sheet->getHighestRow(); $rowNumber++) {
             $rows[] = new Row(
               $sheet->getCellByColumnAndRow($this->getColumnIndexByField(self::CODE), $rowNumber),
               $sheet->getCellByColumnAndRow($this->getColumnIndexByField(self::PLAYER), $rowNumber),
