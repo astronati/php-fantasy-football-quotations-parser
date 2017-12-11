@@ -34,7 +34,7 @@ file and show how parsing an excel file of the season 2017/2018
 // Obtain a QuotationsParser
 $quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015);
 
-// Get the PlayerData information, ready to be used
+// Get the quotations, ready to be used
 $quotations = $quotationsParser->getQuotations('example/files/2015_quotazioni_gazzetta_25.xls');
 ```
 

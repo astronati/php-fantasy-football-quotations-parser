@@ -13,6 +13,6 @@ class MagicPointsNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): float
     {
-        return (float)str_replace(',', '.', $value);
+        return (float)$value;
     }
 }

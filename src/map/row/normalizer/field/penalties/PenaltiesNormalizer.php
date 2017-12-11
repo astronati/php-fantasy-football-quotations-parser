@@ -13,6 +13,6 @@ class PenaltiesNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): int
     {
-        return (int)(abs(str_replace(',', '.', (float)$value)) / 3);
+        return (int)(abs($value) / 3);
     }
 }

@@ -17,6 +17,6 @@ class SecondaryRoleNormalizer implements RowFieldNormalizerInterface
             return $row->role;
         }
 
-        return (string)$value;
+        return $value;
     }
 }
