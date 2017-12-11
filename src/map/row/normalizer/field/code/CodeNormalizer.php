@@ -13,6 +13,6 @@ class CodeNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): string
     {
-        return (string)$value;
+        return $value;
     }
 }
