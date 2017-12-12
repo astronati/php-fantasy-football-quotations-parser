@@ -68,6 +68,12 @@ interface QuotationInterface
     public function getVote(): ?float;
 
     /**
+     * Determines if the footballer has played or not.
+     * @return bool
+     */
+    public function hasPlayed(): bool;
+
+    /**
      * Determines if the footballer has been marked as S.V. (without vote) by the newspaper.
      * @return bool
      */

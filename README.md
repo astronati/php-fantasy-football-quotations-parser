@@ -81,7 +81,7 @@ Run what follows to see the code coverage:
 $ composer coverage
 ```
 
-See [Code Coverage](http://astronati.github.io/php-fantasy-football-quotations-parser/coverage/report/html/index.html)
+See [Code Coverage](http://astronati.github.io/php-fantasy-football-quotations-parser/coverage/html/index.html)
 for more details.
 
 ## License

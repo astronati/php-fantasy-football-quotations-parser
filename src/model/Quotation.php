@@ -183,6 +183,15 @@ class Quotation implements QuotationInterface
 
     /**
      * @inheritdoc
+     * @see QuotationInterface::hasPlayed()
+     */
+    public function hasPlayed(): bool
+    {
+        return $this->getMagicPoints() > 0;
+    }
+
+    /**
+     * @inheritdoc
      * @see QuotationInterface::isWithoutVote()
      */
     public function isWithoutVote(): bool
