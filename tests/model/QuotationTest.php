@@ -42,6 +42,8 @@ class QuotationTest extends TestCase
               'getPenalties' => 0,
               'getAutoGoals' => 0,
               'getAssists' => 0,
+              'isWithoutVote' => true,
+              'hasPlayed' => false
             ]
           ],
           [
@@ -78,6 +80,8 @@ class QuotationTest extends TestCase
               'getPenalties' => 3,
               'getAutoGoals' => -2,
               'getAssists' => 2,
+              'isWithoutVote' => false,
+              'hasPlayed' => true
             ]
           ]
         ];
@@ -225,11 +229,23 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testHasPlayed($config, $result)
+    {
+        $quotation = $this->_getQuotationInstance($config);
+        $this->assertInternalType('bool', $quotation->hasPlayed());
+        $this->assertSame($result['hasPlayed'], $quotation->hasPlayed());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testIsWithoutVote($config, $result)
     {
         $quotation = $this->_getQuotationInstance($config);
         $this->assertInternalType('bool', $quotation->isWithoutVote());
-        $this->assertSame(is_null($result['getVote']), $quotation->isWithoutVote());
+        $this->assertSame($result['isWithoutVote'], $quotation->isWithoutVote());
     }
 
     /**
