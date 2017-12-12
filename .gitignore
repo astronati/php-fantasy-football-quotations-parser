@@ -2,6 +2,8 @@
 # If you specify the default project settings, these settings will be automatically used for each newly created project.
 .idea/
 
+.DS_Store
+
 # Temporary folder, mainly used for code coverage results.
 coverage/
 
