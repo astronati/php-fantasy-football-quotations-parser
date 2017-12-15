@@ -13,7 +13,7 @@ class VoteNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): ?float
     {
-        $bonus = (float)str_replace(',', '.', $value);
+        $bonus = (float) $value;
         if ($value == 'S.V.' || $bonus == 0) {
             return null;
         }

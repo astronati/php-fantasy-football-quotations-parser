@@ -13,7 +13,7 @@ class AutoGoalsNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): int
     {
-        $malus = abs((int)$value);
+        $malus = abs((int) $value);
 
         // Malus for goalkeeper is -1
         if ($row->role == 'P') {

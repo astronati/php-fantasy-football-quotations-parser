@@ -16,7 +16,7 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
     public function normalize($value, Row $row, $format): int
     {
         $malus = 0;
-        $bonus = (float)$value;
+        $bonus = (float) $value;
 
         if ($bonus == 0) {
             return 0;
