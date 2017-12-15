@@ -12,9 +12,9 @@ class RoboFile extends \Robo\Tasks
     public function test()
     {
         $cmd = [];
-        $cmd[] = './vendor/phpunit/phpunit/phpunit tests';
+        $cmd[] = './vendor/bin/phpunit tests';
         $cmd[] = '--coverage-html coverage/html';
-        $cmd[] = '--coverage-xml coverage/xml';
+        $cmd[] = '--coverage-clover coverage/xml';
         $cmd[] = '--whitelist ./src';
         $this->_exec(implode(' ', $cmd));
     }
@@ -23,7 +23,7 @@ class RoboFile extends \Robo\Tasks
      * Sends coverage result to Codacy
      */
     public function coverageSend() {
-        $this->_exec('./vendor/bin/codacycoverage phpunit coverage/xml');
+        $this->_exec('./vendor/bin/codacycoverage clover coverage/xml');
     }
 
     /**
