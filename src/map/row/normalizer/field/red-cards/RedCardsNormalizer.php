@@ -13,6 +13,6 @@ class RedCardsNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): int
     {
-        return (int)abs((float)$value);
+        return (int) abs((float) $value);
     }
 }

@@ -13,6 +13,6 @@ class ActiveNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): bool
     {
-        return ((int)$value) === 1 || $value === 'SI';
+        return ((int) $value) === 1 || $value === 'SI';
     }
 }

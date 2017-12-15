@@ -13,6 +13,6 @@ class YellowCardsNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): int
     {
-        return (int)(abs((float)str_replace(',', '.', $value)) / 0.5);
+        return (int) (abs((float) $value) / 0.5);
     }
 }

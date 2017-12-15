@@ -14,7 +14,6 @@ class VoteNormalizerTest extends TestCase
           [0, null, 'null'],
           [0.5, 0.5, 'float'],
           ['0.5', 0.5, 'float'],
-          ['0,5', 0.5, 'float'],
           [1, 1.0, 'float'],
           ['1', 1.0, 'float'],
         ];

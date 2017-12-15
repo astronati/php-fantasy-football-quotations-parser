@@ -56,14 +56,14 @@ interface QuotationInterface
     /**
      * Returns the Magic Points assigned to the footballer.
      * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
-     * @return float
+     * @return float|null
      */
-    public function getMagicPoints(): float;
+    public function getMagicPoints(): ?float;
 
     /**
      * Returns the vote on report card of the footballer.
      * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
-     * @return float
+     * @return float|null
      */
     public function getVote(): ?float;
 

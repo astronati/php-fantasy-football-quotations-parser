@@ -13,6 +13,6 @@ class QuotationNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): int
     {
-        return (int)$value;
+        return (int) $value;
     }
 }

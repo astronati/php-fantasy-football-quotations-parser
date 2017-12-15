@@ -167,7 +167,7 @@ class Quotation implements QuotationInterface
      * @inheritdoc
      * @see QuotationInterface::getMagicPoints()
      */
-    public function getMagicPoints(): float
+    public function getMagicPoints(): ?float
     {
         return $this->_magicPoints;
     }
@@ -261,8 +261,8 @@ class Quotation implements QuotationInterface
      * @param string $secondaryRole
      * @param bool $active
      * @param int $quotation
-     * @param float $magicPoints
-     * @param float $vote
+     * @param float|null $magicPoints
+     * @param float|null $vote
      * @param int $goals
      * @param int $yellowCards
      * @param int $redCards
@@ -278,7 +278,7 @@ class Quotation implements QuotationInterface
       string $secondaryRole,
       bool $active,
       int $quotation,
-      float $magicPoints,
+      ?float $magicPoints,
       ?float $vote,
       int $goals,
       int $yellowCards,
