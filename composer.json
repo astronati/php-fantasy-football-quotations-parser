@@ -14,7 +14,8 @@
     "codacy/coverage": "^1.4",
     "consolidation/robo": "~1",
     "phpunit/phpunit": "^6.5",
-    "phpunit/php-code-coverage": "^5.3"
+    "phpunit/php-code-coverage": "^5.3",
+    "phpstan/phpstan": "^0.9.1"
   },
   "require": {
     "php": ">=7.1.0",
@@ -32,6 +33,7 @@
     ]
   },
   "scripts": {
+    "analysis": "./vendor/bin/robo analysis",
     "coverage": "./vendor/bin/robo coverage:open",
     "test": "./vendor/bin/robo test"
   }
