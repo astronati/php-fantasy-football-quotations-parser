@@ -32,4 +32,11 @@ class RoboFile extends \Robo\Tasks
     public function coverageOpen() {
         $this->_exec('open coverage/html/index.html');
     }
+
+    /**
+     * Performs static analysis
+     */
+    public function analysis() {
+        $this->_exec('vendor/bin/phpstan analyse src --level=1');
+    }
 }

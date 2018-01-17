@@ -29,7 +29,7 @@ The library allows to return a model per each quotation (player, vote, etc...).
 ##### Example
 The following snippet is extracted from the
 [example/sample.php](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/sample.php)
-file and show how parsing an excel file of the season 2017/2018
+file and shows how parsing an excel file of the season 2017/2018
 
 ```php
 // Obtain a QuotationsParser
