@@ -15,6 +15,7 @@ class SecondaryRoleNormalizerTest extends TestCase
           ['T', 'A', 'A'],
           ['A', 'A', 'A'],
           ['A', '', 'A'],
+          ['A', ' ', 'A'],
         ];
     }
 
