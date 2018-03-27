@@ -13,7 +13,7 @@ class SecondaryRoleNormalizer implements RowFieldNormalizerInterface
      */
     public function normalize($value, Row $row, $format): string
     {
-        if (empty($value)) {
+        if (empty(trim($value))) {
             return $row->role;
         }
 
