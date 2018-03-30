@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b2d4b90ecd9c8ab8e97c7e4489c0b90",
+    "content-hash": "800cdfd9531316aa99d6459c0cfdda28",
     "packages": [
         {
             "name": "phpoffice/phpexcel",

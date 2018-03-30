@@ -72,6 +72,11 @@ abstract class MapAbstract implements MapInterface
 
         $rows = [];
         for ($rowNumber = $this->getStartingRow($sheet); $rowNumber <= $sheet->getHighestRow(); $rowNumber++) {
+            // Skip row if the code does not exist.
+            if (empty(trim($sheet->getCellByColumnAndRow($this->getColumnIndexByField(self::CODE), $rowNumber)))) {
+                continue;
+            }
+
             $rows[] = new Row(
               $sheet->getCellByColumnAndRow($this->getColumnIndexByField(self::CODE), $rowNumber),
               $sheet->getCellByColumnAndRow($this->getColumnIndexByField(self::PLAYER), $rowNumber),
