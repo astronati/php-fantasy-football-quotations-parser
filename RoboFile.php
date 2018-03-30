@@ -37,6 +37,6 @@ class RoboFile extends \Robo\Tasks
      * Performs static analysis
      */
     public function analysis() {
-        $this->_exec('vendor/bin/phpstan analyse src --level=1');
+        $this->_exec('vendor/bin/phpstan analyse src --level=4');
     }
 }

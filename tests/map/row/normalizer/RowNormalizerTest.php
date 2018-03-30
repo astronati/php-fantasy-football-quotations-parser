@@ -1,8 +1,8 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\RowNormalizer;
-use FFQP\Map\Row\RowFieldNormalizerFactory;
+use FFQP\Map\Row\Normalizer\RowNormalizer;
+use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;
 use FFQP\Map\Row\Row;
 
 class RowNormalizerTest extends TestCase

@@ -33,11 +33,15 @@ file and shows how parsing an excel file of the season 2017/2018
 
 ```php
 // Obtain a QuotationsParser
-$quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015);
+$quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017);
 
 // Get the quotations, ready to be used
 $quotations = $quotationsParser->getQuotations('example/files/2015_quotazioni_gazzetta_25.xls');
 ```
+
+##### Supported Formats
+Take a look at the Gazzetta [folder](https://github.com/astronati/php-fantasy-football-quotations-parser/tree/master/src/Map/Gazzetta)
+to know which formats are supported
 
 #### Quotation(s)
 A [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/model/Quotation.php)
@@ -81,9 +85,6 @@ Run what follows to see the code coverage:
 ```sh
 $ composer coverage
 ```
-
-See [Code Coverage](http://astronati.github.io/php-fantasy-football-quotations-parser/coverage/html/index.html)
-for more details.
 
 ## License
 This package is released under the [MIT license](LICENSE.md).

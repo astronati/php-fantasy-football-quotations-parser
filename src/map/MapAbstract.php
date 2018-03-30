@@ -35,7 +35,7 @@ abstract class MapAbstract implements MapInterface
     /**
      * Given a field name (one of the constants above) returns an integer representing the column index where such field
      * is contained in the parsed spreadsheet.
-     * @param $fieldName
+     * @param string $fieldName
      * @return int
      * @throws \Exception
      */
@@ -46,7 +46,7 @@ abstract class MapAbstract implements MapInterface
 
     /**
      * Returns the spreadsheet row number for which the extractor should start extracting row data.
-     * @param Object $sheet
+     * @param \PHPExcel_Worksheet $sheet
      * @return int
      */
     private function getStartingRow($sheet): int
@@ -64,7 +64,6 @@ abstract class MapAbstract implements MapInterface
     /**
      * @inheritdoc
      * @see MapInterface::extractRows()
-     * @see Row
      */
     public function extractRows(string $filePath): array
     {

@@ -3,7 +3,7 @@
 namespace FFQP\Parser;
 
 use FFQP\Map\MapAbstract;
-use FFQP\Map\Row\RowNormalizer;
+use FFQP\Map\Row\Normalizer\RowNormalizer;
 
 /**
  * Allows to return footballers quotations
@@ -13,12 +13,12 @@ class QuotationsParser implements QuotationsParserInterface
     /**
      * @var MapAbstract
      */
-    private $_map;
+    private $map;
 
     /**
      * @var RowNormalizer
      */
-    private $_normalizer;
+    private $normalizer;
 
     /**
      * @param MapAbstract $map
@@ -26,19 +26,19 @@ class QuotationsParser implements QuotationsParserInterface
      */
     public function __construct(MapAbstract $map, RowNormalizer $normalizer)
     {
-        $this->_map = $map;
-        $this->_normalizer = $normalizer;
+        $this->map = $map;
+        $this->normalizer = $normalizer;
     }
 
     /**
      * @inheritdoc
-     * @see \FFQP\Model\Quotation
+     * @see QuotationsParserInterface::getQuotations()
      */
     public function getQuotations(string $filePath): array
     {
         $quotations = [];
-        foreach ($this->_map->extractRows($filePath) as $row) {
-            $quotations[] = $this->_normalizer->normalize($row);
+        foreach ($this->map->extractRows($filePath) as $row) {
+            $quotations[] = $this->normalizer->normalize($row);
         }
 
         return $quotations;

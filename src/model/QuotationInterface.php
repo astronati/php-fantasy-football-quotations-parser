@@ -35,14 +35,16 @@ interface QuotationInterface
     public function getRole(): string;
 
     /**
-     * Returns the secondary role of the footballer. This is available from the season 2015/16.
+     * Returns the secondary (original) role of the footballer. This is available from the season 2015/16.
+     * The difference with 'getRole' is that a 'T' role has own corresponding 'C' or 'A'.
      * @see getRole
      * @return string
      */
     public function getSecondaryRole(): string;
 
     /**
-     * Determines whether the footballer is no longer active for the current league.
+     * Determines whether the footballer is no longer active for the current league or better whether the footballer is
+     * still playing in the Serie A.
      * @return boolean
      */
     public function isActive(): bool;
@@ -56,9 +58,18 @@ interface QuotationInterface
     /**
      * Returns the Magic Points assigned to the footballer.
      * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
+     * This value includes bonus and malus calculated with the rules of the own season.
      * @return float|null
      */
     public function getMagicPoints(): ?float;
+
+    /**
+     * Returns the Magic Points assigned to the footballer.
+     * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
+     * This value includes bonus and malus calculated with the classic rules.
+     * @return float|null
+     */
+    public function getOriginalMagicPoints(): ?float;
 
     /**
      * Returns the vote on report card of the footballer.
@@ -106,7 +117,7 @@ interface QuotationInterface
     public function getPenalties(): int;
 
     /**
-     * Returns the number of autogoals, footballer did.
+     * Returns the number of auto goals, footballer did.
      * @return int
      */
     public function getAutoGoals(): int;

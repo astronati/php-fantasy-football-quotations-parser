@@ -3,102 +3,124 @@
 namespace FFQP\Model;
 
 /**
- * A quotation is a values set that is assigned per each footballer after each match day (championship or cup).
+ * @see QuotationInterface
  */
 class Quotation implements QuotationInterface
 {
-    /**
-     * The footballer code
-     * @var string
-     */
-    private $_code;
+    const CODE = 'code';
+    const PLAYER = 'player';
+    const TEAM = 'team';
+    const ROLE = 'role';
+    const SECONDARY_ROLE = 'secondaryRole';
+    const ACTIVE = 'active';
+    const QUOTATION = 'quotation';
+    const MAGIC_POINTS = 'magicPoints';
+    const ORIGINAL_MAGIC_POINTS = 'originalMagicPoints';
+    const VOTE = 'vote';
+    const GOALS = 'goals';
+    const YELLOW_CARDS = 'yellowCards';
+    const RED_CARDS = 'redCards';
+    const PENALTIES = 'penalties';
+    const AUTO_GOALS = 'autoGoals';
+    const ASSISTS = 'assists';
 
     /**
-     * The fullname of the footballer
      * @var string
+     * @see QuotationInterface::getCode()
      */
-    private $_player;
+    private $code;
 
     /**
-     * The name of the soccer team
      * @var string
+     * @see QuotationInterface::getPlayer()
      */
-    private $_team;
+    private $player;
 
     /**
-     * The role of the footballer
      * @var string
+     * @see QuotationInterface::getTeam()
      */
-    private $_role;
+    private $team;
 
     /**
-     * The secondary role of the footballer
      * @var string
+     * @see QuotationInterface::getRole()
      */
-    private $_secondaryRole;
+    private $role;
 
     /**
-     * True if the footballer is still playing for the team
+     * @var string
+     * @see QuotationInterface::getSecondaryRole()
+     */
+    private $secondaryRole;
+
+    /**
      * @var bool
+     * @see QuotationInterface::isActive()
      */
-    private $_active;
+    private $active;
 
     /**
-     * The market value of the footballer. The value is expressed in Fantasy Millions (FMln).
      * @var int
+     * @see QuotationInterface::getQuotation()
      */
-    private $_quotation;
+    private $quotation;
 
     /**
-     * The Magic Points assigned to the footballer.
-     * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
-     * @var float
+     * @var float|null
+     * @see QuotationInterface::getMagicPoints()
      */
-    private $_magicPoints = null;
+    private $magicPoints = null;
 
     /**
-     * The vote on report card of the footballer.
-     * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
-     * NOTE null for S.V. (without vote)
-     * @var ?float
+     * @var float|null
+     * @see QuotationInterface::getOriginalMagicPoints()
      */
-    private $_vote = null;
+    private $originalMagicPoints = null;
 
     /**
-     * The number of goals scored by the footballer.
+     * @var float|null
+     * @see QuotationInterface::getVote()
+     */
+    private $vote = null;
+
+    /**
      * @var int
+     * @see QuotationInterface::getGoals()
      */
-    private $_goals = 0;
+    private $goals = 0;
 
     /**
      * The number of yellow cards assigned to the footballer.
      * @var int
+     * @see QuotationInterface::isCautioned()
      */
-    private $_yellowCards = 0;
+    private $yellowCards = 0;
 
     /**
-     *  The number of red cards assigned to the footballer.
+     * The number of red cards assigned to the footballer.
      * @var int
+     * @see QuotationInterface::isSentOff()
      */
-    private $_redCards = 0;
+    private $redCards = 0;
 
     /**
-     * The number of penalties saved by goalkeeper or missed by footballer.
      * @var int
+     * @see QuotationInterface::getPenalties()
      */
-    private $_penalties = 0;
+    private $penalties = 0;
 
     /**
-     * The number of auto goals scored by the footballer.
      * @var int
+     * @see QuotationInterface::getAutoGoals()
      */
-    private $_autoGoals = 0;
+    private $autoGoals = 0;
 
     /**
-     * The number of assists made by the footballer.
      * @var int
+     * @see QuotationInterface::getAssists()
      */
-    private $_assists = 0;
+    private $assists = 0;
 
     /**
      * @inheritdoc
@@ -106,7 +128,7 @@ class Quotation implements QuotationInterface
      */
     public function getCode(): string
     {
-        return $this->_code;
+        return $this->code;
     }
 
     /**
@@ -115,7 +137,7 @@ class Quotation implements QuotationInterface
      */
     public function getPlayer(): string
     {
-        return $this->_player;
+        return $this->player;
     }
 
     /**
@@ -124,7 +146,7 @@ class Quotation implements QuotationInterface
      */
     public function getTeam(): string
     {
-        return $this->_team;
+        return $this->team;
     }
 
     /**
@@ -133,7 +155,7 @@ class Quotation implements QuotationInterface
      */
     public function getRole(): string
     {
-        return $this->_role;
+        return $this->role;
     }
 
     /**
@@ -142,7 +164,7 @@ class Quotation implements QuotationInterface
      */
     public function getSecondaryRole(): string
     {
-        return $this->_secondaryRole;
+        return $this->secondaryRole;
     }
 
     /**
@@ -151,7 +173,7 @@ class Quotation implements QuotationInterface
      */
     public function isActive(): bool
     {
-        return $this->_active === true;
+        return $this->active === true;
     }
 
     /**
@@ -160,7 +182,7 @@ class Quotation implements QuotationInterface
      */
     public function getQuotation(): int
     {
-        return $this->_quotation;
+        return $this->quotation;
     }
 
     /**
@@ -169,7 +191,16 @@ class Quotation implements QuotationInterface
      */
     public function getMagicPoints(): ?float
     {
-        return $this->_magicPoints;
+        return $this->magicPoints;
+    }
+
+    /**
+     * @inheritdoc
+     * @see QuotationInterface::getOriginalMagicPoints()
+     */
+    public function getOriginalMagicPoints(): ?float
+    {
+        return $this->originalMagicPoints;
     }
 
     /**
@@ -178,7 +209,7 @@ class Quotation implements QuotationInterface
      */
     public function getVote(): ?float
     {
-        return $this->_vote;
+        return $this->vote;
     }
 
     /**
@@ -187,7 +218,7 @@ class Quotation implements QuotationInterface
      */
     public function hasPlayed(): bool
     {
-        return $this->getMagicPoints() > 0;
+        return !is_null($this->getMagicPoints());
     }
 
     /**
@@ -205,7 +236,7 @@ class Quotation implements QuotationInterface
      */
     public function getGoals(): int
     {
-        return $this->_goals;
+        return $this->goals;
     }
 
     /**
@@ -214,7 +245,7 @@ class Quotation implements QuotationInterface
      */
     public function isCautioned(): bool
     {
-        return $this->_yellowCards > 0;
+        return $this->yellowCards > 0;
     }
 
     /**
@@ -223,7 +254,7 @@ class Quotation implements QuotationInterface
      */
     public function isSentOff(): bool
     {
-        return $this->_redCards > 0;
+        return $this->redCards > 0;
     }
 
     /**
@@ -232,7 +263,7 @@ class Quotation implements QuotationInterface
      */
     public function getPenalties(): int
     {
-        return $this->_penalties;
+        return $this->penalties;
     }
 
     /**
@@ -241,7 +272,7 @@ class Quotation implements QuotationInterface
      */
     public function getAutoGoals(): int
     {
-        return $this->_autoGoals;
+        return $this->autoGoals;
     }
 
     /**
@@ -250,7 +281,7 @@ class Quotation implements QuotationInterface
      */
     public function getAssists(): int
     {
-        return $this->_assists;
+        return $this->assists;
     }
 
     /**
@@ -262,6 +293,7 @@ class Quotation implements QuotationInterface
      * @param bool $active
      * @param int $quotation
      * @param float|null $magicPoints
+     * @param float|null $originalMagicPoints
      * @param float|null $vote
      * @param int $goals
      * @param int $yellowCards
@@ -279,6 +311,7 @@ class Quotation implements QuotationInterface
       bool $active,
       int $quotation,
       ?float $magicPoints,
+      ?float $originalMagicPoints,
       ?float $vote,
       int $goals,
       int $yellowCards,
@@ -288,20 +321,21 @@ class Quotation implements QuotationInterface
       int $assists
     )
     {
-        $this->_code = $code;
-        $this->_player = $player;
-        $this->_team = $team;
-        $this->_role = $role;
-        $this->_secondaryRole = $secondaryRole;
-        $this->_active = $active;
-        $this->_quotation = $quotation;
-        $this->_magicPoints = $magicPoints;
-        $this->_vote = $vote;
-        $this->_goals = $goals;
-        $this->_yellowCards = $yellowCards;
-        $this->_redCards = $redCards;
-        $this->_penalties = $penalties;
-        $this->_autoGoals = $autoGoals;
-        $this->_assists = $assists;
+        $this->code = $code;
+        $this->player = $player;
+        $this->team = $team;
+        $this->role = $role;
+        $this->secondaryRole = $secondaryRole;
+        $this->active = $active;
+        $this->quotation = $quotation;
+        $this->magicPoints = $magicPoints;
+        $this->originalMagicPoints = $originalMagicPoints;
+        $this->vote = $vote;
+        $this->goals = $goals;
+        $this->yellowCards = $yellowCards;
+        $this->redCards = $redCards;
+        $this->penalties = $penalties;
+        $this->autoGoals = $autoGoals;
+        $this->assists = $assists;
     }
 }

@@ -18,6 +18,7 @@ class QuotationTest extends TestCase
               'active' => true,
               'quotation' => '12',
               'magicPoints' => null,
+              'originalMagicPoints' => null,
               'vote' => null,
               'goals' => 0,
               'yellowCards' => 0,
@@ -35,6 +36,7 @@ class QuotationTest extends TestCase
               'isActive' => true,
               'getQuotation' => 12,
               'getMagicPoints' => null,
+              'getOriginalMagicPoints' => null,
               'getVote' => null,
               'getGoals' => 0,
               'isCautioned' => false,
@@ -56,6 +58,7 @@ class QuotationTest extends TestCase
               'active' => true,
               'quotation' => '12',
               'magicPoints' => '5.5',
+              'originalMagicPoints' => '5.5',
               'vote' => '6',
               'goals' => '3',
               'yellowCards' => 1,
@@ -73,6 +76,7 @@ class QuotationTest extends TestCase
               'isActive' => true,
               'getQuotation' => 12,
               'getMagicPoints' => 5.5,
+              'getOriginalMagicPoints' => 5.5,
               'getVote' => 6.0,
               'getGoals' => 3,
               'isCautioned' => true,
@@ -94,6 +98,7 @@ class QuotationTest extends TestCase
               'active' => true,
               'quotation' => '12',
               'magicPoints' => '5.5',
+              'originalMagicPoints' => '3.5',
               'vote' => null,
               'goals' => '3',
               'yellowCards' => 1,
@@ -111,6 +116,7 @@ class QuotationTest extends TestCase
               'isActive' => true,
               'getQuotation' => 12,
               'getMagicPoints' => 5.5,
+              'getOriginalMagicPoints' => 3.5,
               'getVote' => null,
               'getGoals' => 3,
               'isCautioned' => true,
@@ -136,6 +142,7 @@ class QuotationTest extends TestCase
           $config['active'],
           $config['quotation'],
           $config['magicPoints'],
+          $config['originalMagicPoints'],
           $config['vote'],
           $config['goals'],
           $config['yellowCards'],
@@ -244,6 +251,22 @@ class QuotationTest extends TestCase
             $this->assertInternalType('float', $quotation->getMagicPoints());
         }
         $this->assertSame($result['getMagicPoints'], $quotation->getMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
+    public function testGetOriginalMagicPoints($config, $result)
+    {
+        $quotation = $this->_getQuotationInstance($config);
+        if (is_null($quotation->getOriginalMagicPoints())) {
+            $this->assertInternalType('null', $quotation->getOriginalMagicPoints());
+        } else {
+            $this->assertInternalType('float', $quotation->getOriginalMagicPoints());
+        }
+        $this->assertSame($result['getOriginalMagicPoints'], $quotation->getOriginalMagicPoints());
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace FFQP\Map\Row;
+namespace FFQP\Map\Row\Normalizer\Field;
 
-use FFQP\Map\MapAbstract;
+use FFQP\Model\Quotation;
 
 /**
  * Factory for RowFieldNormalizerInterface. Generates a specific normalizer per each field.
@@ -18,35 +18,37 @@ class RowFieldNormalizerFactory
     public static function create($field): RowFieldNormalizerInterface
     {
         switch ($field) {
-            case MapAbstract::ACTIVE:
+            case Quotation::ACTIVE:
                 return new ActiveNormalizer();
-            case MapAbstract::ASSISTS:
+            case Quotation::ASSISTS:
                 return new AssistsNormalizer();
-            case MapAbstract::AUTO_GOALS:
+            case Quotation::AUTO_GOALS:
                 return new AutoGoalsNormalizer();
-            case MapAbstract::CODE:
+            case Quotation::CODE:
                 return new CodeNormalizer();
-            case MapAbstract::GOALS:
+            case Quotation::GOALS:
                 return new GoalsNormalizer();
-            case MapAbstract::MAGIC_POINTS:
+            case Quotation::MAGIC_POINTS:
                 return new MagicPointsNormalizer();
-            case MapAbstract::PENALTIES:
+            case Quotation::ORIGINAL_MAGIC_POINTS:
+                return new OriginalMagicPointsNormalizer();
+            case Quotation::PENALTIES:
                 return new PenaltiesNormalizer();
-            case MapAbstract::PLAYER:
+            case Quotation::PLAYER:
                 return new PlayerNormalizer();
-            case MapAbstract::QUOTATION:
+            case Quotation::QUOTATION:
                 return new QuotationNormalizer();
-            case MapAbstract::RED_CARDS:
+            case Quotation::RED_CARDS:
                 return new RedCardsNormalizer();
-            case MapAbstract::ROLE:
+            case Quotation::ROLE:
                 return new RoleNormalizer();
-            case MapAbstract::SECONDARY_ROLE:
+            case Quotation::SECONDARY_ROLE:
                 return new SecondaryRoleNormalizer();
-            case MapAbstract::TEAM:
+            case Quotation::TEAM:
                 return new TeamNormalizer();
-            case MapAbstract::VOTE:
+            case Quotation::VOTE:
                 return new VoteNormalizer();
-            case MapAbstract::YELLOW_CARDS:
+            case Quotation::YELLOW_CARDS:
                 return new YellowCardsNormalizer();
             default:
                 throw new \Exception('Field not found: ' . $field);

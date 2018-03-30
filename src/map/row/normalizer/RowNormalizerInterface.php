@@ -1,8 +1,9 @@
 <?php
 
-namespace FFQP\Map\Row;
+namespace FFQP\Map\Row\Normalizer;
 
-use FFQP\Model\QuotationInterface;
+use FFQP\Map\Row\Row;
+use FFQP\Model\Quotation;
 
 /**
  * Allows to normalize an entire row.
@@ -12,7 +13,7 @@ interface RowNormalizerInterface
     /**
      * Normalizes an entire row that includes different fields.
      * @param Row $row
-     * @return QuotationInterface
+     * @return Quotation
      */
-    public function normalize(Row $row): QuotationInterface;
+    public function normalize(Row $row): Quotation;
 }
