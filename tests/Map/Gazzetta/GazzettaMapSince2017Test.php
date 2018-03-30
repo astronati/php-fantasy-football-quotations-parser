@@ -11,7 +11,7 @@ class GazzettaMapSince2017Test extends TestCase
         $this->assertInternalType('int', 3);
         $rows = $map->extractRows('tests/fixtures/2017_quotazioni_gazzetta_02.xls');
 
-        // TODO $this->assertSame(634, count($rows));
+        $this->assertSame(634, count($rows));
 
         // First Footballer
         $this->assertSame('100', $rows[0]->code);
