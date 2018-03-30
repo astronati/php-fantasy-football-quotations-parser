@@ -4,6 +4,7 @@ namespace FFQP\Parser;
 
 use FFQP\Map\MapAbstract;
 use FFQP\Map\Row\Normalizer\RowNormalizer;
+use FFQP\Model\Quotation;
 
 /**
  * Allows to return footballers quotations
@@ -32,6 +33,7 @@ class QuotationsParser implements QuotationsParserInterface
 
     /**
      * @inheritdoc
+     * @return Quotation[]
      * @see QuotationsParserInterface::getQuotations()
      */
     public function getQuotations(string $filePath): array
