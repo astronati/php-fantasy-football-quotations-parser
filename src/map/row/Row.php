@@ -76,37 +76,37 @@ class Row
      * The bonus from the scored goals
      * @var string
      */
-    public $goals = 0;
+    public $goals;
 
     /**
      * The malus from the assigned yellow cards
      * @var string
      */
-    public $yellowCards = 0;
+    public $yellowCards;
 
     /**
      * The malus from the assigned yellow cards
      * @var string
      */
-    public $redCards = 0;
+    public $redCards;
 
     /**
      * The malus/bonus from saved or missed penalties
      * @var string
      */
-    public $penalties = 0;
+    public $penalties;
 
     /**
      * The malus from the scored autogoals
      * @var string
      */
-    public $autoGoals = 0;
+    public $autoGoals;
 
     /**
      * The bonus from the assists made from the footballer
      * @var string
      */
-    public $assists = 0;
+    public $assists;
 
     /**
      * @param string $code

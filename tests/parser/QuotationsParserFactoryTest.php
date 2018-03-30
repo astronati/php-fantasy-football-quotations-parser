@@ -10,6 +10,7 @@ class QuotationsParserFactoryTest extends TestCase
         return [
           [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2013],
           [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015],
+          [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017],
         ];
     }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace FFQP\Map\Row;
+namespace FFQP\Map\Row\Normalizer;
 
-use FFQP\Map\MapAbstract;
-use FFQP\Model\QuotationInterface;
+use FFQP\Map\Row\Row;
+use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;
 use FFQP\Model\Quotation;
 
 /**
@@ -14,12 +14,12 @@ class RowNormalizer implements RowNormalizerInterface
     /**
      * @type string
      */
-    private $_format;
+    private $format;
 
     /**
      * @type RowFieldNormalizerFactory
      */
-    private $_rowFieldNormalizerFactory;
+    private $factory;
 
     /**
      * @param string $format
@@ -27,46 +27,40 @@ class RowNormalizer implements RowNormalizerInterface
      */
     public function __construct(string $format, RowFieldNormalizerFactory $rowFieldNormalizerFactory)
     {
-        $this->_format = $format;
-        $this->_rowFieldNormalizerFactory = $rowFieldNormalizerFactory;
+        $this->format = $format;
+        $this->factory = $rowFieldNormalizerFactory;
     }
 
     /**
      * @inheritdoc
      */
-    public function normalize(Row $row): QuotationInterface
+    public function normalize(Row $row): Quotation
     {
         return new Quotation(
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::CODE)
-            ->normalize($row->code, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::PLAYER)
-            ->normalize($row->player, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::TEAM)
-            ->normalize($row->team, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::ROLE)
-            ->normalize($row->role, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::SECONDARY_ROLE)
-            ->normalize($row->secondaryRole, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::ACTIVE)
-            ->normalize($row->status, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::QUOTATION)
-            ->normalize($row->quotation, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::MAGIC_POINTS)
-            ->normalize($row->magicPoints, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::VOTE)
-            ->normalize($row->vote, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::GOALS)
-            ->normalize($row->goals, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::YELLOW_CARDS)
-            ->normalize($row->yellowCards, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::RED_CARDS)
-            ->normalize($row->redCards, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::PENALTIES)
-            ->normalize($row->penalties, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::AUTO_GOALS)
-            ->normalize($row->autoGoals, $row, $this->_format),
-          $this->_rowFieldNormalizerFactory::create(MapAbstract::ASSISTS)
-            ->normalize($row->assists, $row, $this->_format)
+          $this->factory::create(Quotation::CODE)->normalize($row->code, $row, $this->format),
+          $this->factory::create(Quotation::PLAYER)->normalize($row->player, $row, $this->format),
+          $this->factory::create(Quotation::TEAM)->normalize($row->team, $row, $this->format),
+          $this->factory::create(Quotation::ROLE)->normalize($row->role, $row, $this->format),
+          $this->factory::create(Quotation::SECONDARY_ROLE)->normalize($row->secondaryRole, $row, $this->format),
+          $this->factory::create(Quotation::ACTIVE)->normalize($row->status, $row, $this->format),
+          $this->factory::create(Quotation::QUOTATION)->normalize($row->quotation, $row, $this->format),
+          $this->factory::create(Quotation::MAGIC_POINTS)->normalize($row->magicPoints, $row, $this->format),
+          $this->factory::create(Quotation::ORIGINAL_MAGIC_POINTS)->normalize(
+            $row->magicPoints, $row, $this->format,
+            [
+              'magicPoints' => $this->factory::create(Quotation::MAGIC_POINTS)
+                ->normalize($row->magicPoints, $row, $this->format),
+              'goals' => $this->factory::create(Quotation::GOALS)
+                ->normalize($row->goals, $row, $this->format),
+            ]
+          ),
+          $this->factory::create(Quotation::VOTE)->normalize($row->vote, $row, $this->format),
+          $this->factory::create(Quotation::GOALS)->normalize($row->goals, $row, $this->format),
+          $this->factory::create(Quotation::YELLOW_CARDS)->normalize($row->yellowCards, $row, $this->format),
+          $this->factory::create(Quotation::RED_CARDS)->normalize($row->redCards, $row, $this->format),
+          $this->factory::create(Quotation::PENALTIES)->normalize($row->penalties, $row, $this->format),
+          $this->factory::create(Quotation::AUTO_GOALS)->normalize($row->autoGoals, $row, $this->format),
+          $this->factory::create(Quotation::ASSISTS)->normalize($row->assists, $row, $this->format)
         );
     }
 }

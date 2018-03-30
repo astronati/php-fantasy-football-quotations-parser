@@ -7,7 +7,7 @@ class QuotationsParserTest extends TestCase
 {
     public function testGetQuotations()
     {
-        $map = $this->getMockBuilder('FFQP\Map\MapGazzettaSince2013')
+        $map = $this->getMockBuilder('FFQP\Map\Gazzetta\GazzettaMapSince2013')
           ->setMethods(['extractRows'])
           ->disableOriginalConstructor()
           ->getMock();
@@ -17,7 +17,7 @@ class QuotationsParserTest extends TestCase
             ->getMock()
         ]);
 
-        $normalizer = $this->getMockBuilder('FFQP\Map\Row\RowNormalizer')
+        $normalizer = $this->getMockBuilder('FFQP\Map\Row\Normalizer\RowNormalizer')
           ->setMethods(['normalize'])
           ->disableOriginalConstructor()
           ->getMock();
