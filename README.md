@@ -44,7 +44,7 @@ Take a look at the Gazzetta [folder](https://github.com/astronati/php-fantasy-fo
 to know which formats are supported
 
 #### Quotation(s)
-A [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/model/Quotation.php)
+A [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/Model/Quotation.php)
 instance allows to map a single row and to return information as follows:
 
 ```php

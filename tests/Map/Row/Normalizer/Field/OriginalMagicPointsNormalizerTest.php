@@ -10,6 +10,7 @@ class OriginalMagicPointsNormalizerTest extends TestCase
     public function dataProvider()
     {
         return [
+          ['0', 'C', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, null, 0, null],
           ['-3.0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 6, 0, 6],
           ['-3.0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015, 6, 0, 6],
           ['10.0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 10, 1, 8.5],
@@ -53,7 +54,13 @@ class OriginalMagicPointsNormalizerTest extends TestCase
           $format,
           ['magicPoints' => $magicPoints, 'goals' => $goals]
         );
-        $this->assertInternalType('float', $normalizedValue);
+        if ($result === null) {
+            $this->assertInternalType('null', $normalizedValue);
+        }
+        else {
+            $this->assertInternalType('float', $normalizedValue);
+        }
+
         $this->assertEquals($result, $normalizedValue);
     }
 }

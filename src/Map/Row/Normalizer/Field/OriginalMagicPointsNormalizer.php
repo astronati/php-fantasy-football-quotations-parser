@@ -17,7 +17,10 @@ class OriginalMagicPointsNormalizer implements RowFieldNormalizerInterface
     public function normalize($value, Row $row, string $format, array $extra = []): ?float
     {
         $magicPoints = $extra['magicPoints'];
-        $goals = $extra['goals'];
+
+        if ($magicPoints === null) {
+            return $magicPoints;
+        }
 
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017) {
             switch ($row->role) {
@@ -36,7 +39,7 @@ class OriginalMagicPointsNormalizer implements RowFieldNormalizerInterface
                     $goalBonus = GoalsNormalizer::FORMAT_2017_FORWARD_GOAL_BONUS;
                     break;
             }
-            return $this->getNormalizedMagicPointsByRoleBonus($magicPoints, $goals, $goalBonus);
+            return $this->getNormalizedMagicPointsByRoleBonus($magicPoints, $extra['goals'], $goalBonus);
         }
 
         return $magicPoints;
