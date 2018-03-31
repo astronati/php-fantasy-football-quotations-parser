@@ -8,7 +8,7 @@ use \FFQP\Parser\QuotationsParserFactory;
 $quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015);
 
 // Get the PlayerData information, ready to be used
-$quotations = $quotationsParser->getQuotations('example/files/2015_quotazioni_gazzetta_25.xls');
+$quotations = $quotationsParser->getQuotations('example/files/2017_quotazioni_gazzetta_02.xls');
 
 // Show an example
 $output = [
@@ -21,6 +21,7 @@ $output = [
   'Is still active: ' . $quotations[502]->isActive(),
   'Quotation: ' . $quotations[502]->getQuotation(),
   'MagicPoints: ' . $quotations[502]->getMagicPoints(),
+  'OriginalMagicPoints: ' . $quotations[502]->getOriginalMagicPoints(),
   'Vote: ' . $quotations[502]->getVote(),
   'Is without vote: ' . $quotations[502]->isWithoutVote(),
   '# of Goals: ' . $quotations[502]->getGoals(),
