@@ -17,7 +17,7 @@ class MagicPointsNormalizer implements RowFieldNormalizerInterface
     {
         $bonus = (float) $value;
 
-        if ($bonus == 0 && $row->vote != 'S.V.' && ((float) $row->vote == 0)) {
+        if ($bonus == 0 && ($row->vote == 'S.V.'|| $row->vote == '-' || (float) $row->vote == 0)) {
             return null;
         }
 

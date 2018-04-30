@@ -15,7 +15,7 @@ class MagicPointsNormalizerTest extends TestCase
           [0, '0', null, 'null'],
           [1, '0', 1.0, 'float'],
           [1.0, '0', 1.0, 'float'],
-          [0, 'S.V.', 0.0, 'float'],
+          [0, 'S.V.', null, 'null'],
           [5, 'S.V.', 5.0, 'float'],
           ['1.0', '0', 1.0, 'float'],
           ['1', '0', 1.0, 'float'],
