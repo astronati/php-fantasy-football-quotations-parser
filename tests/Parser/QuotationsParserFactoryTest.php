@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use FFQP\Exception\InvalidFormatException;
 use FFQP\Parser\QuotationsParserFactory;
 
 class QuotationsParserFactoryTest extends TestCase
@@ -17,6 +18,7 @@ class QuotationsParserFactoryTest extends TestCase
     /**
      * @dataProvider dataProvider
      * @param string $format
+     * @throws InvalidFormatException
      */
     public function testCreate($format)
     {
@@ -28,7 +30,7 @@ class QuotationsParserFactoryTest extends TestCase
 
     public function testException()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(InvalidFormatException::class);
         QuotationsParserFactory::create('any_type');
     }
 }

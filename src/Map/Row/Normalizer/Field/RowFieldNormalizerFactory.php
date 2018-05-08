@@ -2,6 +2,7 @@
 
 namespace FFQP\Map\Row\Normalizer\Field;
 
+use FFQP\Exception\NotFoundFieldException;
 use FFQP\Model\Quotation;
 
 /**
@@ -13,7 +14,7 @@ class RowFieldNormalizerFactory
      * Returns an implementation of RowFieldNormalizerInterface
      * @param string $field
      * @return RowFieldNormalizerInterface
-     * @throws \Exception
+     * @throws NotFoundFieldException
      */
     public static function create($field): RowFieldNormalizerInterface
     {
@@ -51,7 +52,7 @@ class RowFieldNormalizerFactory
             case Quotation::YELLOW_CARDS:
                 return new YellowCardsNormalizer();
             default:
-                throw new \Exception('Field not found: ' . $field);
+                throw new NotFoundFieldException('Field not found: ' . $field);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace FFQP\Parser;
 
+use FFQP\Exception\InvalidFormatException;
 use FFQP\Map\Gazzetta\GazzettaMapSince2013;
 use FFQP\Map\Gazzetta\GazzettaMapSince2015;
 use FFQP\Map\Gazzetta\GazzettaMapSince2017;
@@ -20,7 +21,7 @@ class QuotationsParserFactory
     /**
      * @param string $format
      * @return QuotationsParser
-     * @throws \Exception
+     * @throws InvalidFormatException
      */
     public static function create(string $format): QuotationsParser
     {
@@ -36,7 +37,7 @@ class QuotationsParserFactory
                 $map = new GazzettaMapSince2017();
                 break;
             default:
-                throw new \Exception('Invalid argument: ' . $format);
+                throw new InvalidFormatException('Invalid argument: ' . $format);
         }
 
         $normalizer = new RowNormalizer($format, new RowFieldNormalizerFactory());
