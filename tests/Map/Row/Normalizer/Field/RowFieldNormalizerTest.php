@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use FFQP\Exception\NotFoundFieldException;
 use FFQP\Map\MapAbstract;
 use FFQP\Map\Row\Normalizer\Field\ActiveNormalizer;
 use FFQP\Map\Row\Normalizer\Field\AssistsNormalizer;
@@ -57,7 +58,7 @@ class RowFieldNormalizerFactoryTest extends TestCase
 
     public function testException()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(NotFoundFieldException::class);
         RowFieldNormalizerFactory::create('any_type');
     }
 }

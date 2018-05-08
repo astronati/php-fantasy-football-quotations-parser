@@ -37,7 +37,6 @@ abstract class MapAbstract implements MapInterface
      * is contained in the parsed spreadsheet.
      * @param string $fieldName
      * @return int
-     * @throws \Exception
      */
     private function getColumnIndexByField(string $fieldName): int
     {
