@@ -3,6 +3,8 @@
 namespace FFQP\Map;
 
 use FFQP\Map\Row\Row;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 /**
  * Defines basic methods and properties of any Map
@@ -45,14 +47,14 @@ abstract class MapAbstract implements MapInterface
 
     /**
      * Returns the spreadsheet row number for which the extractor should start extracting row data.
-     * @param \PHPExcel_Worksheet $sheet
+     * @param Worksheet $sheet
      * @return int
      */
     private function getStartingRow($sheet): int
     {
         $row = null;
         for ($i = 1; $i <= 4 && !$row; $i++) {
-            if ($sheet->getCellByColumnAndRow(0, $i) == "Cod.") {
+            if ($sheet->getCellByColumnAndRow(1, $i) == "Cod.") {
                 $row = $i + 1;
             }
         }
@@ -66,8 +68,8 @@ abstract class MapAbstract implements MapInterface
      */
     public function extractRows(string $filePath): array
     {
-        $objPHPExcel = \PHPExcel_IOFactory::load($filePath);
-        $sheet = $objPHPExcel->getSheet(0);
+        $objSpreadsheet = IOFactory::load($filePath);
+        $sheet = $objSpreadsheet->getSheet(0);
 
         $rows = [];
         for ($rowNumber = $this->getStartingRow($sheet); $rowNumber <= $sheet->getHighestRow(); $rowNumber++) {
