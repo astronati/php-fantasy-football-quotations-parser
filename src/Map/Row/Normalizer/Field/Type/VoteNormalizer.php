@@ -1,7 +1,9 @@
 <?php
 
-namespace FFQP\Map\Row\Normalizer\Field;
+namespace FFQP\Map\Row\Normalizer\Field\Type;
 
+use FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer;
+use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerInterface;
 use FFQP\Map\Row\Row;
 
 /**
@@ -13,7 +15,7 @@ class VoteNormalizer implements RowFieldNormalizerInterface
      * @inheritdoc
      * @see RowFieldNormalizerInterface::normalize()
      */
-    public function normalize($value, Row $row, string $format, array $extra = []): ?float
+    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): ?float
     {
         $bonus = (float) $value;
         if ($value == 'S.V.' || $bonus == 0) {

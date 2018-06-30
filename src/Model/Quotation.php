@@ -17,11 +17,17 @@ class Quotation implements QuotationInterface
     const MAGIC_POINTS = 'magicPoints';
     const ORIGINAL_MAGIC_POINTS = 'originalMagicPoints';
     const VOTE = 'vote';
+    const GOALS_MAGIC_POINTS = 'goalsMagicPoints';
     const GOALS = 'goals';
+    const YELLOW_CARDS_MAGIC_POINTS = 'yellowCardsMagicPoints';
     const YELLOW_CARDS = 'yellowCards';
+    const RED_CARDS_MAGIC_POINTS = 'redCardsMagicPoints';
     const RED_CARDS = 'redCards';
+    const PENALTIES_MAGIC_POINTS = 'penaltiesMagicPoints';
     const PENALTIES = 'penalties';
+    const AUTO_GOALS_MAGIC_POINTS = 'autoGoalsMagicPoints';
     const AUTO_GOALS = 'autoGoals';
+    const ASSISTS_MAGIC_POINTS = 'assistsMagicPoints';
     const ASSISTS = 'assists';
 
     /**
@@ -83,6 +89,9 @@ class Quotation implements QuotationInterface
      * @see QuotationInterface::getVote()
      */
     private $vote = null;
+
+    // TODO
+    private $goalsMagicPoints = 0;
 
     /**
      * @var int
