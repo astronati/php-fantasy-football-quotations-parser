@@ -25,6 +25,7 @@ class RedCardsNormalizer implements RowFieldNormalizerInterface
             return (int) $value;
         }
 
-        return abs($normalizedFieldsContainer->get(Quotation::RED_CARDS_MAGIC_POINTS));
+        $redCardsMagicPoints = $normalizedFieldsContainer->get(Quotation::RED_CARDS_MAGIC_POINTS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+        return abs($redCardsMagicPoints);
     }
 }

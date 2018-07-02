@@ -5,28 +5,28 @@ namespace FFQP\Map\Row\Normalizer\Field;
 class NormalizedFieldsContainer
 {
     /**
-     * @var array
+     * @var RowFieldNormalizerInterface
      */
-    private $fields = [];
+    private $normalizers = [];
 
     /**
      * Add a new normalized field
      * @param string $type The name of the field
-     * @param mixed $value
+     * @param RowFieldNormalizerInterface $normalizer
      * @return $this
      */
-    public function add(string $type, $value)
+    public function add(string $type, RowFieldNormalizerInterface $normalizer)
     {
-        $this->fields[$type] = $value;
+        $this->normalizers[$type] = $normalizer;
         return $this;
     }
 
     /**
      * @param string $type
-     * @return mixed
+     * @return RowFieldNormalizerInterface
      */
     public function get(string $type)
     {
-        return $this->fields[$type];
+        return $this->normalizers[$type];
     }
 }

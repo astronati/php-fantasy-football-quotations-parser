@@ -20,7 +20,7 @@ class GoalsMagicPointsNormalizer implements RowFieldNormalizerInterface
     public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): float
     {
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
-            $goals = $normalizedFieldsContainer->get(Quotation::GOALS);
+            $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($value, $row, $format, $normalizedFieldsContainer);
             return (float) ($goals * GoalsNormalizer::getBonusByRole($row->role));
         }
 

@@ -20,7 +20,8 @@ class RedCardsMagicPointsNormalizer implements RowFieldNormalizerInterface
     public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): float
     {
         if ($format === QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
-            return $normalizedFieldsContainer->get(Quotation::RED_CARDS) * RedCardsNormalizer::MALUS;
+            $redCards = $normalizedFieldsContainer->get(Quotation::RED_CARDS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+            return $redCards * RedCardsNormalizer::MALUS;
         }
         return (float) $value;
     }

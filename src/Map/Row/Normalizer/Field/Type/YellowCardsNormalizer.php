@@ -25,6 +25,7 @@ class YellowCardsNormalizer implements RowFieldNormalizerInterface
             return (int) $value;
         }
 
-        return (int) abs($normalizedFieldsContainer->get(Quotation::YELLOW_CARDS_MAGIC_POINTS) / self::MALUS);
+        $yellowCardsMagicPoints = $normalizedFieldsContainer->get(Quotation::YELLOW_CARDS_MAGIC_POINTS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+        return (int) abs($yellowCardsMagicPoints / self::MALUS);
     }
 }

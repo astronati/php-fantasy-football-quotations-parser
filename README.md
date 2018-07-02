@@ -7,7 +7,8 @@
 
 # Fantasy Football Quotations Parser
 Provides a way to parse files that are provided by main sport newspapers with players quotations after each soccer match
-of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) championship.
+of the [Serie A](https://en.wikipedia.org/wiki/Serie_A) and [FIFA World Cup](https://en.wikipedia.org/wiki/FIFA_World_Cup)
+championship.
 
 ## Supported Newspapers
 Currently the "[Gazzetta dello Sport](http://www.gazzetta.it/)" is the only supported newspaper.

@@ -21,7 +21,8 @@ class MagicPointsNormalizer implements RowFieldNormalizerInterface
         // TODO Keep into account world cup 2018
         $bonus = (float) $value;
 
-        if ($bonus == 0 && $normalizedFieldsContainer->get(Quotation::VOTE) === null) {
+        $vote = $normalizedFieldsContainer->get(Quotation::VOTE)->normalize($row->vote, $row, $format, $normalizedFieldsContainer);
+        if ($bonus == 0 && $vote === null) {
             return null;
         }
 

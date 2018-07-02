@@ -20,7 +20,7 @@ class AutoGoalsMagicPointsNormalizer implements RowFieldNormalizerInterface
     public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): float
     {
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
-            $autoGoals = $normalizedFieldsContainer->get(Quotation::AUTO_GOALS);
+            $autoGoals = $normalizedFieldsContainer->get(Quotation::AUTO_GOALS)->normalize($value, $row, $format, $normalizedFieldsContainer);
             return $autoGoals * ($row->secondaryRole === Row::GOALKEEPER ? AutoGoalsNormalizer::GOALKEEPER_MALUS : AutoGoalsNormalizer::DEFAULT_MALUS);
         }
 

@@ -33,7 +33,8 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
         }
 
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017) {
-            return (int) ($normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS) / self::getBonusByRole($row->role));
+            $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->magicPoints, $row, $format, $normalizedFieldsContainer);
+            return (int) ($goalMagicPoints / self::getBonusByRole($row->role));
         }
 
         return (int) (((float) $value) / self::STANDARD_GOAL_BONUS);
