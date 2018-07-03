@@ -50,6 +50,7 @@ instance allows to map a single row and to return information as follows:
 
 ```php
 $quotations[0]->isWithoutVote();
+$quotations[0]->getGoalsMagicPoints();
 ```
 
 ## Development
