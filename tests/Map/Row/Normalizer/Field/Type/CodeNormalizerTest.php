@@ -5,6 +5,11 @@ use FFQP\Map\Row\Normalizer\Field\Type\CodeNormalizer;
 
 class CodeNormalizerTest extends TestCase
 {
+    private function getNormalizerFieldsContainerInstance()
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer')->disableOriginalConstructor()->getMock();
+        return $instance;
+    }
 
     public function dataProvider()
     {
@@ -29,7 +34,8 @@ class CodeNormalizerTest extends TestCase
           $code->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format'
+            'any_format',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
         $this->assertSame(
@@ -37,7 +43,8 @@ class CodeNormalizerTest extends TestCase
           $code->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format'
+            'any_format',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
     }

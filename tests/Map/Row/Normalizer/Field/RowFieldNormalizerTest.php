@@ -3,22 +3,22 @@
 use PHPUnit\Framework\TestCase;
 use FFQP\Exception\NotFoundFieldException;
 use FFQP\Map\MapAbstract;
-use FFQP\Map\Row\Normalizer\Field\ActiveNormalizer;
-use FFQP\Map\Row\Normalizer\Field\AssistsNormalizer;
-use FFQP\Map\Row\Normalizer\Field\AutoGoalsNormalizer;
-use FFQP\Map\Row\Normalizer\Field\CodeNormalizer;
-use FFQP\Map\Row\Normalizer\Field\GoalsNormalizer;
-use FFQP\Map\Row\Normalizer\Field\MagicPointsNormalizer;
-use FFQP\Map\Row\Normalizer\Field\PenaltiesNormalizer;
-use FFQP\Map\Row\Normalizer\Field\PlayerNormalizer;
-use FFQP\Map\Row\Normalizer\Field\QuotationNormalizer;
-use FFQP\Map\Row\Normalizer\Field\RedCardsNormalizer;
-use FFQP\Map\Row\Normalizer\Field\RoleNormalizer;
-use FFQP\Map\Row\Normalizer\Field\SecondaryRoleNormalizer;
-use FFQP\Map\Row\Normalizer\Field\TeamNormalizer;
-use FFQP\Map\Row\Normalizer\Field\VoteNormalizer;
-use FFQP\Map\Row\Normalizer\Field\YellowCardsNormalizer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;
+use FFQP\Map\Row\Normalizer\Field\Type\ActiveNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\AssistsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\AutoGoalsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\CodeNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\GoalsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\MagicPointsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\PenaltiesNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\PlayerNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\QuotationNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\RedCardsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\RoleNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\SecondaryRoleNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\TeamNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\VoteNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\YellowCardsNormalizer;
 
 class RowFieldNormalizerFactoryTest extends TestCase
 {

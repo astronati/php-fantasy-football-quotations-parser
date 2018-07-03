@@ -5,6 +5,11 @@ use FFQP\Map\Row\Normalizer\Field\Type\VoteNormalizer;
 
 class VoteNormalizerTest extends TestCase
 {
+    private function getNormalizerFieldsContainerInstance()
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer')->disableOriginalConstructor()->getMock();
+        return $instance;
+    }
 
     public function dataProvider()
     {
@@ -33,7 +38,8 @@ class VoteNormalizerTest extends TestCase
           $vote->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_type'
+            'any_type',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
         $this->assertSame(
@@ -41,7 +47,8 @@ class VoteNormalizerTest extends TestCase
           $vote->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_type'
+            'any_type',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
     }

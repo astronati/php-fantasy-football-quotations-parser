@@ -5,6 +5,11 @@ use FFQP\Map\Row\Normalizer\Field\Type\SecondaryRoleNormalizer;
 
 class SecondaryRoleNormalizerTest extends TestCase
 {
+    private function getNormalizerFieldsContainerInstance()
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer')->disableOriginalConstructor()->getMock();
+        return $instance;
+    }
 
     public function dataProvider()
     {
@@ -40,7 +45,8 @@ class SecondaryRoleNormalizerTest extends TestCase
           $secondaryRoleNormalizer->normalize(
             $secondaryRole,
             $rowMock,
-            'any_type'
+            'any_type',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
         $this->assertSame(
@@ -48,7 +54,8 @@ class SecondaryRoleNormalizerTest extends TestCase
           $secondaryRoleNormalizer->normalize(
             $secondaryRole,
             $rowMock,
-            'any_type'
+            'any_type',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
     }
