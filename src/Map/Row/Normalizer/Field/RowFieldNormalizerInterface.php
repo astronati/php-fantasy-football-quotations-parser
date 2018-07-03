@@ -17,5 +17,5 @@ interface RowFieldNormalizerInterface
      * @param NormalizedFieldsContainer|null $normalizedFieldsContainer
      * @return int|string|bool|float|null
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null);
+    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer);
 }

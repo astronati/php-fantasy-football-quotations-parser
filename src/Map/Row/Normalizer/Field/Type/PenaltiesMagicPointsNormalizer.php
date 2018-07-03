@@ -15,7 +15,12 @@ class PenaltiesMagicPointsNormalizer implements RowFieldNormalizerInterface
      * @inheritdoc
      * @see RowFieldNormalizerInterface::normalize()
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): float
+    public function normalize(
+      $value,
+      Row $row,
+      string $format,
+      NormalizedFieldsContainer $normalizedFieldsContainer
+    ): float
     {
         return (float) $value;
     }

@@ -15,7 +15,12 @@ class SecondaryRoleNormalizer implements RowFieldNormalizerInterface
      * @inheritdoc
      * @see RowFieldNormalizerInterface::normalize()
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): string
+    public function normalize(
+      $value,
+      Row $row,
+      string $format,
+      NormalizedFieldsContainer $normalizedFieldsContainer
+    ): string
     {
         if (empty(trim($value))) {
             return $row->role;

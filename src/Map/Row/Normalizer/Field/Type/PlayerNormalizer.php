@@ -15,7 +15,12 @@ class PlayerNormalizer implements RowFieldNormalizerInterface
      * @inheritdoc
      * @see RowFieldNormalizerInterface::normalize()
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): string
+    public function normalize(
+      $value,
+      Row $row,
+      string $format,
+      NormalizedFieldsContainer $normalizedFieldsContainer
+    ): string
     {
         return trim($value);
     }

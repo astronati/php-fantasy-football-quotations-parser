@@ -17,7 +17,12 @@ class MagicPointsNormalizer implements RowFieldNormalizerInterface
      * @inheritdoc
      * @see RowFieldNormalizerInterface::normalize()
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): ?float
+    public function normalize(
+      $value,
+      Row $row,
+      string $format,
+      NormalizedFieldsContainer $normalizedFieldsContainer
+    ): ?float
     {
         $magicPoints = (float) $value;
         $vote = $normalizedFieldsContainer->get(Quotation::VOTE)->normalize($row->vote, $row, $format, $normalizedFieldsContainer);

@@ -17,7 +17,12 @@ class YellowCardsMagicPointsNormalizer implements RowFieldNormalizerInterface
      * @inheritdoc
      * @see RowFieldNormalizerInterface::normalize()
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer = null): float
+    public function normalize(
+      $value,
+      Row $row,
+      string $format,
+      NormalizedFieldsContainer $normalizedFieldsContainer
+    ): float
     {
         if ($format === QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
             $yellowCards = $normalizedFieldsContainer->get(Quotation::YELLOW_CARDS)->normalize($value, $row, $format, $normalizedFieldsContainer);

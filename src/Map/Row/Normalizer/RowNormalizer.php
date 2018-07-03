@@ -64,28 +64,50 @@ class RowNormalizer implements RowNormalizerInterface
         ;
 
         return new Quotation(
-          $normalizedFieldsContainer->get(Quotation::CODE)->normalize($row->code, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::PLAYER)->normalize($row->player, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::TEAM)->normalize($row->team, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::ROLE)->normalize($row->role, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::SECONDARY_ROLE)->normalize($row->secondaryRole, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::ACTIVE)->normalize($row->status, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::QUOTATION)->normalize($row->quotation, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::MAGIC_POINTS)->normalize($row->magicPoints, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::ORIGINAL_MAGIC_POINTS)->normalize($row->magicPoints, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::VOTE)->normalize($row->vote, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->goals, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($row->goals, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::YELLOW_CARDS_MAGIC_POINTS)->normalize($row->yellowCards, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::YELLOW_CARDS)->normalize($row->yellowCards, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::RED_CARDS_MAGIC_POINTS)->normalize($row->redCards, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::RED_CARDS)->normalize($row->redCards, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::PENALTIES_MAGIC_POINTS)->normalize($row->penalties, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::PENALTIES)->normalize($row->penalties, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::AUTO_GOALS_MAGIC_POINTS)->normalize($row->autoGoals, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::AUTO_GOALS)->normalize($row->autoGoals, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::ASSISTS_MAGIC_POINTS)->normalize($row->assists, $row, $this->format, $normalizedFieldsContainer),
-          $normalizedFieldsContainer->get(Quotation::ASSISTS)->normalize($row->assists, $row, $this->format, $normalizedFieldsContainer)
+          $normalizedFieldsContainer->get(Quotation::CODE)
+            ->normalize($row->code, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::PLAYER)
+            ->normalize($row->player, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::TEAM)
+            ->normalize($row->team, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::ROLE)
+            ->normalize($row->role, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::SECONDARY_ROLE)
+            ->normalize($row->secondaryRole, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::ACTIVE)
+            ->normalize($row->status, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::QUOTATION)
+            ->normalize($row->quotation, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::MAGIC_POINTS)
+            ->normalize($row->magicPoints, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::ORIGINAL_MAGIC_POINTS)
+            ->normalize($row->magicPoints, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::VOTE)
+            ->normalize($row->vote, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)
+            ->normalize($row->goals, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::GOALS)
+            ->normalize($row->goals, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::YELLOW_CARDS_MAGIC_POINTS)
+            ->normalize($row->yellowCards, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::YELLOW_CARDS)
+            ->normalize($row->yellowCards, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::RED_CARDS_MAGIC_POINTS)
+            ->normalize($row->redCards, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::RED_CARDS)
+            ->normalize($row->redCards, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::PENALTIES_MAGIC_POINTS)
+            ->normalize($row->penalties, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::PENALTIES)
+            ->normalize($row->penalties, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::AUTO_GOALS_MAGIC_POINTS)
+            ->normalize($row->autoGoals, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::AUTO_GOALS)
+            ->normalize($row->autoGoals, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::ASSISTS_MAGIC_POINTS)
+            ->normalize($row->assists, $row, $this->format, $normalizedFieldsContainer),
+          $normalizedFieldsContainer->get(Quotation::ASSISTS)
+            ->normalize($row->assists, $row, $this->format, $normalizedFieldsContainer)
         );
     }
 }
