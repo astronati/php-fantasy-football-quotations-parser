@@ -13,12 +13,13 @@ use FFQP\Parser\QuotationsParserFactory;
  */
 class GoalsNormalizer implements RowFieldNormalizerInterface
 {
-    const STANDARD_GOAL_BONUS = 3;
     const FORMAT_2017_GOALKEEPER_GOAL_BONUS = 5;
     const FORMAT_2017_DEFENDER_GOAL_BONUS = 4.5;
     const FORMAT_2017_MIDFIELDER_GOAL_BONUS = 4;
     const FORMAT_2017_PLAYMAKER_GOAL_BONUS = 3.5;
     const FORMAT_2017_FORWARD_GOAL_BONUS = 3;
+
+    const STANDARD_GOAL_BONUS = 3;
 
     /**
      * @inheritdoc
@@ -33,7 +34,7 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
         }
 
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017) {
-            $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->magicPoints, $row, $format, $normalizedFieldsContainer);
+            $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->goals, $row, $format, $normalizedFieldsContainer);
             return (int) ($goalMagicPoints / self::getBonusByRole($row->role));
         }
 
@@ -49,7 +50,8 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
     {
         switch ($role) {
             // To know the number of goals scored by goalkeeper, it needs to be extracted from the MagicPoints
-            // TODO case $row::GOALKEEPER:
+            case Row::GOALKEEPER:
+                return GoalsNormalizer::FORMAT_2017_GOALKEEPER_GOAL_BONUS;
             case Row::DEFENDER:
                 return GoalsNormalizer::FORMAT_2017_DEFENDER_GOAL_BONUS;
             case Row::MIDFIELDER:
