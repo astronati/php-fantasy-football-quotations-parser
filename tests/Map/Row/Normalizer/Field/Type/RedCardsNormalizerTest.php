@@ -1,36 +1,36 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\VoteNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\RedCardsNormalizer;
 
-class VoteNormalizerTest extends TestCase
+class RedCardsNormalizerTest extends TestCase
 {
 
     public function dataProvider()
     {
         return [
-          ['S.V.', null, 'null'],
-          ['0', null, 'null'],
-          [0, null, 'null'],
-          [0.5, 0.5, 'float'],
-          ['0.5', 0.5, 'float'],
-          [1, 1.0, 'float'],
-          ['1', 1.0, 'float'],
+          ['-', 0],
+          ['0', 0],
+          [0, 0],
+          [1, 1],
+          [1.0, 1],
+          ['1,0', 1],
+          ['1.0', 1],
+          ['1', 1],
         ];
     }
 
     /**
      * @dataProvider dataProvider
      * @param * $value
-     * @param ?float $result
-     * @param string $type
+     * @param float $result
      */
-    public function testNormalize($value, $result, $type)
+    public function testNormalize($value, $result)
     {
-        $vote = new VoteNormalizer();
+        $redCards = new RedCardsNormalizer();
         $this->assertInternalType(
-          $type,
-          $vote->normalize(
+          'int',
+          $redCards->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type'
@@ -38,7 +38,7 @@ class VoteNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $vote->normalize(
+          $redCards->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type'

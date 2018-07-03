@@ -1,18 +1,20 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\AssistsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\PenaltiesNormalizer;
 
-class AssistsNormalizerTest extends TestCase
+class PenaltiesNormalizerTest extends TestCase
 {
 
     public function dataProvider()
     {
         return [
-          ['10', 10],
-          [10, 10],
-          ['1', 1],
-          [1, 1],
+          ['3,0', 1],
+          [3.0, 1],
+          ['3.0', 1],
+          ['3,0', 1],
+          ['-3.0', 1],
+          [-3.0, 1],
           [0, 0],
           ['0', 0],
         ];
@@ -25,21 +27,21 @@ class AssistsNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $assists = new AssistsNormalizer();
+        $penalties = new PenaltiesNormalizer();
         $this->assertInternalType(
           'int',
-          $assists->normalize(
+          $penalties->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format'
+            'any_type'
           )
         );
         $this->assertSame(
           $result,
-          $assists->normalize(
+          $penalties->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format'
+            'any_type'
           )
         );
     }

@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\SecondaryRoleNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\SecondaryRoleNormalizer;
 
 class SecondaryRoleNormalizerTest extends TestCase
 {

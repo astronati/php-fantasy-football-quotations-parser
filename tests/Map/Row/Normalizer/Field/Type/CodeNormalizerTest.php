@@ -1,9 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\TeamNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\CodeNormalizer;
 
-class TeamNormalizerTest extends TestCase
+class CodeNormalizerTest extends TestCase
 {
 
     public function dataProvider()
@@ -11,7 +11,8 @@ class TeamNormalizerTest extends TestCase
         return [
           ['test', 'test'],
           ['0', '0'],
-          [0.5, '0.5'],
+          [123, '123'],
+          ['123', '123'],
         ];
     }
 
@@ -22,21 +23,21 @@ class TeamNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $team = new TeamNormalizer();
+        $code = new CodeNormalizer();
         $this->assertInternalType(
           'string',
-          $team->normalize(
+          $code->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_type'
+            'any_format'
           )
         );
         $this->assertSame(
           $result,
-          $team->normalize(
+          $code->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_type'
+            'any_format'
           )
         );
     }

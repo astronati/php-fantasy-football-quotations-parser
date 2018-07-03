@@ -1,39 +1,36 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\YellowCardsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\VoteNormalizer;
 
-class YellowCardsNormalizerTest extends TestCase
+class VoteNormalizerTest extends TestCase
 {
 
     public function dataProvider()
     {
         return [
-          ['-', 0],
-          ['0', 0],
-          [0, 0],
-          [0.5, 1],
-          [-0.5, 1],
-          ['0.5', 1],
-          ['-0.5', 1],
-          [1, 2],
-          [-1, 2],
-          ['1', 2],
-          ['-1', 2],
+          ['S.V.', null, 'null'],
+          ['0', null, 'null'],
+          [0, null, 'null'],
+          [0.5, 0.5, 'float'],
+          ['0.5', 0.5, 'float'],
+          [1, 1.0, 'float'],
+          ['1', 1.0, 'float'],
         ];
     }
 
     /**
      * @dataProvider dataProvider
      * @param * $value
-     * @param float $result
+     * @param ?float $result
+     * @param string $type
      */
-    public function testNormalize($value, $result)
+    public function testNormalize($value, $result, $type)
     {
-        $yellowCards = new YellowCardsNormalizer();
+        $vote = new VoteNormalizer();
         $this->assertInternalType(
-          'int',
-          $yellowCards->normalize(
+          $type,
+          $vote->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type'
@@ -41,7 +38,8 @@ class YellowCardsNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $yellowCards->normalize($value,
+          $vote->normalize(
+            $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type'
           )

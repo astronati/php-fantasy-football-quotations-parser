@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\MagicPointsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\MagicPointsNormalizer;
 
 class MagicPointsNormalizerTest extends TestCase
 {

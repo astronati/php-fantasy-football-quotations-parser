@@ -1,16 +1,23 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\QuotationNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\AssistsNormalizer;
 
-class QuotationNormalizerTest extends TestCase
+class AssistsNormalizerTest extends TestCase
 {
+    private function getNormalizerFieldsContainerInstance()
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer')->disableOriginalConstructor()->getMock();
+        return $instance;
+    }
 
     public function dataProvider()
     {
         return [
           ['10', 10],
           [10, 10],
+          ['1', 1],
+          [1, 1],
           [0, 0],
           ['0', 0],
         ];
@@ -23,21 +30,23 @@ class QuotationNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $quotation = new QuotationNormalizer();
+        $assists = new AssistsNormalizer();
         $this->assertInternalType(
           'int',
-          $quotation->normalize(
+          $assists->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_type'
+            'any_format',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
         $this->assertSame(
           $result,
-          $quotation->normalize(
+          $assists->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_type'
+            'any_format',
+            $this->getNormalizerFieldsContainerInstance()
           )
         );
     }

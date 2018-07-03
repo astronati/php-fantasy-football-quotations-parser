@@ -1,6 +1,6 @@
 <?php
 
-use FFQP\Map\Row\Normalizer\Field\OriginalMagicPointsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\OriginalMagicPointsNormalizer;
 use FFQP\Parser\QuotationsParserFactory;
 use PHPUnit\Framework\TestCase;
 

@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\GoalsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\GoalsNormalizer;
 use FFQP\Parser\QuotationsParserFactory;
 
 class GoalsNormalizerTest extends TestCase

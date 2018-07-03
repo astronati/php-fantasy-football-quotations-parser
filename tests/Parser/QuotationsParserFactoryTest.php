@@ -12,6 +12,7 @@ class QuotationsParserFactoryTest extends TestCase
           [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2013],
           [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015],
           [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017],
+          [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018],
         ];
     }
 

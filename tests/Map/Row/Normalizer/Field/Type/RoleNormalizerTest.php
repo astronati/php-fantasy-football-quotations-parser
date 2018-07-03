@@ -1,17 +1,19 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\PlayerNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\RoleNormalizer;
 
-class PlayerNormalizerTest extends TestCase
+class RoleNormalizerTest extends TestCase
 {
 
     public function dataProvider()
     {
         return [
-          ['test', 'test'],
-          ['0', '0'],
-          ['DONNARUMMA Gigio', 'DONNARUMMA Gigio'],
+          ['P', 'P'],
+          ['D', 'D'],
+          ['C', 'C'],
+          ['T', 'T'],
+          ['A', 'A'],
         ];
     }
 
@@ -22,10 +24,10 @@ class PlayerNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $player = new PlayerNormalizer();
+        $role = new RoleNormalizer();
         $this->assertInternalType(
           'string',
-          $player->normalize(
+          $role->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type'
@@ -33,7 +35,7 @@ class PlayerNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $player->normalize(
+          $role->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type'

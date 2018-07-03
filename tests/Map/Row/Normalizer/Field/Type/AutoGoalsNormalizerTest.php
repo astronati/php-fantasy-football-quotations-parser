@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\AutoGoalsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\AutoGoalsNormalizer;
 
 class AutoGoalsNormalizerTest extends TestCase
 {
