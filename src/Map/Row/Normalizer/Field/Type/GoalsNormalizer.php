@@ -19,6 +19,7 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
     const FORMAT_2017_PLAYMAKER_GOAL_BONUS = 3.5;
     const FORMAT_2017_FORWARD_GOAL_BONUS = 3;
 
+    const STANDARD_GOALKEEPER_MALUS = -1;
     const STANDARD_GOAL_BONUS = 3;
 
     /**
@@ -56,7 +57,7 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
         switch ($role) {
             // To know the number of goals scored by goalkeeper, it needs to be extracted from the MagicPoints
             case Row::GOALKEEPER:
-                return GoalsNormalizer::FORMAT_2017_GOALKEEPER_GOAL_BONUS;
+                return GoalsNormalizer::STANDARD_GOALKEEPER_MALUS;
             case Row::DEFENDER:
                 return GoalsNormalizer::FORMAT_2017_DEFENDER_GOAL_BONUS;
             case Row::MIDFIELDER:

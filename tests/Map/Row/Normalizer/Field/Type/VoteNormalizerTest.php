@@ -32,10 +32,10 @@ class VoteNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result, $type)
     {
-        $vote = new VoteNormalizer();
+        $normalizer = new VoteNormalizer();
         $this->assertInternalType(
           $type,
-          $vote->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',
@@ -44,7 +44,7 @@ class VoteNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $vote->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',

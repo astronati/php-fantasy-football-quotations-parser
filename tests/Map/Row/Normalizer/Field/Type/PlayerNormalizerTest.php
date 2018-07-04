@@ -27,10 +27,10 @@ class PlayerNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $player = new PlayerNormalizer();
+        $normalizer = new PlayerNormalizer();
         $this->assertInternalType(
           'string',
-          $player->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',
@@ -39,7 +39,7 @@ class PlayerNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $player->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',

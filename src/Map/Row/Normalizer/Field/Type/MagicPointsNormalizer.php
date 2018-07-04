@@ -32,8 +32,9 @@ class MagicPointsNormalizer implements RowFieldNormalizerInterface
         }
 
         $active = $normalizedFieldsContainer->get(Quotation::ACTIVE)->normalize($row->status, $row, $format, $normalizedFieldsContainer);
+        // This problem was reproduced only with the 3 turn of the Fifa World Cup 2018
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018
-                && $magicPoints === 0
+                && $magicPoints == 0
                 && $vote !== null
                 && !$active) {
             return $vote +

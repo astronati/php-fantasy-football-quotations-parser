@@ -29,10 +29,10 @@ class RoleNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $role = new RoleNormalizer();
+        $normalizer = new RoleNormalizer();
         $this->assertInternalType(
           'string',
-          $role->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',
@@ -41,7 +41,7 @@ class RoleNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $role->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',
