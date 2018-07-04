@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Model;
+
 use PHPUnit\Framework\TestCase;
 use FFQP\Model\Quotation as Quotation;
 
@@ -13,36 +15,48 @@ class QuotationTest extends TestCase
               'code' => '101',
               'player' => 'name',
               'team' => 'fidelis',
-              'role' => 'C',
-              'secondaryRole' => 'T',
+              'role' => 'T',
+              'secondaryRole' => 'C',
               'active' => true,
               'quotation' => '12',
               'magicPoints' => null,
               'originalMagicPoints' => null,
               'vote' => null,
+              'goalsMagicPoints' => 0,
               'goals' => 0,
+              'yellowCardMagicPoints' => 0,
               'yellowCards' => 0,
+              'redCardsMagicPoints' => 0,
               'redCards' => 0,
+              'penaltiesMagicPoints' => 0,
               'penalties' => 0,
+              'autoGoalsMagicPoints' => 0,
               'autoGoals' => 0,
+              'assistsMagicPoints' => 0,
               'assists' => 0,
             ],
             [
               'getCode' => '101',
               'getPlayer' => 'name',
               'getTeam' => 'fidelis',
-              'getRole' => 'C',
-              'getSecondaryRole' => 'T',
+              'getRole' => 'T',
+              'getSecondaryRole' => 'C',
               'isActive' => true,
               'getQuotation' => 12,
               'getMagicPoints' => null,
               'getOriginalMagicPoints' => null,
               'getVote' => null,
+              'getGoalsMagicPoints' => 0.0,
               'getGoals' => 0,
+              'getYellowCardMagicPoints' => 0.0,
               'isCautioned' => false,
+              'getRedCardMagicPoints' => 0.0,
               'isSentOff' => false,
+              'getPenaltiesMagicPoints' => 0.0,
               'getPenalties' => 0,
+              'getAutoGoalsMagicPoints' => 0.0,
               'getAutoGoals' => 0,
+              'getAssistsMagicPoints' => 0.0,
               'getAssists' => 0,
               'isWithoutVote' => true,
               'hasPlayed' => false
@@ -53,36 +67,48 @@ class QuotationTest extends TestCase
               'code' => '101',
               'player' => 'name',
               'team' => 'fidelis',
-              'role' => 'C',
-              'secondaryRole' => 'T',
+              'role' => 'T',
+              'secondaryRole' => 'C',
               'active' => true,
               'quotation' => '12',
               'magicPoints' => '5.5',
               'originalMagicPoints' => '5.5',
               'vote' => '6',
+              'goalsMagicPoints' => 9,
               'goals' => '3',
+              'yellowCardMagicPoints' => -0.5,
               'yellowCards' => 1,
+              'redCardsMagicPoints' => -1,
               'redCards' => 1,
+              'penaltiesMagicPoints' => 9,
               'penalties' => '3',
+              'autoGoalsMagicPoints' => -2,
               'autoGoals' => '-2',
+              'assistsMagicPoints' => 2,
               'assists' => '2',
             ],
             [
               'getCode' => '101',
               'getPlayer' => 'name',
               'getTeam' => 'fidelis',
-              'getRole' => 'C',
-              'getSecondaryRole' => 'T',
+              'getRole' => 'T',
+              'getSecondaryRole' => 'C',
               'isActive' => true,
               'getQuotation' => 12,
               'getMagicPoints' => 5.5,
               'getOriginalMagicPoints' => 5.5,
               'getVote' => 6.0,
+              'getGoalsMagicPoints' => 9.0,
               'getGoals' => 3,
+              'getYellowCardMagicPoints' => -0.5,
               'isCautioned' => true,
+              'getRedCardMagicPoints' => -1.0,
               'isSentOff' => true,
+              'getPenaltiesMagicPoints' => 9.0,
               'getPenalties' => 3,
+              'getAutoGoalsMagicPoints' => -2.0,
               'getAutoGoals' => -2,
+              'getAssistsMagicPoints' => 2.0,
               'getAssists' => 2,
               'isWithoutVote' => false,
               'hasPlayed' => true
@@ -93,36 +119,48 @@ class QuotationTest extends TestCase
               'code' => '101',
               'player' => 'name',
               'team' => 'fidelis',
-              'role' => 'C',
-              'secondaryRole' => 'T',
+              'role' => 'T',
+              'secondaryRole' => 'C',
               'active' => true,
               'quotation' => '12',
               'magicPoints' => '5.5',
               'originalMagicPoints' => '3.5',
               'vote' => null,
+              'goalsMagicPoints' => 3,
               'goals' => '3',
+              'yellowCardMagicPoints' => -0.5,
               'yellowCards' => 1,
+              'redCardsMagicPoints' => -1,
               'redCards' => 1,
+              'penaltiesMagicPoints' => 9,
               'penalties' => '3',
+              'autoGoalsMagicPoints' => -2,
               'autoGoals' => '-2',
+              'assistsMagicPoints' => 2,
               'assists' => '2',
             ],
             [
               'getCode' => '101',
               'getPlayer' => 'name',
               'getTeam' => 'fidelis',
-              'getRole' => 'C',
-              'getSecondaryRole' => 'T',
+              'getRole' => 'T',
+              'getSecondaryRole' => 'C',
               'isActive' => true,
               'getQuotation' => 12,
               'getMagicPoints' => 5.5,
               'getOriginalMagicPoints' => 3.5,
               'getVote' => null,
+              'getGoalsMagicPoints' => 3.0,
               'getGoals' => 3,
+              'getYellowCardMagicPoints' => -0.5,
               'isCautioned' => true,
+              'getRedCardMagicPoints' => -1.0,
               'isSentOff' => true,
+              'getPenaltiesMagicPoints' => 9.0,
               'getPenalties' => 3,
+              'getAutoGoalsMagicPoints' => -2.0,
               'getAutoGoals' => -2,
+              'getAssistsMagicPoints' => 2.0,
               'getAssists' => 2,
               'isWithoutVote' => true,
               'hasPlayed' => true
@@ -131,7 +169,7 @@ class QuotationTest extends TestCase
         ];
     }
 
-    private function _getQuotationInstance($config)
+    private function getQuotationInstance($config)
     {
         return new Quotation(
           $config['code'],
@@ -144,11 +182,17 @@ class QuotationTest extends TestCase
           $config['magicPoints'],
           $config['originalMagicPoints'],
           $config['vote'],
+          $config['goalsMagicPoints'],
           $config['goals'],
+          $config['yellowCardMagicPoints'],
           $config['yellowCards'],
+          $config['redCardsMagicPoints'],
           $config['redCards'],
+          $config['penaltiesMagicPoints'],
           $config['penalties'],
+          $config['autoGoalsMagicPoints'],
           $config['autoGoals'],
+          $config['assistsMagicPoints'],
           $config['assists']
         );
     }
@@ -160,7 +204,7 @@ class QuotationTest extends TestCase
      */
     public function testGetCode($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('string', $quotation->getCode());
         $this->assertSame($result['getCode'], $quotation->getCode());
     }
@@ -172,7 +216,7 @@ class QuotationTest extends TestCase
      */
     public function testGetPlayer($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('string', $quotation->getPlayer());
         $this->assertSame($result['getPlayer'], $quotation->getPlayer());
     }
@@ -184,7 +228,7 @@ class QuotationTest extends TestCase
      */
     public function testGetTeam($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('string', $quotation->getTeam());
         $this->assertSame($result['getTeam'], $quotation->getTeam());
     }
@@ -196,7 +240,7 @@ class QuotationTest extends TestCase
      */
     public function testGetRole($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('string', $quotation->getRole());
         $this->assertSame($result['getRole'], $quotation->getRole());
     }
@@ -208,7 +252,7 @@ class QuotationTest extends TestCase
      */
     public function testGetSecondaryRole($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('string', $quotation->getSecondaryRole());
         $this->assertSame($result['getSecondaryRole'], $quotation->getSecondaryRole());
     }
@@ -220,7 +264,7 @@ class QuotationTest extends TestCase
      */
     public function testIsActive($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('boolean', $quotation->isActive());
         $this->assertSame($result['isActive'], $quotation->isActive());
     }
@@ -232,7 +276,7 @@ class QuotationTest extends TestCase
      */
     public function testGetQuotation($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('integer', $quotation->getQuotation());
         $this->assertSame($result['getQuotation'], $quotation->getQuotation());
     }
@@ -244,7 +288,7 @@ class QuotationTest extends TestCase
      */
     public function testGetMagicPoints($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         if (is_null($quotation->getMagicPoints())) {
             $this->assertInternalType('null', $quotation->getMagicPoints());
         } else {
@@ -260,7 +304,7 @@ class QuotationTest extends TestCase
      */
     public function testGetOriginalMagicPoints($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         if (is_null($quotation->getOriginalMagicPoints())) {
             $this->assertInternalType('null', $quotation->getOriginalMagicPoints());
         } else {
@@ -276,7 +320,7 @@ class QuotationTest extends TestCase
      */
     public function testGetVote($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         if (is_null($quotation->getVote())) {
             $this->assertInternalType('null', $quotation->getVote());
         } else {
@@ -292,7 +336,7 @@ class QuotationTest extends TestCase
      */
     public function testHasPlayed($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('bool', $quotation->hasPlayed());
         $this->assertSame($result['hasPlayed'], $quotation->hasPlayed());
     }
@@ -304,7 +348,7 @@ class QuotationTest extends TestCase
      */
     public function testIsWithoutVote($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('bool', $quotation->isWithoutVote());
         $this->assertSame($result['isWithoutVote'], $quotation->isWithoutVote());
     }
@@ -314,9 +358,21 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testGetGoalsMagicPoints($config, $result)
+    {
+        $quotation = $this->getQuotationInstance($config);
+        $this->assertInternalType('float', $quotation->getGoalsMagicPoints());
+        $this->assertSame($result['getGoalsMagicPoints'], $quotation->getGoalsMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testGetGoals($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('integer', $quotation->getGoals());
         $this->assertSame($result['getGoals'], $quotation->getGoals());
     }
@@ -326,9 +382,21 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testGetYellowCardMagicPoints($config, $result)
+    {
+        $quotation = $this->getQuotationInstance($config);
+        $this->assertInternalType('float', $quotation->getYellowCardMagicPoints());
+        $this->assertSame($result['getYellowCardMagicPoints'], $quotation->getYellowCardMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testIsCautioned($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('boolean', $quotation->isCautioned());
         $this->assertSame($result['isCautioned'], $quotation->isCautioned());
     }
@@ -338,9 +406,21 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testGetRedCardMagicPoints($config, $result)
+    {
+        $quotation = $this->getQuotationInstance($config);
+        $this->assertInternalType('float', $quotation->getRedCardMagicPoints());
+        $this->assertSame($result['getRedCardMagicPoints'], $quotation->getRedCardMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testIsSentOff($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('boolean', $quotation->isSentOff());
         $this->assertSame($result['isSentOff'], $quotation->isSentOff());
     }
@@ -350,9 +430,21 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testGetPenaltiesMagicPoints($config, $result)
+    {
+        $quotation = $this->getQuotationInstance($config);
+        $this->assertInternalType('float', $quotation->getPenaltiesMagicPoints());
+        $this->assertSame($result['getPenaltiesMagicPoints'], $quotation->getPenaltiesMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testGetPenalties($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('integer', $quotation->getPenalties());
         $this->assertSame($result['getPenalties'], $quotation->getPenalties());
     }
@@ -362,9 +454,21 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testGetAutoGoalsMagicPoints($config, $result)
+    {
+        $quotation = $this->getQuotationInstance($config);
+        $this->assertInternalType('float', $quotation->getAutoGoalsMagicPoints());
+        $this->assertSame($result['getAutoGoalsMagicPoints'], $quotation->getAutoGoalsMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testGetAutoGoals($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('integer', $quotation->getAutoGoals());
         $this->assertSame($result['getAutoGoals'], $quotation->getAutoGoals());
     }
@@ -374,9 +478,21 @@ class QuotationTest extends TestCase
      * @param array $config
      * @param array $result
      */
+    public function testGetAssistsMagicPoints($config, $result)
+    {
+        $quotation = $this->getQuotationInstance($config);
+        $this->assertInternalType('float', $quotation->getAssistsMagicPoints());
+        $this->assertSame($result['getAssistsMagicPoints'], $quotation->getAssistsMagicPoints());
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param array $config
+     * @param array $result
+     */
     public function testGetAssists($config, $result)
     {
-        $quotation = $this->_getQuotationInstance($config);
+        $quotation = $this->getQuotationInstance($config);
         $this->assertInternalType('integer', $quotation->getAssists());
         $this->assertSame($result['getAssists'], $quotation->getAssists());
     }

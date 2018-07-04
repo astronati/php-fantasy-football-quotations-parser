@@ -14,8 +14,8 @@ interface RowFieldNormalizerInterface
      * @param mixed $value
      * @param Row $row
      * @param string $format
-     * @param array $extra
+     * @param NormalizedFieldsContainer|null $normalizedFieldsContainer
      * @return int|string|bool|float|null
      */
-    public function normalize($value, Row $row, string $format, array $extra = []);
+    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer);
 }

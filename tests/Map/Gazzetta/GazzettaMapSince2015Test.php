@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Map\Gazzetta;
+
 use PHPUnit\Framework\TestCase;
 use FFQP\Map\Gazzetta\GazzettaMapSince2015;
 

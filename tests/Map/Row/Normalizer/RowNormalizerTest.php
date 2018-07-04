@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Map\Row\Normalizer;
+
 use PHPUnit\Framework\TestCase;
 use FFQP\Map\Row\Normalizer\RowNormalizer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;

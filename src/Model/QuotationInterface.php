@@ -91,10 +91,22 @@ interface QuotationInterface
     public function isWithoutVote(): bool;
 
     /**
+     * Returns the magic points associated to the goals scored or conceded by the footballer.
+     * @return float
+     */
+    public function getGoalsMagicPoints(): float;
+
+    /**
      * Returns the number of goals scored or conceded by the footballer.
      * @return int
      */
     public function getGoals(): int;
+
+    /**
+     * Returns the magic points associated to the yellow card.
+     * @return float
+     */
+    public function getYellowCardMagicPoints(): float;
 
     /**
      * Determines whether the footballer is cautioned or not.
@@ -103,10 +115,22 @@ interface QuotationInterface
     public function isCautioned(): bool;
 
     /**
+     * Returns the magic points associated to the red card.
+     * @return float
+     */
+    public function getRedCardMagicPoints(): float;
+
+    /**
      * Determines whether the footbaler is sent off or not.
      * @return boolean
      */
     public function isSentOff(): bool;
+
+    /**
+     * Returns the magic points associated to number of penalties.
+     * @return float
+     */
+    public function getPenaltiesMagicPoints(): float;
 
     /**
      * Returns the number of penalties:
@@ -117,10 +141,22 @@ interface QuotationInterface
     public function getPenalties(): int;
 
     /**
+     * Returns the magic points associated to number of auto goals.
+     * @return float
+     */
+    public function getAutoGoalsMagicPoints(): float;
+
+    /**
      * Returns the number of auto goals, footballer did.
      * @return int
      */
     public function getAutoGoals(): int;
+
+    /**
+     * Returns the magic points associated to number of assists.
+     * @return float
+     */
+    public function getAssistsMagicPoints(): float;
 
     /**
      * Returns the number of assists performed by footballer.

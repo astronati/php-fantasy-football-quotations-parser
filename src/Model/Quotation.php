@@ -17,11 +17,17 @@ class Quotation implements QuotationInterface
     const MAGIC_POINTS = 'magicPoints';
     const ORIGINAL_MAGIC_POINTS = 'originalMagicPoints';
     const VOTE = 'vote';
+    const GOALS_MAGIC_POINTS = 'goalsMagicPoints';
     const GOALS = 'goals';
+    const YELLOW_CARDS_MAGIC_POINTS = 'yellowCardsMagicPoints';
     const YELLOW_CARDS = 'yellowCards';
+    const RED_CARDS_MAGIC_POINTS = 'redCardsMagicPoints';
     const RED_CARDS = 'redCards';
+    const PENALTIES_MAGIC_POINTS = 'penaltiesMagicPoints';
     const PENALTIES = 'penalties';
+    const AUTO_GOALS_MAGIC_POINTS = 'autoGoalsMagicPoints';
     const AUTO_GOALS = 'autoGoals';
+    const ASSISTS_MAGIC_POINTS = 'assistsMagicPoints';
     const ASSISTS = 'assists';
 
     /**
@@ -85,10 +91,22 @@ class Quotation implements QuotationInterface
     private $vote = null;
 
     /**
+     * @var float
+     * @see QuotationInterface::getGoalsMagicPoints()
+     */
+    private $goalsMagicPoints = 0;
+
+    /**
      * @var int
      * @see QuotationInterface::getGoals()
      */
     private $goals = 0;
+
+    /**
+     * @var float
+     * @see QuotationInterface::getYellowCardMagicPoints()
+     */
+    private $yellowCardsMagicPoints = 0;
 
     /**
      * The number of yellow cards assigned to the footballer.
@@ -98,11 +116,23 @@ class Quotation implements QuotationInterface
     private $yellowCards = 0;
 
     /**
+     * @var float
+     * @see QuotationInterface::getRedCardMagicPoints()
+     */
+    private $redCardsMagicPoints = 0;
+
+    /**
      * The number of red cards assigned to the footballer.
      * @var int
      * @see QuotationInterface::isSentOff()
      */
     private $redCards = 0;
+
+    /**
+     * @var float
+     * @see QuotationInterface::getPenaltiesMagicPoints()
+     */
+    private $penaltiesMagicPoints = 0;
 
     /**
      * @var int
@@ -111,10 +141,22 @@ class Quotation implements QuotationInterface
     private $penalties = 0;
 
     /**
+     * @var float
+     * @see QuotationInterface::getAutoGoalsMagicPoints()
+     */
+    private $autoGoalsMagicPoints = 0;
+
+    /**
      * @var int
      * @see QuotationInterface::getAutoGoals()
      */
     private $autoGoals = 0;
+
+    /**
+     * @var float
+     * @see QuotationInterface::getAssistsMagicPoints()
+     */
+    private $assistsMagicPoints = 0;
 
     /**
      * @var int
@@ -232,11 +274,29 @@ class Quotation implements QuotationInterface
 
     /**
      * @inheritdoc
+     * @see QuotationInterface::getGoalsMagicPoints()
+     */
+    public function getGoalsMagicPoints(): float
+    {
+        return $this->goalsMagicPoints;
+    }
+
+    /**
+     * @inheritdoc
      * @see QuotationInterface::getGoals()
      */
     public function getGoals(): int
     {
         return $this->goals;
+    }
+
+    /**
+     * @inheritdoc
+     * @see QuotationInterface::getYellowCardMagicPoints
+     */
+    public function getYellowCardMagicPoints(): float
+    {
+        return $this->yellowCardsMagicPoints;
     }
 
     /**
@@ -250,11 +310,29 @@ class Quotation implements QuotationInterface
 
     /**
      * @inheritdoc
+     * @see QuotationInterface::getRedCardMagicPoints
+     */
+    public function getRedCardMagicPoints(): float
+    {
+        return $this->redCardsMagicPoints;
+    }
+
+    /**
+     * @inheritdoc
      * @see QuotationInterface::isSentOff()
      */
     public function isSentOff(): bool
     {
         return $this->redCards > 0;
+    }
+
+    /**
+     * @inheritdoc
+     * @see QuotationInterface::getPenaltiesMagicPoints
+     */
+    public function getPenaltiesMagicPoints(): float
+    {
+        return $this->penaltiesMagicPoints;
     }
 
     /**
@@ -268,11 +346,29 @@ class Quotation implements QuotationInterface
 
     /**
      * @inheritdoc
+     * @see QuotationInterface::getAutoGoalsMagicPoints
+     */
+    public function getAutoGoalsMagicPoints(): float
+    {
+        return $this->autoGoalsMagicPoints;
+    }
+
+    /**
+     * @inheritdoc
      * @see QuotationInterface::getAutoGoals()
      */
     public function getAutoGoals(): int
     {
         return $this->autoGoals;
+    }
+
+    /**
+     * @inheritdoc
+     * @see QuotationInterface::getAssistsMagicPoints
+     */
+    public function getAssistsMagicPoints(): float
+    {
+        return $this->assistsMagicPoints;
     }
 
     /**
@@ -295,11 +391,17 @@ class Quotation implements QuotationInterface
      * @param float|null $magicPoints
      * @param float|null $originalMagicPoints
      * @param float|null $vote
+     * @param float $goalsMagicPoints
      * @param int $goals
+     * @param float $yellowCardsMagicPoints
      * @param int $yellowCards
+     * @param float $redCardsMagicPoints
      * @param int $redCards
+     * @param float $penaltiesMagicPoints
      * @param int $penalties
+     * @param float $autoGoalsMagicPoints
      * @param int $autoGoals
+     * @param float $assistsMagicPoints
      * @param int $assists
      */
     public function __construct(
@@ -313,11 +415,17 @@ class Quotation implements QuotationInterface
       ?float $magicPoints,
       ?float $originalMagicPoints,
       ?float $vote,
+      float $goalsMagicPoints,
       int $goals,
+      float $yellowCardsMagicPoints,
       int $yellowCards,
+      float $redCardsMagicPoints,
       int $redCards,
+      float $penaltiesMagicPoints,
       int $penalties,
+      float $autoGoalsMagicPoints,
       int $autoGoals,
+      float $assistsMagicPoints,
       int $assists
     )
     {
@@ -331,11 +439,17 @@ class Quotation implements QuotationInterface
         $this->magicPoints = $magicPoints;
         $this->originalMagicPoints = $originalMagicPoints;
         $this->vote = $vote;
+        $this->goalsMagicPoints = $goalsMagicPoints;
         $this->goals = $goals;
+        $this->yellowCardsMagicPoints = $yellowCardsMagicPoints;
         $this->yellowCards = $yellowCards;
+        $this->redCardsMagicPoints = $redCardsMagicPoints;
         $this->redCards = $redCards;
+        $this->penaltiesMagicPoints = $penaltiesMagicPoints;
         $this->penalties = $penalties;
+        $this->autoGoalsMagicPoints = $autoGoalsMagicPoints;
         $this->autoGoals = $autoGoals;
+        $this->assistsMagicPoints = $assistsMagicPoints;
         $this->assists = $assists;
     }
 }
