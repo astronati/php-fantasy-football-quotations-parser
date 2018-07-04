@@ -1,9 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use FFQP\Map\Row\Normalizer\Field\Type\ActiveNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\AssistsMagicPointsNormalizer;
 
-class ActiveNormalizerTest extends TestCase
+class AssistsMagicPointsNormalizerTest extends TestCase
 {
     private function getNormalizerFieldsContainerInstance()
     {
@@ -14,12 +14,12 @@ class ActiveNormalizerTest extends TestCase
     public function dataProvider()
     {
         return [
-          ['1', true],
-          [1, true],
-          ['0', false],
-          [0, false],
-          ['SI', true],
-          ['NO', false],
+          ['10', 10.0],
+          [10, 10.0],
+          ['1', 1.0],
+          [1, 1.0],
+          [0, 0.0],
+          ['0', 0.0],
         ];
     }
 
@@ -30,7 +30,16 @@ class ActiveNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $normalizer = new ActiveNormalizer();
+        $normalizer = new AssistsMagicPointsNormalizer();
+        $this->assertInternalType(
+          'float',
+          $normalizer->normalize(
+            $value,
+            $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
+            'any_format',
+            $this->getNormalizerFieldsContainerInstance()
+          )
+        );
         $this->assertSame(
           $result,
           $normalizer->normalize(

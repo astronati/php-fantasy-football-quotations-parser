@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Map\Row\Normalizer\Field;
+
 use PHPUnit\Framework\TestCase;
 use FFQP\Exception\NotFoundFieldException;
 use FFQP\Map\MapAbstract;

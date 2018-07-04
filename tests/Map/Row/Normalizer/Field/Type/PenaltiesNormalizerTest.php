@@ -1,48 +1,81 @@
 <?php
-//
-//use PHPUnit\Framework\TestCase;
-//use FFQP\Map\Row\Normalizer\Field\Type\PenaltiesNormalizer;
-//
-//class PenaltiesNormalizerTest extends TestCase
-//{
-//
-//    public function dataProvider()
-//    {
-//        return [
-//          ['3,0', 1],
-//          [3.0, 1],
-//          ['3.0', 1],
-//          ['3,0', 1],
-//          ['-3.0', 1],
-//          [-3.0, 1],
-//          [0, 0],
-//          ['0', 0],
-//        ];
-//    }
-//
-//    /**
-//     * @dataProvider dataProvider
-//     * @param * $value
-//     * @param int $result
-//     */
-//    public function testNormalize($value, $result)
-//    {
-//        $penalties = new PenaltiesNormalizer();
-//        $this->assertInternalType(
-//          'int',
-//          $penalties->normalize(
-//            $value,
-//            $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-//            'any_type'
-//          )
-//        );
-//        $this->assertSame(
-//          $result,
-//          $penalties->normalize(
-//            $value,
-//            $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-//            'any_type'
-//          )
-//        );
-//    }
-//}
+
+namespace Tests\Map\Row\Normalizer\Field\Type;
+
+use FFQP\Map\Row\Normalizer\Field\Type\AutoGoalsMagicPointsNormalizer;
+use FFQP\Map\Row\Normalizer\Field\Type\PenaltiesNormalizer;
+use FFQP\Model\Quotation;
+use FFQP\Parser\QuotationsParserFactory;
+use PHPUnit\Framework\TestCase;
+
+class PenaltiesNormalizerTest extends TestCase
+{
+    private function getPenaltiesMagicPointsNormalizer($value)
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\Type\PenaltiesMagicPointsNormalizer')
+          ->disableOriginalConstructor()
+          ->setMethods(['normalize'])
+          ->getMock();
+        $instance->method('normalize')->with($value)->willReturn((float) $value);
+        return $instance;
+    }
+
+    private function getNormalizerFieldsContainerInstance($value)
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer')
+          ->disableOriginalConstructor()
+          ->setMethods(['get'])
+          ->getMock();
+
+        $map = [
+          [Quotation::PENALTIES_MAGIC_POINTS, $this->getPenaltiesMagicPointsNormalizer($value)]
+        ];
+        $instance->method('get')->willReturnMap($map);
+
+        return $instance;
+    }
+
+    private function getRowDataInstance()
+    {
+        $instance = $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock();
+        return $instance;
+    }
+
+    public function dataProvider()
+    {
+        return [
+          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0],
+          ['-', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0],
+          ['0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0],
+          ['0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0],
+          [0, 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0],
+          [0, 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0],
+          ['3.0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1],
+          ['-3.0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1],
+          ['-3,0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1],
+          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0],
+          ['-', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0],
+          ['0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0],
+          ['0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0],
+          [0, 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0],
+          [0, 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0],
+          ['3', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 1],
+          ['-3', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 1],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param * $value
+     * @param string $role
+     * @param string $format
+     * @param int $result
+     */
+    public function testNormalize($value, $role, $format, $result)
+    {
+        $normalizer = new PenaltiesNormalizer();
+        $rowData = $this->getRowDataInstance();
+        $this->assertInternalType('int', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value)));
+        $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value)));
+    }
+}

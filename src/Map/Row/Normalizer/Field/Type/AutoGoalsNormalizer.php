@@ -32,6 +32,6 @@ class AutoGoalsNormalizer implements RowFieldNormalizerInterface
         }
 
         $malus = $normalizedFieldsContainer->get(Quotation::AUTO_GOALS_MAGIC_POINTS)->normalize($row->autoGoals, $row, $format, $normalizedFieldsContainer);
-        return (int) $malus / ($row->secondaryRole === Row::GOALKEEPER ? self::GOALKEEPER_MALUS : self::DEFAULT_MALUS);
+        return (int) $malus / ($row->role === Row::GOALKEEPER ? self::GOALKEEPER_MALUS : self::DEFAULT_MALUS);
     }
 }

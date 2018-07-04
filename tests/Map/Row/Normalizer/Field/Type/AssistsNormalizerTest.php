@@ -30,10 +30,10 @@ class AssistsNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $assists = new AssistsNormalizer();
+        $normalizer = new AssistsNormalizer();
         $this->assertInternalType(
           'int',
-          $assists->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_format',
@@ -42,7 +42,7 @@ class AssistsNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $assists->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_format',

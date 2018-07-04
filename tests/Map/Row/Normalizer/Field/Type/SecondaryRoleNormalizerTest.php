@@ -24,7 +24,7 @@ class SecondaryRoleNormalizerTest extends TestCase
         ];
     }
 
-    private function _getRowMock($role) {
+    private function getRowMock($role) {
         $rowMock = $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock();
         $rowMock->role = $role;
         return $rowMock;
@@ -38,7 +38,7 @@ class SecondaryRoleNormalizerTest extends TestCase
      */
     public function testNormalize($role, $secondaryRole, $result)
     {
-        $rowMock = $this->_getRowMock($role);
+        $rowMock = $this->getRowMock($role);
         $secondaryRoleNormalizer = new SecondaryRoleNormalizer();
         $this->assertInternalType(
           'string',

@@ -28,7 +28,7 @@
 //        ];
 //    }
 //
-//    private function _getRowDataInstance($role)
+//    private function getRowDataInstance($role)
 //    {
 //        $instance = $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock();
 //        $instance->role = $role;
@@ -47,7 +47,7 @@
 //    public function testNormalize($value, $role, $format, $magicPoints, $goals, $result)
 //    {
 //        $normalizer = new OriginalMagicPointsNormalizer();
-//        $row = $this->_getRowDataInstance($role);
+//        $row = $this->getRowDataInstance($role);
 //        $normalizedValue = $normalizer->normalize(
 //          $value,
 //          $row,

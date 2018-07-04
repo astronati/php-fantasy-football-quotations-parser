@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Parser;
+
 use PHPUnit\Framework\TestCase;
 use FFQP\Parser\QuotationsParser;
 
