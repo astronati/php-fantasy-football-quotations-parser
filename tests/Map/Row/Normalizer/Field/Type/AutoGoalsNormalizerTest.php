@@ -75,9 +75,9 @@ class AutoGoalsNormalizerTest extends TestCase
      */
     public function testNormalize($value, $role, $format, $malus, $result)
     {
-        $autoGoals = new AutoGoalsNormalizer();
+        $normalizer = new AutoGoalsNormalizer();
         $rowData = $this->getRowDataInstance($role, $value);
-        $this->assertInternalType('int', $autoGoals->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
-        $this->assertSame($result, $autoGoals->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
+        $this->assertInternalType('int', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
+        $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
     }
 }

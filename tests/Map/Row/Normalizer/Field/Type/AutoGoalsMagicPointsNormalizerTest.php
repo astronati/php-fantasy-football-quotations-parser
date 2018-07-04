@@ -74,9 +74,9 @@ class AutoGoalsMagicPointsNormalizerTest extends TestCase
      */
     public function testNormalize($value, $role, $format, $autoGoalsNumber, $result)
     {
-        $autoGoals = new AutoGoalsMagicPointsNormalizer();
+        $normalizer = new AutoGoalsMagicPointsNormalizer();
         $rowData = $this->getRowDataInstance($role);
-        $this->assertInternalType('float', $autoGoals->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $autoGoalsNumber)));
-        $this->assertSame($result, $autoGoals->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $autoGoalsNumber)));
+        $this->assertInternalType('float', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $autoGoalsNumber)));
+        $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $autoGoalsNumber)));
     }
 }

@@ -28,10 +28,10 @@ class QuotationNormalizerTest extends TestCase
      */
     public function testNormalize($value, $result)
     {
-        $quotation = new QuotationNormalizer();
+        $normalizer = new QuotationNormalizer();
         $this->assertInternalType(
           'int',
-          $quotation->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',
@@ -40,7 +40,7 @@ class QuotationNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $quotation->normalize(
+          $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
             'any_type',

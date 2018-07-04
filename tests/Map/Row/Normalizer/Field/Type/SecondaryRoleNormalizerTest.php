@@ -39,10 +39,10 @@ class SecondaryRoleNormalizerTest extends TestCase
     public function testNormalize($role, $secondaryRole, $result)
     {
         $rowMock = $this->getRowMock($role);
-        $secondaryRoleNormalizer = new SecondaryRoleNormalizer();
+        $normalizer = new SecondaryRoleNormalizer();
         $this->assertInternalType(
           'string',
-          $secondaryRoleNormalizer->normalize(
+          $normalizer->normalize(
             $secondaryRole,
             $rowMock,
             'any_type',
@@ -51,7 +51,7 @@ class SecondaryRoleNormalizerTest extends TestCase
         );
         $this->assertSame(
           $result,
-          $secondaryRoleNormalizer->normalize(
+          $normalizer->normalize(
             $secondaryRole,
             $rowMock,
             'any_type',
