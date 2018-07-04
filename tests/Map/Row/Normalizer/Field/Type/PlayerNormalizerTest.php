@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use FFQP\Map\Row\Normalizer\Field\Type\PlayerNormalizer;
+use PHPUnit\Framework\TestCase;
 
 class PlayerNormalizerTest extends TestCase
 {

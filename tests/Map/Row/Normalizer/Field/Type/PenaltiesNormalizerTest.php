@@ -2,7 +2,6 @@
 
 namespace Tests\Map\Row\Normalizer\Field\Type;
 
-use FFQP\Map\Row\Normalizer\Field\Type\AutoGoalsMagicPointsNormalizer;
 use FFQP\Map\Row\Normalizer\Field\Type\PenaltiesNormalizer;
 use FFQP\Model\Quotation;
 use FFQP\Parser\QuotationsParserFactory;

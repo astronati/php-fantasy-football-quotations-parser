@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use FFQP\Map\Row\Normalizer\Field\Type\QuotationNormalizer;
+use PHPUnit\Framework\TestCase;
 
 class QuotationNormalizerTest extends TestCase
 {

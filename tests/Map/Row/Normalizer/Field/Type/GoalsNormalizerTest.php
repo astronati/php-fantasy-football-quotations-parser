@@ -4,8 +4,8 @@ namespace Tests\Map\Row\Normalizer\Field\Type;
 
 use FFQP\Map\Row\Normalizer\Field\Type\GoalsNormalizer;
 use FFQP\Model\Quotation;
-use PHPUnit\Framework\TestCase;
 use FFQP\Parser\QuotationsParserFactory;
+use PHPUnit\Framework\TestCase;
 
 class GoalsNormalizerTest extends TestCase
 {

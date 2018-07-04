@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use FFQP\Map\Row\Normalizer\Field\Type\VoteNormalizer;
+use PHPUnit\Framework\TestCase;
 
 class VoteNormalizerTest extends TestCase
 {

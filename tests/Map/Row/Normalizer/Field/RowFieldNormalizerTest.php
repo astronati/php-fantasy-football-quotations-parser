@@ -2,7 +2,6 @@
 
 namespace Tests\Map\Row\Normalizer\Field;
 
-use PHPUnit\Framework\TestCase;
 use FFQP\Exception\NotFoundFieldException;
 use FFQP\Map\MapAbstract;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;
@@ -21,6 +20,7 @@ use FFQP\Map\Row\Normalizer\Field\Type\SecondaryRoleNormalizer;
 use FFQP\Map\Row\Normalizer\Field\Type\TeamNormalizer;
 use FFQP\Map\Row\Normalizer\Field\Type\VoteNormalizer;
 use FFQP\Map\Row\Normalizer\Field\Type\YellowCardsNormalizer;
+use PHPUnit\Framework\TestCase;
 
 class RowFieldNormalizerFactoryTest extends TestCase
 {
