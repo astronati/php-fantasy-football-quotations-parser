@@ -34,9 +34,10 @@ class RedCardsNormalizerTest extends TestCase
         return $instance;
     }
 
-    private function getRowDataInstance()
+    private function getRowDataInstance($role)
     {
         $instance = $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock();
+        $instance->role = $role;
         return $instance;
     }
 
@@ -73,7 +74,7 @@ class RedCardsNormalizerTest extends TestCase
     public function testNormalize($value, $role, $format, $malus, $result)
     {
         $normalizer = new RedCardsNormalizer();
-        $rowData = $this->getRowDataInstance();
+        $rowData = $this->getRowDataInstance($role);
         $this->assertInternalType('int', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
         $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
     }

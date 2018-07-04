@@ -34,9 +34,10 @@ class PenaltiesNormalizerTest extends TestCase
         return $instance;
     }
 
-    private function getRowDataInstance()
+    private function getRowDataInstance($role)
     {
         $instance = $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock();
+        $instance->role = $role;
         return $instance;
     }
 
@@ -73,7 +74,7 @@ class PenaltiesNormalizerTest extends TestCase
     public function testNormalize($value, $role, $format, $result)
     {
         $normalizer = new PenaltiesNormalizer();
-        $rowData = $this->getRowDataInstance();
+        $rowData = $this->getRowDataInstance($role);
         $this->assertInternalType('int', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value)));
         $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value)));
     }
