@@ -90,7 +90,6 @@ class MagicPointsNormalizerTest extends TestCase
     }
 
     private function getNormalizerFieldsContainerInstance(
-      $value,
       $vote,
       $status,
       $assist,
@@ -205,7 +204,6 @@ class MagicPointsNormalizerTest extends TestCase
           $rowData,
           $format,
           $this->getNormalizerFieldsContainerInstance(
-            $value,
             $vote,
             $active,
             $assist,
