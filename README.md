@@ -27,9 +27,9 @@ $ composer require astronati/fantasy-football-quotations-parser
 ### Usage
 The library allows to return a model per each quotation (player, vote, etc...).
 
-##### Example
+#### Example
 The following snippet is extracted from the
-[example/sample.php](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/sample.php)
+[example/sample.php](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/example/sample_2017.php)
 file and shows how parsing an excel file of the season 2017/2018
 
 ```php
@@ -40,9 +40,11 @@ $quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FOR
 $quotations = $quotationsParser->getQuotations('example/files/2017_quotazioni_gazzetta_02.xls');
 ```
 
-##### Supported Formats
+#### Supported Formats
 Take a look at the Gazzetta [folder](https://github.com/astronati/php-fantasy-football-quotations-parser/tree/master/src/Map/Gazzetta)
-to know which formats are supported
+to know which formats are supported and at the
+[QuotationsParserFactory](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/Parser/QuotationsParserFactory.php#L18)
+to determine which constant using.
 
 #### Quotation(s)
 A [Quotation](https://github.com/astronati/php-fantasy-football-quotations-parser/blob/master/src/Model/Quotation.php)

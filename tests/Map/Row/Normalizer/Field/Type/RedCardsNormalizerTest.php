@@ -9,13 +9,13 @@ use PHPUnit\Framework\TestCase;
 
 class RedCardsNormalizerTest extends TestCase
 {
-    private function getRedCardsMagicPointsNormalizer($autoGoals, $malus)
+    private function getRedCardsMagicPointsNormalizer($value, $malus)
     {
         $instance = $this->getMockBuilder('FFQP\Map\Row\Normalizer\Field\Type\RedCardsMagicPointsNormalizer')
           ->disableOriginalConstructor()
           ->setMethods(['normalize'])
           ->getMock();
-        $instance->method('normalize')->with($autoGoals)->willReturn($malus);
+        $instance->method('normalize')->with($value)->willReturn($malus);
         return $instance;
     }
 
