@@ -17,6 +17,9 @@ class PlayerNormalizerTest extends TestCase
           ['test', 'test'],
           ['0', '0'],
           ['DONNARUMMA Gigio', 'DONNARUMMA Gigio'],
+          ['JOAO MARIO -', 'JOAO MARIO'],
+          ['MARLON -', 'MARLON'],
+          ['NAME-COOL -', 'NAME-COOL'],
         ];
     }
 

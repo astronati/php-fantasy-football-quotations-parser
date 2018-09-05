@@ -22,6 +22,6 @@ class PlayerNormalizer implements RowFieldNormalizerInterface
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): string
     {
-        return trim($value);
+        return trim(str_replace(' -', ' ', $value));
     }
 }
