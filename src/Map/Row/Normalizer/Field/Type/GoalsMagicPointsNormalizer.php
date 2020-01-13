@@ -24,11 +24,15 @@ class GoalsMagicPointsNormalizer implements RowFieldNormalizerInterface
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): float
     {
-        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
-            $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($value, $row, $format, $normalizedFieldsContainer);
-            return (float) ($goals * GoalsNormalizer::getBonusByRole($row->role));
+        if (in_array($format, [
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2013,
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015,
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017,
+        ])) {
+            return (float) $value;
         }
 
-        return (float) $value;
+        $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+        return (float) ($goals * GoalsNormalizer::getBonusByRole($row->role));
     }
 }

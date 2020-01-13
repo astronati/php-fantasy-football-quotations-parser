@@ -27,11 +27,15 @@ class AutoGoalsNormalizer implements RowFieldNormalizerInterface
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): int
     {
-        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
-            return abs((int) $value);
+        if (in_array($format, [
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2013,
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015,
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017,
+        ])) {
+            $malus = $normalizedFieldsContainer->get(Quotation::AUTO_GOALS_MAGIC_POINTS)->normalize($row->autoGoals, $row, $format, $normalizedFieldsContainer);
+            return (int) $malus / ($row->role === Row::GOALKEEPER ? self::GOALKEEPER_MALUS : self::DEFAULT_MALUS);
         }
 
-        $malus = $normalizedFieldsContainer->get(Quotation::AUTO_GOALS_MAGIC_POINTS)->normalize($row->autoGoals, $row, $format, $normalizedFieldsContainer);
-        return (int) $malus / ($row->role === Row::GOALKEEPER ? self::GOALKEEPER_MALUS : self::DEFAULT_MALUS);
+        return abs((int) $value);
     }
 }

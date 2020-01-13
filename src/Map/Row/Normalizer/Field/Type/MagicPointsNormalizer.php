@@ -31,6 +31,12 @@ class MagicPointsNormalizer implements RowFieldNormalizerInterface
             return null;
         }
 
+        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2019
+                && $row->secondaryRole == Row::GOALKEEPER
+            ) {
+
+        }
+
         $active = $normalizedFieldsContainer->get(Quotation::ACTIVE)->normalize($row->status, $row, $format, $normalizedFieldsContainer);
         // This problem was reproduced only with the 3 turn of the Fifa World Cup 2018
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018

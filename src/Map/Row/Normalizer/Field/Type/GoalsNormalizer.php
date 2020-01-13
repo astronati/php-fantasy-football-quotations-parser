@@ -33,6 +33,26 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): int
     {
+        if (in_array($format, [
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2013,
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015,
+        ])) {
+            return (int) (((float) $value) / self::STANDARD_GOAL_BONUS);
+        }
+
+        if (in_array($format, [
+            QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017,
+        ])) {
+            $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->goals, $row, $format, $normalizedFieldsContainer);
+            return (int) ($goalMagicPoints / self::getBonusByRole($row->role));
+        }
+
+
+
+
+
+
+
         if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018
                 // Malus for goalkeepers per each gol is -1
                 || $row->role == $row::GOALKEEPER) {
