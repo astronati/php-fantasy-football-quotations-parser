@@ -5,13 +5,13 @@ namespace FFQP\Map\Gazzetta;
 use FFQP\Map\MapAbstract;
 
 /**
- * Defines a Gazzetta xls from season 2017/2018
+ * Defines a Gazzetta xls from season 2019/2020
  */
-class GazzettaMapSince2017 extends MapAbstract
+class GazzettaMapSince2019 extends MapAbstract
 {
     public static function getVersion(): int
     {
-        return 3;
+        return 5;
     }
 
     /**

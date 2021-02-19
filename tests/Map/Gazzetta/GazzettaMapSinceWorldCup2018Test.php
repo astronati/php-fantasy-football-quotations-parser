@@ -10,7 +10,6 @@ class GazzettaMapSinceWorldCup2018Test extends TestCase
     public function testExtractRows()
     {
         $map = new GazzettaMapSinceWorldCup2018();
-        $this->assertInternalType('int', 3);
         $rows = $map->extractRows('tests/fixtures/2018_quotazioni_gazzetta_mm_03.xls');
 
         $this->assertSame(769, count($rows));

@@ -9,7 +9,7 @@ use FFQP\Model\Quotation;
 /**
  * Allows to return footballers quotations
  */
-class QuotationsParser implements QuotationsParserInterface
+class QuotationsParser
 {
     /**
      * @var MapAbstract

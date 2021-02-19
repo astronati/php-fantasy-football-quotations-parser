@@ -2,11 +2,12 @@
 
 namespace FFQP\Map\Row\Normalizer\Field\Type;
 
+use FFQP\Map\Gazzetta\GazzettaMapSince2017;
+use FFQP\Map\Gazzetta\GazzettaMapSince2019;
 use FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerInterface;
 use FFQP\Map\Row\Row;
 use FFQP\Model\Quotation;
-use FFQP\Parser\QuotationsParserFactory;
 
 /**
  * Normalizes the "originalMagicGoals" value
@@ -20,20 +21,29 @@ class OriginalMagicPointsNormalizer implements RowFieldNormalizerInterface
     public function normalize(
       $value,
       Row $row,
-      string $format,
+      int $version,
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): ?float
     {
-        $magicPoints = $normalizedFieldsContainer->get(Quotation::MAGIC_POINTS)->normalize($row->magicPoints, $row, $format, $normalizedFieldsContainer);
+        $magicPoints = $normalizedFieldsContainer->get(Quotation::MAGIC_POINTS)->normalize($row->magicPoints, $row, $version, $normalizedFieldsContainer);
 
         if ($magicPoints === null) {
             return null;
         }
 
-        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018
-                || $format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017) {
+        $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($row->goals, $row, $version, $normalizedFieldsContainer);
+        $vote = $normalizedFieldsContainer->get(Quotation::VOTE)->normalize($row->vote, $row, $version, $normalizedFieldsContainer);
+
+        if ($row->role == Row::GOALKEEPER
+                && $version >= GazzettaMapSince2019::getVersion()
+                && $goals == 0
+                && $vote != null) {
+            // Remove bonus for having 0 goals conceded
+            return $magicPoints - 1;
+        }
+
+        if ($version >= GazzettaMapSince2017::getVersion()) {
             // Remove goal difference
-            $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($row->goals, $row, $format, $normalizedFieldsContainer);
             $magicPoints += $this->getGoalsMagicPointsDifference($goals, $row->role);
         }
 

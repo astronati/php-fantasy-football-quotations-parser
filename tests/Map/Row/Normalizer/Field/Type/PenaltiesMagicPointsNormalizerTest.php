@@ -3,7 +3,6 @@
 namespace Tests\Map\Row\Normalizer\Field\Type;
 
 use FFQP\Map\Row\Normalizer\Field\Type\PenaltiesMagicPointsNormalizer;
-use FFQP\Parser\QuotationsParserFactory;
 use PHPUnit\Framework\TestCase;
 
 class PenaltiesMagicPointsNormalizerTest extends TestCase
@@ -27,12 +26,12 @@ class PenaltiesMagicPointsNormalizerTest extends TestCase
     public function dataProvider()
     {
         return [
-          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0.0],
-          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0.0],
-          [0, 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0.0],
-          [0, 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0.0],
-          ['3', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 3.0],
-          ['3.0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 3.0],
+          ['-', 'P', 3, 0.0],
+          ['-', 'P', 4, 0.0],
+          [0, 'P', 4, 0.0],
+          [0, 'D', 4, 0.0],
+          ['3', 'P', 4, 3.0],
+          ['3.0', 'D', 4, 3.0],
         ];
     }
 
@@ -40,14 +39,13 @@ class PenaltiesMagicPointsNormalizerTest extends TestCase
      * @dataProvider dataProvider
      * @param * $value
      * @param string $role
-     * @param string $format
+     * @param int $version
      * @param int $result
      */
-    public function testNormalize($value, $role, $format, $result)
+    public function testNormalize($value, $role, $version, $result)
     {
         $normalizer = new PenaltiesMagicPointsNormalizer();
         $rowData = $this->getRowDataInstance($role);
-        $this->assertInternalType('float', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance()));
-        $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance()));
+        $this->assertSame($result, $normalizer->normalize($value, $rowData, $version, $this->getNormalizerFieldsContainerInstance()));
     }
 }

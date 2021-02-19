@@ -2,6 +2,11 @@
 
 namespace Tests\Parser;
 
+use FFQP\Map\Gazzetta\GazzettaMapSince2013;
+use FFQP\Map\Gazzetta\GazzettaMapSince2015;
+use FFQP\Map\Gazzetta\GazzettaMapSince2017;
+use FFQP\Map\Gazzetta\GazzettaMapSince2019;
+use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use PHPUnit\Framework\TestCase;
 use FFQP\Exception\InvalidFormatException;
 use FFQP\Parser\QuotationsParserFactory;
@@ -11,10 +16,11 @@ class QuotationsParserFactoryTest extends TestCase
     public function dataProvider()
     {
         return [
-          [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2013],
-          [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2015],
-          [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017],
-          [QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018],
+            [GazzettaMapSince2013::class],
+            [GazzettaMapSince2015::class],
+            [GazzettaMapSince2017::class],
+            [GazzettaMapSinceWorldCup2018::class],
+            [GazzettaMapSince2019::class],
         ];
     }
 

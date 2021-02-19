@@ -205,7 +205,7 @@ class QuotationTest extends TestCase
     public function testGetCode($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('string', $quotation->getCode());
+        $this->assertIsString($quotation->getCode());
         $this->assertSame($result['getCode'], $quotation->getCode());
     }
 
@@ -217,7 +217,7 @@ class QuotationTest extends TestCase
     public function testGetPlayer($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('string', $quotation->getPlayer());
+        $this->assertIsString($quotation->getPlayer());
         $this->assertSame($result['getPlayer'], $quotation->getPlayer());
     }
 
@@ -229,7 +229,7 @@ class QuotationTest extends TestCase
     public function testGetTeam($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('string', $quotation->getTeam());
+        $this->assertIsString($quotation->getTeam());
         $this->assertSame($result['getTeam'], $quotation->getTeam());
     }
 
@@ -241,7 +241,7 @@ class QuotationTest extends TestCase
     public function testGetRole($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('string', $quotation->getRole());
+        $this->assertIsString($quotation->getRole());
         $this->assertSame($result['getRole'], $quotation->getRole());
     }
 
@@ -253,7 +253,7 @@ class QuotationTest extends TestCase
     public function testGetSecondaryRole($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('string', $quotation->getSecondaryRole());
+        $this->assertIsString($quotation->getSecondaryRole());
         $this->assertSame($result['getSecondaryRole'], $quotation->getSecondaryRole());
     }
 
@@ -265,7 +265,7 @@ class QuotationTest extends TestCase
     public function testIsActive($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('boolean', $quotation->isActive());
+        $this->assertIsBool($quotation->isActive());
         $this->assertSame($result['isActive'], $quotation->isActive());
     }
 
@@ -277,7 +277,7 @@ class QuotationTest extends TestCase
     public function testGetQuotation($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('integer', $quotation->getQuotation());
+        $this->assertIsInt($quotation->getQuotation());
         $this->assertSame($result['getQuotation'], $quotation->getQuotation());
     }
 
@@ -290,9 +290,9 @@ class QuotationTest extends TestCase
     {
         $quotation = $this->getQuotationInstance($config);
         if (is_null($quotation->getMagicPoints())) {
-            $this->assertInternalType('null', $quotation->getMagicPoints());
+            $this->assertNull($quotation->getMagicPoints());
         } else {
-            $this->assertInternalType('float', $quotation->getMagicPoints());
+            $this->assertIsFloat($quotation->getMagicPoints());
         }
         $this->assertSame($result['getMagicPoints'], $quotation->getMagicPoints());
     }
@@ -306,9 +306,9 @@ class QuotationTest extends TestCase
     {
         $quotation = $this->getQuotationInstance($config);
         if (is_null($quotation->getOriginalMagicPoints())) {
-            $this->assertInternalType('null', $quotation->getOriginalMagicPoints());
+            $this->assertNull($quotation->getOriginalMagicPoints());
         } else {
-            $this->assertInternalType('float', $quotation->getOriginalMagicPoints());
+            $this->assertIsFloat($quotation->getOriginalMagicPoints());
         }
         $this->assertSame($result['getOriginalMagicPoints'], $quotation->getOriginalMagicPoints());
     }
@@ -322,9 +322,9 @@ class QuotationTest extends TestCase
     {
         $quotation = $this->getQuotationInstance($config);
         if (is_null($quotation->getVote())) {
-            $this->assertInternalType('null', $quotation->getVote());
+            $this->assertNull($quotation->getVote());
         } else {
-            $this->assertInternalType('float', $quotation->getVote());
+            $this->assertIsFloat($quotation->getVote());
         }
         $this->assertSame($result['getVote'], $quotation->getVote());
     }
@@ -337,7 +337,7 @@ class QuotationTest extends TestCase
     public function testHasPlayed($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('bool', $quotation->hasPlayed());
+        $this->assertIsBool($quotation->hasPlayed());
         $this->assertSame($result['hasPlayed'], $quotation->hasPlayed());
     }
 
@@ -349,7 +349,7 @@ class QuotationTest extends TestCase
     public function testIsWithoutVote($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('bool', $quotation->isWithoutVote());
+        $this->assertIsBool($quotation->isWithoutVote());
         $this->assertSame($result['isWithoutVote'], $quotation->isWithoutVote());
     }
 
@@ -361,7 +361,7 @@ class QuotationTest extends TestCase
     public function testGetGoalsMagicPoints($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('float', $quotation->getGoalsMagicPoints());
+        $this->assertIsFloat($quotation->getGoalsMagicPoints());
         $this->assertSame($result['getGoalsMagicPoints'], $quotation->getGoalsMagicPoints());
     }
 
@@ -373,7 +373,7 @@ class QuotationTest extends TestCase
     public function testGetGoals($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('integer', $quotation->getGoals());
+        $this->assertIsInt($quotation->getGoals());
         $this->assertSame($result['getGoals'], $quotation->getGoals());
     }
 
@@ -385,7 +385,7 @@ class QuotationTest extends TestCase
     public function testGetYellowCardMagicPoints($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('float', $quotation->getYellowCardMagicPoints());
+        $this->assertIsFloat($quotation->getYellowCardMagicPoints());
         $this->assertSame($result['getYellowCardMagicPoints'], $quotation->getYellowCardMagicPoints());
     }
 
@@ -397,7 +397,7 @@ class QuotationTest extends TestCase
     public function testIsCautioned($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('boolean', $quotation->isCautioned());
+        $this->assertIsBool($quotation->isCautioned());
         $this->assertSame($result['isCautioned'], $quotation->isCautioned());
     }
 
@@ -409,7 +409,7 @@ class QuotationTest extends TestCase
     public function testGetRedCardMagicPoints($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('float', $quotation->getRedCardMagicPoints());
+        $this->assertIsFloat($quotation->getRedCardMagicPoints());
         $this->assertSame($result['getRedCardMagicPoints'], $quotation->getRedCardMagicPoints());
     }
 
@@ -421,7 +421,7 @@ class QuotationTest extends TestCase
     public function testIsSentOff($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('boolean', $quotation->isSentOff());
+        $this->assertIsBool($quotation->isSentOff());
         $this->assertSame($result['isSentOff'], $quotation->isSentOff());
     }
 
@@ -433,7 +433,7 @@ class QuotationTest extends TestCase
     public function testGetPenaltiesMagicPoints($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('float', $quotation->getPenaltiesMagicPoints());
+        $this->assertIsFloat($quotation->getPenaltiesMagicPoints());
         $this->assertSame($result['getPenaltiesMagicPoints'], $quotation->getPenaltiesMagicPoints());
     }
 
@@ -445,7 +445,7 @@ class QuotationTest extends TestCase
     public function testGetPenalties($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('integer', $quotation->getPenalties());
+        $this->assertIsInt($quotation->getPenalties());
         $this->assertSame($result['getPenalties'], $quotation->getPenalties());
     }
 
@@ -457,7 +457,7 @@ class QuotationTest extends TestCase
     public function testGetAutoGoalsMagicPoints($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('float', $quotation->getAutoGoalsMagicPoints());
+        $this->assertIsFloat($quotation->getAutoGoalsMagicPoints());
         $this->assertSame($result['getAutoGoalsMagicPoints'], $quotation->getAutoGoalsMagicPoints());
     }
 
@@ -469,7 +469,7 @@ class QuotationTest extends TestCase
     public function testGetAutoGoals($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('integer', $quotation->getAutoGoals());
+        $this->assertIsInt($quotation->getAutoGoals());
         $this->assertSame($result['getAutoGoals'], $quotation->getAutoGoals());
     }
 
@@ -481,7 +481,7 @@ class QuotationTest extends TestCase
     public function testGetAssistsMagicPoints($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('float', $quotation->getAssistsMagicPoints());
+        $this->assertIsFloat($quotation->getAssistsMagicPoints());
         $this->assertSame($result['getAssistsMagicPoints'], $quotation->getAssistsMagicPoints());
     }
 
@@ -493,7 +493,7 @@ class QuotationTest extends TestCase
     public function testGetAssists($config, $result)
     {
         $quotation = $this->getQuotationInstance($config);
-        $this->assertInternalType('integer', $quotation->getAssists());
+        $this->assertIsInt($quotation->getAssists());
         $this->assertSame($result['getAssists'], $quotation->getAssists());
     }
 }

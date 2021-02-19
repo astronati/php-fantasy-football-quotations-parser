@@ -5,27 +5,17 @@ namespace FFQP\Map\Row\Normalizer\Field;
 class NormalizedFieldsContainer
 {
     /**
-     * @var RowFieldNormalizerInterface
+     * @var RowFieldNormalizerInterface[]
      */
     private $normalizers = [];
 
-    /**
-     * Add a new normalized field
-     * @param string $type The name of the field
-     * @param RowFieldNormalizerInterface $normalizer
-     * @return $this
-     */
-    public function add(string $type, RowFieldNormalizerInterface $normalizer)
+    public function add(string $type, RowFieldNormalizerInterface $normalizer): self
     {
         $this->normalizers[$type] = $normalizer;
         return $this;
     }
 
-    /**
-     * @param string $type
-     * @return RowFieldNormalizerInterface
-     */
-    public function get(string $type)
+    public function get(string $type): RowFieldNormalizerInterface
     {
         return $this->normalizers[$type];
     }

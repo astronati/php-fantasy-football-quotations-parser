@@ -2,11 +2,11 @@
 
 namespace FFQP\Map\Row\Normalizer\Field\Type;
 
+use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerInterface;
 use FFQP\Map\Row\Row;
 use FFQP\Model\Quotation;
-use FFQP\Parser\QuotationsParserFactory;
 
 /**
  * Normalizes the "goals" value
@@ -20,12 +20,12 @@ class GoalsMagicPointsNormalizer implements RowFieldNormalizerInterface
     public function normalize(
       $value,
       Row $row,
-      string $format,
+      int $version,
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): float
     {
-        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
-            $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+        if ($version >= GazzettaMapSinceWorldCup2018::getVersion()) {
+            $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($value, $row, $version, $normalizedFieldsContainer);
             return (float) ($goals * GoalsNormalizer::getBonusByRole($row->role));
         }
 

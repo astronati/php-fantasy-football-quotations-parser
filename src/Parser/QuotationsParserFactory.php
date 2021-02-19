@@ -6,7 +6,9 @@ use FFQP\Exception\InvalidFormatException;
 use FFQP\Map\Gazzetta\GazzettaMapSince2013;
 use FFQP\Map\Gazzetta\GazzettaMapSince2015;
 use FFQP\Map\Gazzetta\GazzettaMapSince2017;
+use FFQP\Map\Gazzetta\GazzettaMapSince2019;
 use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
+use FFQP\Map\MapAbstract;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;
 use FFQP\Map\Row\Normalizer\RowNormalizer;
 
@@ -15,37 +17,26 @@ use FFQP\Map\Row\Normalizer\RowNormalizer;
  */
 class QuotationsParserFactory
 {
-    public const FORMAT_GAZZETTA_SINCE_2013 = 'FORMAT_GAZZETTA_SINCE_2013';
-    public const FORMAT_GAZZETTA_SINCE_2015 = 'FORMAT_GAZZETTA_SINCE_2015';
-    public const FORMAT_GAZZETTA_SINCE_2017 = 'FORMAT_GAZZETTA_SINCE_2017';
-    public const FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018 = 'FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018';
-
     /**
-     * @param string $format
+     * @param string $gazzettaMapClassName
      * @return QuotationsParser
      * @throws InvalidFormatException
      */
-    public static function create(string $format): QuotationsParser
+    public static function create(string $gazzettaMapClassName): QuotationsParser
     {
-        $map = null;
-        switch ($format) {
-            case self::FORMAT_GAZZETTA_SINCE_2013:
-                $map = new GazzettaMapSince2013();
-                break;
-            case self::FORMAT_GAZZETTA_SINCE_2015:
-                $map = new GazzettaMapSince2015();
-                break;
-            case self::FORMAT_GAZZETTA_SINCE_2017:
-                $map = new GazzettaMapSince2017();
-                break;
-            case self::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018:
-                $map = new GazzettaMapSinceWorldCup2018();
-                break;
-            default:
-                throw new InvalidFormatException('Invalid argument: ' . $format);
+        if (!in_array($gazzettaMapClassName, [
+            GazzettaMapSince2013::class,
+            GazzettaMapSince2015::class,
+            GazzettaMapSince2017::class,
+            GazzettaMapSinceWorldCup2018::class,
+            GazzettaMapSince2019::class,
+        ])) {
+            throw new InvalidFormatException('Invalid argument: ' . $gazzettaMapClassName);
         }
 
-        $normalizer = new RowNormalizer($format, new RowFieldNormalizerFactory());
+        /** @var MapAbstract $map */
+        $map = new $gazzettaMapClassName();
+        $normalizer = new RowNormalizer($map::getVersion(), new RowFieldNormalizerFactory());
 
         return new QuotationsParser($map, $normalizer);
     }

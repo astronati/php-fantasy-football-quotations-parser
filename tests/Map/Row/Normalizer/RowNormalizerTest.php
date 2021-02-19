@@ -32,7 +32,7 @@ class RowNormalizerTest extends TestCase
     public function testNormalize($config, $magicPoints, $isWithoutVote, $isCautioned)
     {
         $rowNormalizer = new RowNormalizer(
-          'any_format',
+          1,
           new RowFieldNormalizerFactory()
         );
 

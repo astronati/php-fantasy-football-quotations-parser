@@ -9,6 +9,7 @@ use FFQP\Map\Row\Row;
  */
 interface MapInterface
 {
+    public static function getVersion(): int;
 
     /**
      * Returns an array of Row instances

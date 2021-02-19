@@ -19,11 +19,11 @@ class PenaltiesNormalizer implements RowFieldNormalizerInterface
     public function normalize(
       $value,
       Row $row,
-      string $format,
+      int $version,
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): int
     {
-        $penaltiesMagicPoints = $normalizedFieldsContainer->get(Quotation::PENALTIES_MAGIC_POINTS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+        $penaltiesMagicPoints = $normalizedFieldsContainer->get(Quotation::PENALTIES_MAGIC_POINTS)->normalize($value, $row, $version, $normalizedFieldsContainer);
         return (int) (abs($penaltiesMagicPoints) / 3);
     }
 }

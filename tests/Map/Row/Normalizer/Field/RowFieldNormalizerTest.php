@@ -22,7 +22,7 @@ use FFQP\Map\Row\Normalizer\Field\Type\VoteNormalizer;
 use FFQP\Map\Row\Normalizer\Field\Type\YellowCardsNormalizer;
 use PHPUnit\Framework\TestCase;
 
-class RowFieldNormalizerFactoryTest extends TestCase
+class RowFieldNormalizerTest extends TestCase
 {
     public function dataProvider()
     {

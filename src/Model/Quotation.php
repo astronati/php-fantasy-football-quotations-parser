@@ -3,9 +3,9 @@
 namespace FFQP\Model;
 
 /**
- * @see QuotationInterface
+ * A quotation is a values set that is assigned per each footballer after each match day (championship or cup).
  */
-class Quotation implements QuotationInterface
+class Quotation
 {
     const CODE = 'code';
     const PLAYER = 'player';
@@ -165,8 +165,8 @@ class Quotation implements QuotationInterface
     private $assists = 0;
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getCode()
+     * Returns the identifier of the footballer for the newspaper.
+     * @return string
      */
     public function getCode(): string
     {
@@ -174,8 +174,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getPlayer()
+     * Returns the full name of the footballer.
+     * @return string
      */
     public function getPlayer(): string
     {
@@ -183,8 +183,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getTeam()
+     * Returns the name of the footballer team.
+     * @return string
      */
     public function getTeam(): string
     {
@@ -192,8 +192,10 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getRole()
+     * Returns the role of the footballer.
+     * It is a char (1) such as: 'P' (Goalkeeper), 'D' (Defender), 'C' (Midfielder), 'T' (Playmaker) or 'A'
+     * (Forward).
+     * @return string
      */
     public function getRole(): string
     {
@@ -201,8 +203,10 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getSecondaryRole()
+     * Returns the secondary (original) role of the footballer. This is available from the season 2015/16.
+     * The difference with 'getRole' is that a 'T' role has own corresponding 'C' or 'A'.
+     * @see getRole
+     * @return string
      */
     public function getSecondaryRole(): string
     {
@@ -210,8 +214,9 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::isActive()
+     * Determines whether the footballer is no longer active for the current league or better whether the footballer is
+     * still playing in the Serie A.
+     * @return boolean
      */
     public function isActive(): bool
     {
@@ -219,8 +224,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getQuotation()
+     * Returns the market value of the footballer. The value is expressed in Fantasy Millions (FMln).
+     * @return int
      */
     public function getQuotation(): int
     {
@@ -228,8 +233,10 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getMagicPoints()
+     * Returns the Magic Points assigned to the footballer.
+     * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
+     * This value includes bonus and malus calculated with the rules of the own season.
+     * @return float|null
      */
     public function getMagicPoints(): ?float
     {
@@ -237,8 +244,10 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getOriginalMagicPoints()
+     * Returns the Magic Points assigned to the footballer.
+     * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
+     * This value includes bonus and malus calculated with the classic rules.
+     * @return float|null
      */
     public function getOriginalMagicPoints(): ?float
     {
@@ -246,8 +255,9 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getVote()
+     * Returns the vote on report card of the footballer.
+     * The step is of 0.5 so you can find values such as 5, 5.5, 6,...
+     * @return float|null
      */
     public function getVote(): ?float
     {
@@ -255,8 +265,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::hasPlayed()
+     * Determines if the footballer has played or not.
+     * @return bool
      */
     public function hasPlayed(): bool
     {
@@ -264,8 +274,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::isWithoutVote()
+     * Determines if the footballer has been marked as S.V. (without vote) by the newspaper.
+     * @return bool
      */
     public function isWithoutVote(): bool
     {
@@ -273,8 +283,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getGoalsMagicPoints()
+     * Returns the magic points associated to the goals scored or conceded by the footballer.
+     * @return float
      */
     public function getGoalsMagicPoints(): float
     {
@@ -282,8 +292,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getGoals()
+     * Returns the number of goals scored or conceded by the footballer.
+     * @return int
      */
     public function getGoals(): int
     {
@@ -291,8 +301,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getYellowCardMagicPoints
+     * Returns the magic points associated to the yellow card.
+     * @return float
      */
     public function getYellowCardMagicPoints(): float
     {
@@ -300,8 +310,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::isCautioned
+     * Determines whether the footballer is cautioned or not.
+     * @return boolean
      */
     public function isCautioned(): bool
     {
@@ -309,8 +319,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getRedCardMagicPoints
+     * Returns the magic points associated to the red card.
+     * @return float
      */
     public function getRedCardMagicPoints(): float
     {
@@ -318,8 +328,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::isSentOff()
+     * Determines whether the footbaler is sent off or not.
+     * @return boolean
      */
     public function isSentOff(): bool
     {
@@ -327,8 +337,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getPenaltiesMagicPoints
+     * Returns the magic points associated to number of penalties.
+     * @return float
      */
     public function getPenaltiesMagicPoints(): float
     {
@@ -336,8 +346,10 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getPenalties()
+     * Returns the number of penalties:
+     * It's a bonus if the footballer is a goalkeeper: it means that he saved one or more penalties.
+     * It's a malus if the footballer missed one or more penalties.
+     * @return int
      */
     public function getPenalties(): int
     {
@@ -345,8 +357,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getAutoGoalsMagicPoints
+     * Returns the magic points associated to number of auto goals.
+     * @return float
      */
     public function getAutoGoalsMagicPoints(): float
     {
@@ -354,8 +366,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getAutoGoals()
+     * Returns the number of auto goals, footballer did.
+     * @return int
      */
     public function getAutoGoals(): int
     {
@@ -363,8 +375,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getAssistsMagicPoints
+     * Returns the magic points associated to number of assists.
+     * @return float
      */
     public function getAssistsMagicPoints(): float
     {
@@ -372,8 +384,8 @@ class Quotation implements QuotationInterface
     }
 
     /**
-     * @inheritdoc
-     * @see QuotationInterface::getAssists()
+     * Returns the number of assists performed by footballer.
+     * @return int
      */
     public function getAssists(): int
     {
