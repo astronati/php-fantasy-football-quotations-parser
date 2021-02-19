@@ -13,9 +13,9 @@ interface RowFieldNormalizerInterface
      * Returns the normalized value of a given field of a row.
      * @param mixed $value
      * @param Row $row
-     * @param string $format
-     * @param NormalizedFieldsContainer|null $normalizedFieldsContainer
+     * @param int $version
+     * @param NormalizedFieldsContainer $normalizedFieldsContainer
      * @return int|string|bool|float|null
      */
-    public function normalize($value, Row $row, string $format, NormalizedFieldsContainer $normalizedFieldsContainer);
+    public function normalize($value, Row $row, int $version, NormalizedFieldsContainer $normalizedFieldsContainer);
 }

@@ -2,11 +2,11 @@
 
 namespace FFQP\Map\Row\Normalizer\Field\Type;
 
+use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerInterface;
 use FFQP\Map\Row\Row;
 use FFQP\Model\Quotation;
-use FFQP\Parser\QuotationsParserFactory;
 
 /**
  * Normalizes the "redCards" value
@@ -22,15 +22,15 @@ class RedCardsNormalizer implements RowFieldNormalizerInterface
     public function normalize(
       $value,
       Row $row,
-      string $format,
+      int $version,
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): int
     {
-        if ($format === QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018) {
+        if ($version >= GazzettaMapSinceWorldCup2018::getVersion()) {
             return (int) $value;
         }
 
-        $redCardsMagicPoints = $normalizedFieldsContainer->get(Quotation::RED_CARDS_MAGIC_POINTS)->normalize($value, $row, $format, $normalizedFieldsContainer);
+        $redCardsMagicPoints = $normalizedFieldsContainer->get(Quotation::RED_CARDS_MAGIC_POINTS)->normalize($value, $row, $version, $normalizedFieldsContainer);
         return abs($redCardsMagicPoints);
     }
 }

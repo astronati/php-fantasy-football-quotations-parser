@@ -18,7 +18,7 @@ class VoteNormalizer implements RowFieldNormalizerInterface
     public function normalize(
       $value,
       Row $row,
-      string $format,
+      int $version,
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): ?float
     {

@@ -1,6 +1,4 @@
 [![Build Status](https://travis-ci.org/astronati/php-fantasy-football-quotations-parser.svg?branch=master)](https://travis-ci.org/astronati/php-fantasy-football-quotations-parser)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d160340b6f645c0b370ddb385fa2088)](https://www.codacy.com/app/astronati/php-fantasy-football-quotations-parser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=astronati/php-fantasy-football-quotations-parser&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/9d160340b6f645c0b370ddb385fa2088)](https://www.codacy.com/app/astronati/php-fantasy-football-quotations-parser?utm_source=github.com&utm_medium=referral&utm_content=astronati/php-fantasy-football-quotations-parser&utm_campaign=Badge_Coverage)
 [![Dependency Status](https://www.versioneye.com/user/projects/586ad24440543800417e5662/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/586ad24440543800417e5662)
 [![Latest Stable Version](https://poser.pugx.org/astronati/fantasy-football-quotations-parser/v/stable)](https://packagist.org/packages/astronati/fantasy-football-quotations-parser)
 [![License](https://poser.pugx.org/astronati/fantasy-football-quotations-parser/license)](https://packagist.org/packages/astronati/fantasy-football-quotations-parser)
@@ -34,7 +32,7 @@ file and shows how parsing an excel file of the season 2017/2018
 
 ```php
 // Obtain a QuotationsParser
-$quotationsParser = QuotationsParserFactory::create(QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017);
+$quotationsParser = QuotationsParserFactory::create(GazzettaMapSince2017::class);
 
 // Get the quotations, ready to be used
 $quotations = $quotationsParser->getQuotations('example/files/2017_quotazioni_gazzetta_02.xls');

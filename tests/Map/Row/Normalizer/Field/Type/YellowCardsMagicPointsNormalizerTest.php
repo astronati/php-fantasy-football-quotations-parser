@@ -4,7 +4,6 @@ namespace Tests\Map\Row\Normalizer\Field\Type;
 
 use FFQP\Map\Row\Normalizer\Field\Type\YellowCardsMagicPointsNormalizer;
 use FFQP\Model\Quotation;
-use FFQP\Parser\QuotationsParserFactory;
 use PHPUnit\Framework\TestCase;
 
 class YellowCardsMagicPointsNormalizerTest extends TestCase
@@ -44,22 +43,22 @@ class YellowCardsMagicPointsNormalizerTest extends TestCase
     public function dataProvider()
     {
         return [
-          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0, 0.0],
-          ['-', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0, 0.0],
-          ['0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0, 0.0],
-          ['0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0, 0.0],
-          [0, 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0, 0.0],
-          [0, 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 0, 0.0],
-          ['-0.5', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1, -0.5],
-          ['-0.5', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1, -0.5],
-          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0, 0.0],
-          ['-', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0, 0.0],
-          ['0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0, 0.0],
-          ['0', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0, 0.0],
-          [0, 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0, 0.0],
-          [0, 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 0, 0.0],
-          ['1', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 1, -0.5],
-          ['1', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 1, -0.5],
+          ['-', 'P', 3, 0, 0.0],
+          ['-', 'D', 3, 0, 0.0],
+          ['0', 'P', 3, 0, 0.0],
+          ['0', 'D', 3, 0, 0.0],
+          [0, 'P', 3, 0, 0.0],
+          [0, 'D', 3, 0, 0.0],
+          ['-0.5', 'P', 3, 1, -0.5],
+          ['-0.5', 'D', 3, 1, -0.5],
+          ['-', 'P', 4, 0, 0.0],
+          ['-', 'D', 4, 0, 0.0],
+          ['0', 'P', 4, 0, 0.0],
+          ['0', 'D', 4, 0, 0.0],
+          [0, 'P', 4, 0, 0.0],
+          [0, 'D', 4, 0, 0.0],
+          ['1', 'P', 4, 1, -0.5],
+          ['1', 'D', 4, 1, -0.5],
         ];
     }
 
@@ -67,15 +66,14 @@ class YellowCardsMagicPointsNormalizerTest extends TestCase
      * @dataProvider dataProvider
      * @param * $value
      * @param string $role
-     * @param string $format
+     * @param int $version
      * @param float $malus
      * @param int $result
      */
-    public function testNormalize($value, $role, $format, $malus, $result)
+    public function testNormalize($value, $role, $version, $malus, $result)
     {
         $normalizer = new YellowCardsMagicPointsNormalizer();
         $rowData = $this->getRowDataInstance($role);
-        $this->assertInternalType('float', $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
-        $this->assertSame($result, $normalizer->normalize($value, $rowData, $format, $this->getNormalizerFieldsContainerInstance($value, $malus)));
+        $this->assertSame($result, $normalizer->normalize($value, $rowData, $version, $this->getNormalizerFieldsContainerInstance($value, $malus)));
     }
 }

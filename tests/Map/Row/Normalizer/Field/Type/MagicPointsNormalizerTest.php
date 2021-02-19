@@ -4,7 +4,6 @@ namespace Tests\Map\Row\Normalizer\Field\Type;
 
 use FFQP\Map\Row\Normalizer\Field\Type\MagicPointsNormalizer;
 use FFQP\Model\Quotation;
-use FFQP\Parser\QuotationsParserFactory;
 use PHPUnit\Framework\TestCase;
 
 class MagicPointsNormalizerTest extends TestCase
@@ -148,12 +147,12 @@ class MagicPointsNormalizerTest extends TestCase
     public function dataProvider()
     {
         return [
-          ['-', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, null, true, 0, 0, 0, 0, 0, 0, null],
-          ['-', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, null, true, 0, 0, 0, 0, 0, 0, null],
-          ['0', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1.0, true, 0, 0, 0, 0, 0, 0, 0.0],
-          ['6', 'P', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017, 1.0, true, 0, 0, 0, 0, 0, 0, 6.0],
-          ['6', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 1.0, true, 0, 0, 0, 0, 0, 0, 6.0],
-          ['-', 'D', QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018, 1.0, false, 1, 1, 1, 1, 1, 1, 7.5],
+          ['-', 'P', 3, null, true, 0, 0, 0, 0, 0, 0, null],
+          ['-', 'D', 4, null, true, 0, 0, 0, 0, 0, 0, null],
+          ['0', 'P', 3, 1.0, true, 0, 0, 0, 0, 0, 0, 0.0],
+          ['6', 'P', 3, 1.0, true, 0, 0, 0, 0, 0, 0, 6.0],
+          ['6', 'D', 4, 1.0, true, 0, 0, 0, 0, 0, 0, 6.0],
+          ['-', 'D', 4, 1.0, false, 1, 1, 1, 1, 1, 1, 7.5],
         ];
     }
 
@@ -161,7 +160,7 @@ class MagicPointsNormalizerTest extends TestCase
      * @dataProvider dataProvider
      * @param * $value
      * @param string $role
-     * @param string $format
+     * @param int $version
      * @param float|null $vote
      * @param bool $active
      * @param float $assist
@@ -175,7 +174,7 @@ class MagicPointsNormalizerTest extends TestCase
     public function testNormalize(
       $value,
       $role,
-      $format,
+      $version,
       $vote,
       $active,
       $assist,
@@ -202,7 +201,7 @@ class MagicPointsNormalizerTest extends TestCase
         $normalizedValue = $normalizer->normalize(
           $value,
           $rowData,
-          $format,
+          $version,
           $this->getNormalizerFieldsContainerInstance(
             $vote,
             $active,
@@ -215,11 +214,9 @@ class MagicPointsNormalizerTest extends TestCase
           )
         );
         if ($result === null) {
-            $this->assertInternalType('null', $normalizedValue);
             $this->assertNull($normalizedValue);
         }
         else {
-            $this->assertInternalType('float', $normalizedValue);
             $this->assertSame($result, $normalizedValue);
         }
     }

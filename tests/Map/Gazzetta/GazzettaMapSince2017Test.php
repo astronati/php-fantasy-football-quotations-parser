@@ -10,7 +10,6 @@ class GazzettaMapSince2017Test extends TestCase
     public function testExtractRows()
     {
         $map = new GazzettaMapSince2017();
-        $this->assertInternalType('int', 3);
         $rows = $map->extractRows('tests/fixtures/2017_quotazioni_gazzetta_02.xls');
 
         $this->assertSame(634, count($rows));

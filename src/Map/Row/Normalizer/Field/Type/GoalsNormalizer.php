@@ -2,11 +2,12 @@
 
 namespace FFQP\Map\Row\Normalizer\Field\Type;
 
+use FFQP\Map\Gazzetta\GazzettaMapSince2017;
+use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerInterface;
 use FFQP\Map\Row\Row;
 use FFQP\Model\Quotation;
-use FFQP\Parser\QuotationsParserFactory;
 
 /**
  * Normalizes the "goals" value
@@ -29,18 +30,18 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
     public function normalize(
       $value,
       Row $row,
-      string $format,
+      int $version,
       NormalizedFieldsContainer $normalizedFieldsContainer
     ): int
     {
-        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_WORLD_CUP_2018
+        if ($version >= GazzettaMapSinceWorldCup2018::getVersion()
                 // Malus for goalkeepers per each gol is -1
                 || $row->role == $row::GOALKEEPER) {
             return abs((int) $value);
         }
 
-        if ($format == QuotationsParserFactory::FORMAT_GAZZETTA_SINCE_2017) {
-            $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->goals, $row, $format, $normalizedFieldsContainer);
+        if ($version >= GazzettaMapSince2017::getVersion()) {
+            $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->goals, $row, $version, $normalizedFieldsContainer);
             return (int) ($goalMagicPoints / self::getBonusByRole($row->role));
         }
 

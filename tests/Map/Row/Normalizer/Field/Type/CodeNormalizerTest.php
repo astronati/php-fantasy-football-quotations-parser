@@ -29,21 +29,12 @@ class CodeNormalizerTest extends TestCase
     public function testNormalize($value, $result)
     {
         $normalizer = new CodeNormalizer();
-        $this->assertInternalType(
-          'string',
-          $normalizer->normalize(
-            $value,
-            $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format',
-            $this->getNormalizerFieldsContainerInstance()
-          )
-        );
         $this->assertSame(
           $result,
           $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format',
+            1,
             $this->getNormalizerFieldsContainerInstance()
           )
         );

@@ -36,7 +36,7 @@ class ActiveNormalizerTest extends TestCase
           $normalizer->normalize(
             $value,
             $this->getMockBuilder('FFQP\Map\Row\Row')->disableOriginalConstructor()->getMock(),
-            'any_format',
+            1,
             $this->getNormalizerFieldsContainerInstance()
           )
         );

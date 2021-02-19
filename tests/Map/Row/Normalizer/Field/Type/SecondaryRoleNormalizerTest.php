@@ -40,21 +40,12 @@ class SecondaryRoleNormalizerTest extends TestCase
     {
         $rowMock = $this->getRowMock($role);
         $normalizer = new SecondaryRoleNormalizer();
-        $this->assertInternalType(
-          'string',
-          $normalizer->normalize(
-            $secondaryRole,
-            $rowMock,
-            'any_type',
-            $this->getNormalizerFieldsContainerInstance()
-          )
-        );
         $this->assertSame(
           $result,
           $normalizer->normalize(
             $secondaryRole,
             $rowMock,
-            'any_type',
+            1,
             $this->getNormalizerFieldsContainerInstance()
           )
         );
