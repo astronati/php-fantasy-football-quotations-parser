@@ -3,6 +3,7 @@
 namespace FFQP\Map\Row\Normalizer\Field\Type;
 
 use FFQP\Map\Gazzetta\GazzettaMapSince2017;
+use FFQP\Map\Gazzetta\GazzettaMapSince2022;
 use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use FFQP\Map\Row\Normalizer\Field\NormalizedFieldsContainer;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerInterface;
@@ -42,7 +43,7 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
 
         if ($version >= GazzettaMapSince2017::getVersion()) {
             $goalMagicPoints = $normalizedFieldsContainer->get(Quotation::GOALS_MAGIC_POINTS)->normalize($row->goals, $row, $version, $normalizedFieldsContainer);
-            return (int) ($goalMagicPoints / self::getBonusByRole($row->role));
+            return (int) ($goalMagicPoints / self::getBonusByRole($row->role, $version));
         }
 
         return (int) (((float) $value) / self::STANDARD_GOAL_BONUS);
@@ -51,23 +52,36 @@ class GoalsNormalizer implements RowFieldNormalizerInterface
     /**
      * Returns the goal bonus given the role
      * @param string $role
+     * @param int $version
      * @return float
      */
-    public static function getBonusByRole(string $role): float
+    public static function getBonusByRole(string $role, int $version): float
     {
         switch ($role) {
             // To know the number of goals scored by goalkeeper, it needs to be extracted from the MagicPoints
             case Row::GOALKEEPER:
                 return GoalsNormalizer::STANDARD_GOALKEEPER_MALUS;
             case Row::DEFENDER:
-                return GoalsNormalizer::FORMAT_2017_DEFENDER_GOAL_BONUS;
+                if ($version < GazzettaMapSince2022::getVersion()) {
+                    return GoalsNormalizer::FORMAT_2017_DEFENDER_GOAL_BONUS;
+                }
+                return GoalsNormalizer::STANDARD_GOAL_BONUS;
             case Row::MIDFIELDER:
-                return GoalsNormalizer::FORMAT_2017_MIDFIELDER_GOAL_BONUS;
+                if ($version < GazzettaMapSince2022::getVersion()) {
+                    return GoalsNormalizer::FORMAT_2017_MIDFIELDER_GOAL_BONUS;
+                }
+                return GoalsNormalizer::STANDARD_GOAL_BONUS;
             case Row::PLAYMAKER:
-                return GoalsNormalizer::FORMAT_2017_PLAYMAKER_GOAL_BONUS;
+                if ( $version < GazzettaMapSince2022::getVersion()) {
+                    return GoalsNormalizer::FORMAT_2017_PLAYMAKER_GOAL_BONUS;
+                }
+                return GoalsNormalizer::STANDARD_GOAL_BONUS;
             case Row::FORWARD:
             default:
-                return GoalsNormalizer::FORMAT_2017_FORWARD_GOAL_BONUS;
+                if ($version < GazzettaMapSince2022::getVersion()) {
+                    return GoalsNormalizer::FORMAT_2017_FORWARD_GOAL_BONUS;
+                }
+                return GoalsNormalizer::STANDARD_GOAL_BONUS;
         }
     }
 }

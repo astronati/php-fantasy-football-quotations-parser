@@ -39,12 +39,13 @@ class OriginalMagicPointsNormalizer implements RowFieldNormalizerInterface
                 && $goals == 0
                 && $vote != null) {
             // Remove bonus for having 0 goals conceded
+
             return $magicPoints - 1;
         }
 
         if ($version >= GazzettaMapSince2017::getVersion()) {
             // Remove goal difference
-            $magicPoints += $this->getGoalsMagicPointsDifference($goals, $row->role);
+            $magicPoints += $this->getGoalsMagicPointsDifference($goals, $row->role, $version);
         }
 
         return $magicPoints;
@@ -53,13 +54,14 @@ class OriginalMagicPointsNormalizer implements RowFieldNormalizerInterface
     /**
      * @param int $goals
      * @param string $role
+     * @param int $version
      * @return float
      */
-    private function getGoalsMagicPointsDifference(int $goals, string $role): float
+    private function getGoalsMagicPointsDifference(int $goals, string $role, int $version): float
     {
         if ($role == Row::GOALKEEPER) {
             return 0;
         }
-        return $goals * (GoalsNormalizer::STANDARD_GOAL_BONUS - GoalsNormalizer::getBonusByRole($role));
+        return $goals * (GoalsNormalizer::STANDARD_GOAL_BONUS - GoalsNormalizer::getBonusByRole($role, $version));
     }
 }

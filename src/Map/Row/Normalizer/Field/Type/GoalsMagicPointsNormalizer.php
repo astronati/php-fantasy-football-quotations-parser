@@ -26,7 +26,7 @@ class GoalsMagicPointsNormalizer implements RowFieldNormalizerInterface
     {
         if ($version >= GazzettaMapSinceWorldCup2018::getVersion()) {
             $goals = $normalizedFieldsContainer->get(Quotation::GOALS)->normalize($value, $row, $version, $normalizedFieldsContainer);
-            return (float) ($goals * GoalsNormalizer::getBonusByRole($row->role));
+            return (float) ($goals * GoalsNormalizer::getBonusByRole($row->role, $version));
         }
 
         return (float) $value;
