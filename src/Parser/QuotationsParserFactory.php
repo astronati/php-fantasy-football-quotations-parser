@@ -7,6 +7,7 @@ use FFQP\Map\Gazzetta\GazzettaMapSince2013;
 use FFQP\Map\Gazzetta\GazzettaMapSince2015;
 use FFQP\Map\Gazzetta\GazzettaMapSince2017;
 use FFQP\Map\Gazzetta\GazzettaMapSince2019;
+use FFQP\Map\Gazzetta\GazzettaMapSince2022;
 use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use FFQP\Map\MapAbstract;
 use FFQP\Map\Row\Normalizer\Field\RowFieldNormalizerFactory;
@@ -30,6 +31,7 @@ class QuotationsParserFactory
             GazzettaMapSince2017::class,
             GazzettaMapSinceWorldCup2018::class,
             GazzettaMapSince2019::class,
+            GazzettaMapSince2022::class,
         ])) {
             throw new InvalidFormatException('Invalid argument: ' . $gazzettaMapClassName);
         }

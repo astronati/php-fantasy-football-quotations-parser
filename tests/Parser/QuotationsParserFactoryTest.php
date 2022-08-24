@@ -6,6 +6,7 @@ use FFQP\Map\Gazzetta\GazzettaMapSince2013;
 use FFQP\Map\Gazzetta\GazzettaMapSince2015;
 use FFQP\Map\Gazzetta\GazzettaMapSince2017;
 use FFQP\Map\Gazzetta\GazzettaMapSince2019;
+use FFQP\Map\Gazzetta\GazzettaMapSince2022;
 use FFQP\Map\Gazzetta\GazzettaMapSinceWorldCup2018;
 use PHPUnit\Framework\TestCase;
 use FFQP\Exception\InvalidFormatException;
@@ -21,6 +22,7 @@ class QuotationsParserFactoryTest extends TestCase
             [GazzettaMapSince2017::class],
             [GazzettaMapSinceWorldCup2018::class],
             [GazzettaMapSince2019::class],
+            [GazzettaMapSince2022::class],
         ];
     }
 
